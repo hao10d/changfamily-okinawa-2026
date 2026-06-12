@@ -388,7 +388,7 @@ const dayEnhancements = {
     },
     {
       route: ["退房", "港川外人住宅", "北谷美國村", "座喜味城", "BANTA CAFE", "殘波岬", "萬座毛"],
-      addOns: ["港川拍彩色老屋、吃黑糖可麗露", "BANTA CAFE 建議下午保留 60–90 分鐘", "日落可在殘波岬與萬座毛二選一"],
+      addOns: ["港川拍彩色老屋、吃黑糖可麗露", "BANTA CAFE 建議下午保留 60–90 分鐘", "若 2026–2027 季已開幕，可用東南植物樂園燈光秀替換殘波岬或萬座毛"],
       food: [
         ["Seaside Cafe Hanon", "海景厚鬆餅", "北谷早餐或早午餐熱門"],
         ["BANTA CAFE", "海景飲品與輕食", "讀谷海邊座敷是社群熱門畫面"]
@@ -475,7 +475,7 @@ const dayEnhancements = {
     },
     {
       route: ["萬座毛", "真榮田岬", "琉球村", "座喜味城", "BANTA CAFE", "殘波岬", "美國村"],
-      addOns: ["青之洞窟需事先預約", "BANTA 與土花土花擇一", "最後回北谷拍日落到夜景"],
+      addOns: ["青之洞窟需事先預約", "BANTA 與土花土花擇一", "若 2026–2027 季已開幕，可從美國村改去東南植物樂園燈光秀"],
       food: [["BANTA CAFE", "海景輕食", "讀谷熱門打卡"], ["Seaside Cafe Hanon", "海景厚鬆餅", "回北谷下午茶"], ["浜屋そば", "軟骨沖繩麵", "晚餐可吃"]],
       photos: [["assets/manzamo.jpg", "萬座毛", "恩納斷崖"], ["assets/banta-table.jpg", "BANTA", "海景餐桌"], ["assets/hanon-pancake.png", "Hanon", "草莓厚鬆餅"]],
       drive: "這天景點密集但距離短，最適合自由增減；把夕陽留給殘波岬或美國村其中一處。"
@@ -505,7 +505,7 @@ const dayEnhancements = {
     },
     {
       route: ["萬座毛", "真榮田岬", "琉球村", "座喜味城", "土花土花", "BANTA CAFE", "殘波岬"],
-      addOns: ["青之洞窟浮潛需預約並看海況", "咖啡店二選一即可", "想玩新景點可整日改 JUNGLIA"],
+      addOns: ["青之洞窟浮潛需預約並看海況", "咖啡店二選一即可", "若 2026–2027 季已開幕，傍晚改去東南植物樂園燈光秀"],
       food: [["土花土花", "披薩與海景甜點", "陶器系海景咖啡"], ["BANTA CAFE", "海景輕食", "下午到夕陽最有氣氛"]],
       photos: [["assets/dokadoka.jpg", "土花土花", "恩納海景露台"], ["assets/banta-cafe.jpg", "BANTA CAFE", "海邊飲品"], ["assets/manzamo.jpg", "萬座毛", "恩納經典海岸"]],
       drive: "今天幾乎都在恩納與讀谷周邊，里程短，適合安排浮潛或在飯店多休息。"
@@ -533,6 +533,145 @@ const dayEnhancements = {
     }
   ]
 };
+
+const mapCatalogs = {
+  spot: [
+    { name: "JUNGLIA 叢林樂園", region: "north", coords: [26.654, 127.953], note: "整日主題樂園" },
+    { name: "美麗海水族館", region: "north", coords: [26.6943, 127.8779], note: "黑潮之海與鯨鯊" },
+    { name: "古宇利海洋塔", region: "north", coords: [26.7026, 128.0168], note: "古宇利大橋海景" },
+    { name: "部瀨名海中公園", region: "north", coords: [26.5393, 127.9402], note: "海中展望塔與玻璃船" },
+    { name: "名護鳳梨園", region: "north", coords: [26.6164, 127.9692], note: "親子與雨天備案" },
+    { name: "萬座毛", region: "central", coords: [26.5048, 127.8503], note: "恩納海岸經典斷崖" },
+    { name: "美國村", region: "central", coords: [26.3157, 127.757], note: "夕陽、晚餐與夜景" },
+    { name: "永旺沖繩來客夢", region: "central", coords: [26.3146, 127.7967], note: "大型商場與雨天備案" },
+    { name: "沖繩南國 Illumination", region: "central", coords: [26.423, 127.805], note: "東南植物樂園夜間燈光秀" },
+    { name: "沖繩水果樂園", region: "north", coords: [26.6169, 127.9698], note: "熱帶水果與互動體驗" },
+    { name: "沖繩兒童王國", region: "central", coords: [26.3344, 127.8057], note: "動物園與親子設施" },
+    { name: "殘波岬燈塔", region: "central", coords: [26.4415, 127.7139], note: "白色燈塔與西海岸日落" },
+    { name: "沖繩世界／玉泉洞", region: "south", coords: [26.1412, 127.7496], note: "鐘乳石洞與琉球文化" },
+    { name: "首里城", region: "south", coords: [26.217, 127.7195], note: "琉球王國歷史地標" },
+    { name: "國際通", region: "south", coords: [26.2147, 127.6847], note: "那霸逛街與晚餐主場" },
+    { name: "瀨長島海風露台", region: "south", coords: [26.1747, 127.6466], note: "夕陽、白色階梯與飛機" },
+    { name: "波上宮", region: "south", coords: [26.2202, 127.6716], note: "那霸海邊神社" }
+  ],
+  food: [
+    { name: "暖暮拉麵 那霸牧志店", region: "south", coords: [26.218, 127.689], note: "國際通宵夜" },
+    { name: "KOURI SHRIMP", region: "north", coords: [26.7015, 128.0179], note: "古宇利蝦蝦飯" },
+    { name: "琉球的牛 恩納店", region: "central", coords: [26.449, 127.802], note: "人氣燒肉，建議預約" },
+    { name: "百年古家 大家", region: "north", coords: [26.634, 127.982], note: "紅瓦古宅阿古豬" },
+    { name: "Jack's Steak House", region: "south", coords: [26.2124, 127.6693], note: "那霸老字號牛排" },
+    { name: "A&W 牧港店", region: "central", coords: [26.267, 127.728], note: "復古 Drive-in 漢堡" },
+    { name: "Nakamura Soba", region: "central", coords: [26.512, 127.899], note: "恩納海景沖繩麵" },
+    { name: "Ryuya Honten 琉家", region: "south", coords: [26.214, 127.684], note: "國際通巷內拉麵" },
+    { name: "Flipper 潛水員牛排", region: "north", coords: [26.5948, 127.9596], note: "名護海邊老店" },
+    { name: "一蘭拉麵 國際通店", region: "south", coords: [26.2148, 127.6848], note: "24 小時日本連鎖" },
+    { name: "浜の家海鮮料理", region: "central", coords: [26.437, 127.801], note: "魚バター焼與海膽料理" },
+    { name: "牛排屋 88 美麗海店", region: "north", coords: [26.688, 127.878], note: "水族館附近多人用餐" },
+    { name: "JUMBO STEAK HAN'S 美濱店", region: "central", coords: [26.315, 127.757], note: "北谷份量型牛排" },
+    { name: "幸福鬆餅 瀨長島店", region: "south", coords: [26.1744, 127.6469], note: "海景厚鬆餅" }
+  ]
+};
+
+const regionNames = {
+  north: "北部",
+  central: "中部",
+  south: "那霸／南部"
+};
+
+const catalogMaps = {};
+
+function createMapPin(region, type, index) {
+  const label = type === "food" ? "食" : String(index + 1);
+  return L.divIcon({
+    className: "catalog-div-icon",
+    html: `<div class="map-pin ${region} ${type === "food" ? "food-pin" : ""}"><span>${label}</span></div>`,
+    iconSize: [32, 38],
+    iconAnchor: [16, 38],
+    popupAnchor: [0, -34]
+  });
+}
+
+function initCatalogMap(type, elementId) {
+  const mapElement = document.getElementById(elementId);
+  if (!mapElement || typeof L === "undefined") return;
+
+  const map = L.map(mapElement, {
+    scrollWheelZoom: false,
+    zoomControl: true
+  }).setView([26.39, 127.86], 9);
+
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    maxZoom: 18,
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+  }).addTo(map);
+
+  const markers = mapCatalogs[type].map((item, index) => {
+    const mapQuery = encodeURIComponent(`${item.name} 沖繩`);
+    const popup = `
+      <div class="map-popup">
+        <small>${regionNames[item.region]}</small>
+        <b>${item.name}</b>
+        <span>${item.note}</span>
+        <a href="https://www.google.com/maps/search/?api=1&query=${mapQuery}" target="_blank" rel="noreferrer">開啟 Google 地圖 ↗</a>
+      </div>
+    `;
+    const marker = L.marker(item.coords, {
+      icon: createMapPin(item.region, type, index),
+      title: item.name
+    }).bindPopup(popup).addTo(map);
+    return { ...item, marker };
+  });
+
+  catalogMaps[type] = { map, markers };
+  map.fitBounds(L.latLngBounds(markers.map(item => item.coords)).pad(0.12));
+  window.setTimeout(() => map.invalidateSize(), 100);
+}
+
+function applyCatalogFilter(type, region) {
+  const cardSelector = type === "spot" ? ".spot-grid .catalog-card" : ".food-map-grid .food-map-card";
+  const cards = document.querySelectorAll(cardSelector);
+  const items = mapCatalogs[type];
+
+  cards.forEach((card, index) => {
+    const item = items[index];
+    card.classList.toggle("is-filtered", region !== "all" && item?.region !== region);
+  });
+
+  const mapState = catalogMaps[type];
+  if (!mapState) return;
+
+  const visibleMarkers = [];
+  mapState.markers.forEach(item => {
+    const isVisible = region === "all" || item.region === region;
+    if (isVisible) {
+      item.marker.addTo(mapState.map);
+      visibleMarkers.push(item);
+    } else {
+      mapState.map.removeLayer(item.marker);
+    }
+  });
+
+  if (visibleMarkers.length) {
+    mapState.map.fitBounds(
+      L.latLngBounds(visibleMarkers.map(item => item.coords)).pad(0.18),
+      { maxZoom: 11 }
+    );
+  }
+}
+
+function initCatalogFilters() {
+  document.querySelectorAll(".catalog-filter[data-catalog]").forEach(filterGroup => {
+    const type = filterGroup.dataset.catalog;
+    const buttons = filterGroup.querySelectorAll("[data-filter]");
+
+    buttons.forEach(button => {
+      button.addEventListener("click", () => {
+        buttons.forEach(item => item.classList.toggle("is-active", item === button));
+        applyCatalogFilter(type, button.dataset.filter);
+      });
+    });
+  });
+}
 
 const dayList = document.querySelector("#dayList");
 const routeMap = document.querySelector("#routeMap");
@@ -631,3 +770,6 @@ window.addEventListener("scroll", () => {
 }, { passive: true });
 
 selectPlan(currentPlan);
+initCatalogMap("spot", "spotLeafletMap");
+initCatalogMap("food", "foodLeafletMap");
+initCatalogFilters();

@@ -6,6 +6,7 @@
   <meta name="description" content="張家旅行社 2026 沖繩六日旅遊導覽，含那霸、恩納、北谷與北部三種住宿方案。">
   <meta name="theme-color" content="#0c4951">
   <title>沖繩島嶼慢旅｜張家旅行社</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -29,7 +30,7 @@
 
   <main id="top">
     <section class="hero">
-      <img src="assets/hero-banta.jpg" alt="讀谷海岸日落與海景座敷">
+      <img src="assets/hero-okinawa-local.webp" alt="沖繩恩納海岸萬座毛與湛藍海景">
       <div class="hero-shade"></div>
       <div class="hero-content">
         <p class="eyebrow">OKINAWA · 6 DAYS</p>
@@ -182,10 +183,21 @@
             <p class="section-kicker">DRIVE SPOT MAP</p>
             <h2>沖繩必去景點地圖</h2>
           </div>
-          <p>你列的 13 個經典景點加上 JUNGLIA 全部收進來。卡片標示區域、建議停留與適合方案，開車時可以直接挑順路的點。</p>
+          <p>你列的經典景點、JUNGLIA 與沖繩南國燈光秀全部收進來。卡片標示區域、建議停留與適合方案，開車時可以直接挑順路的點。</p>
         </div>
-        <div class="catalog-filter" aria-label="景點區域">
-          <span>北部 5</span><span>中部 5</span><span>那霸／南部 4</span>
+        <div class="catalog-filter" data-catalog="spot" aria-label="景點區域篩選">
+          <button class="is-active" type="button" data-filter="all">全部 17</button>
+          <button type="button" data-filter="north">北部 6</button>
+          <button type="button" data-filter="central">中部 6</button>
+          <button type="button" data-filter="south">那霸／南部 5</button>
+        </div>
+        <div class="interactive-map-shell">
+          <div class="map-title">
+            <div><span>SPOT MAP</span><h3>自駕景點分布</h3></div>
+            <p>點擊地圖標記查看景點；上方按鈕可同步篩選地圖和下方卡片。</p>
+          </div>
+          <div class="leaflet-map" id="spotLeafletMap" aria-label="沖繩自駕景點互動地圖"></div>
+          <div class="map-key"><span><i class="key-north"></i>北部</span><span><i class="key-central"></i>中部</span><span><i class="key-south"></i>那霸／南部</span></div>
         </div>
         <div class="catalog-grid spot-grid">
           <article class="catalog-card catalog-featured">
@@ -199,6 +211,15 @@
           <article class="catalog-card"><img src="assets/manzamo.jpg" alt="萬座毛海岸斷崖"><div><span>中部 · 45 分鐘</span><h3>萬座毛</h3><p>恩納住宿日的經典短停靠點。</p><a href="https://www.manzamo.jp/" target="_blank" rel="noreferrer">官方網站 ↗</a></div></article>
           <article class="catalog-card"><img src="assets/american-village.jpg" alt="美濱美國村"><div><span>中部 · 2–3 小時</span><h3>美國村</h3><p>傍晚到亮燈最好拍，也適合安排晚餐。</p><a href="https://www.okinawa-americanvillage.com/" target="_blank" rel="noreferrer">官方網站 ↗</a></div></article>
           <article class="catalog-card"><img src="assets/dmm-aquarium.png" alt="沖繩室內水族館"><div><span>中部 · 2–4 小時</span><h3>永旺沖繩來客夢</h3><p>大型購物中心，放在雨天或採買備案。</p><a href="https://okinawarycom-aeonmall.com/" target="_blank" rel="noreferrer">官方網站 ↗</a></div></article>
+          <article class="catalog-card catalog-featured illumination-card">
+            <img src="assets/okinawa-illumination.webp" alt="東南植物樂園沖繩南國燈光秀">
+            <div>
+              <span>中部 · 夜間 2–3 小時</span>
+              <h3>沖繩南國 Illumination</h3>
+              <p>東南植物樂園的熱帶燈光秀，適合排在中部自駕日晚上。上一季為 2025/10/24–2026/5/24；2026–2027 季日期尚未公布，這趟 11 月初很可能遇上，出發前請再確認。</p>
+              <a href="https://www.southeast-botanical.jp/illumination/" target="_blank" rel="noreferrer">官方活動頁 ↗</a>
+            </div>
+          </article>
           <article class="catalog-card"><img src="assets/ufuya.png" alt="沖繩北部熱帶植物氛圍"><div><span>北部 · 1.5–2 小時</span><h3>沖繩水果樂園</h3><p>熱帶水果、植物與互動體驗，名護親子線可和鳳梨園二選一。</p><a href="https://www.okinawa-fruitsland.jp/" target="_blank" rel="noreferrer">官方網站 ↗</a></div></article>
           <article class="catalog-card"><img src="assets/american-depot.jpg" alt="沖繩親子休閒氛圍"><div><span>中部 · 2–3 小時</span><h3>沖繩兒童王國</h3><p>動物園、科學互動與親子設施，適合中部雨備或家庭行程。</p><a href="https://www.okzm.jp/" target="_blank" rel="noreferrer">官方網站 ↗</a></div></article>
           <article class="catalog-card"><img src="assets/banta-table.jpg" alt="讀谷海岸與藍色海面"><div><span>中部 · 45–60 分鐘</span><h3>殘波岬燈塔</h3><p>讀谷西海岸日落站，與 BANTA CAFE 順路。</p><a href="https://www.tokokai.org/tourlight/tourlight14/" target="_blank" rel="noreferrer">官方介紹 ↗</a></div></article>
@@ -354,7 +375,22 @@
             <p class="section-kicker">OKINAWA FOOD MAP 2026</p>
             <h2>沖繩美食地圖 2026</h2>
           </div>
-          <p>13 間餐廳全收錄。六天不需要全部吃完：依住宿區域選主餐，排隊太長就切換同區備選。</p>
+          <p>14 間餐廳全收錄。六天不需要全部吃完：依住宿區域選主餐，排隊太長就切換同區備選。</p>
+        </div>
+
+        <div class="catalog-filter food-filter" data-catalog="food" aria-label="美食區域篩選">
+          <button class="is-active" type="button" data-filter="all">全部 14</button>
+          <button type="button" data-filter="north">北部</button>
+          <button type="button" data-filter="central">中部</button>
+          <button type="button" data-filter="south">那霸／南部</button>
+        </div>
+        <div class="interactive-map-shell food-map-shell">
+          <div class="map-title">
+            <div><span>FOOD MAP</span><h3>人氣餐廳分布</h3></div>
+            <p>橘色標記是餐廳。點擊後可確認適合放進哪一段自駕路線。</p>
+          </div>
+          <div class="leaflet-map" id="foodLeafletMap" aria-label="沖繩美食互動地圖"></div>
+          <div class="map-key"><span><i class="key-north"></i>北部</span><span><i class="key-central"></i>中部</span><span><i class="key-south"></i>那霸／南部</span></div>
         </div>
 
         <div class="food-map-grid">
@@ -577,10 +613,12 @@
             <a href="https://www.ashibinaa.com/" target="_blank" rel="noreferrer">ASHIBINAA Outlet</a>
             <a href="https://www.parcocity.jp/tw-okinawa/" target="_blank" rel="noreferrer">PARCO CITY</a>
             <a href="https://www.donki.com/en/store/shop_detail.php?shop_id=323" target="_blank" rel="noreferrer">Don Quijote 國際通店</a>
+            <a href="https://visitokinawajapan.com/destinations/okinawa-main-island/northern-okinawa-main-island/onna-coast/" target="_blank" rel="noreferrer">VISIT OKINAWA JAPAN｜恩納海岸</a>
+            <a href="https://www.southeast-botanical.jp/illumination/" target="_blank" rel="noreferrer">東南植物樂園｜沖繩南國 Illumination</a>
             <a href="https://www.pexels.com/search/okinawa/" target="_blank" rel="noreferrer">Pexels 沖繩照片</a>
             <a href="https://unsplash.com/s/photos/okinawa" target="_blank" rel="noreferrer">Unsplash 沖繩照片</a>
           </div>
-          <p>照片來自景點官方網站、公開旅遊介紹、Wikimedia Commons、Pexels 與 Unsplash；首頁與咖啡照片分別取自 BANTA CAFE、土花土花、Seaside Cafe Hanon 等公開頁面。本頁為單機旅遊規劃使用。</p>
+          <p>照片來自景點官方網站、沖繩官方旅遊網站、公開旅遊介紹、Wikimedia Commons、Pexels 與 Unsplash；首頁使用 VISIT OKINAWA JAPAN 的恩納海岸照片，咖啡照片取自 BANTA CAFE、土花土花、Seaside Cafe Hanon 等公開頁面。</p>
         </div>
       </details>
     </section>
@@ -597,6 +635,7 @@
     </div>
   </footer>
 
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
