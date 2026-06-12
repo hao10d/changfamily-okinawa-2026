@@ -94,10 +94,17 @@ a {
   height: 46px;
   flex: 0 0 46px;
   object-fit: cover;
-  object-position: center 32%;
+  object-position: center 24%;
   border: 2px solid rgba(255,255,255,.84);
   border-radius: 50%;
   box-shadow: 0 4px 15px rgba(5, 35, 39, .24);
+}
+
+.footer-avatar {
+  width: 52px;
+  height: 52px;
+  flex-basis: 52px;
+  border-color: rgba(255,255,255,.7);
 }
 
 .site-header.scrolled .brand-avatar {
@@ -141,6 +148,40 @@ a {
   border-radius: 999px;
   background: transparent;
   cursor: pointer;
+}
+
+.menu-button,
+.mobile-nav,
+.mobile-nav-backdrop,
+.mobile-quick-nav,
+.mobile-home-actions {
+  display: none;
+}
+
+.menu-button {
+  width: 52px;
+  height: 52px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 4px;
+  padding: 6px;
+  color: inherit;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  background: transparent;
+}
+
+.menu-button span {
+  width: 19px;
+  height: 1px;
+  background: currentColor;
+}
+
+.menu-button b {
+  margin-top: 1px;
+  font-size: 8px;
+  letter-spacing: .08em;
 }
 
 .hero {
@@ -1275,7 +1316,7 @@ a {
 
 .plan-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 24px;
 }
 
@@ -1295,6 +1336,48 @@ a {
 
 .plan-card-c {
   background: #f3e8db;
+}
+
+.plan-card-d {
+  color: #eef8f6;
+  border-color: transparent;
+  background:
+    linear-gradient(135deg, rgba(7, 62, 68, .9), rgba(20, 112, 118, .88)),
+    url("assets/taketomi-island.webp") center / cover;
+}
+
+.plan-card-d .plan-label {
+  color: rgba(255,255,255,.09);
+}
+
+.plan-card-d .plan-summary,
+.plan-card-d .hotel-area span {
+  color: #ffd0b2;
+}
+
+.plan-card-d ul {
+  color: rgba(255,255,255,.78);
+}
+
+.plan-card-d .hotel-area {
+  color: rgba(255,255,255,.82);
+  background: rgba(3, 43, 48, .45);
+}
+
+.plan-card-d .select-plan {
+  color: white;
+  border-color: rgba(255,255,255,.75);
+}
+
+.plan-badge-island {
+  color: var(--deep);
+  background: #aee7df;
+}
+
+.stay.ishigaki {
+  flex: 1.5;
+  color: var(--deep);
+  background: #aee7df;
 }
 
 .plan-label {
@@ -2067,9 +2150,390 @@ footer {
   font-weight: 400;
 }
 
+.market-section {
+  padding-top: 130px;
+  padding-bottom: 140px;
+}
+
+.market-heading h2 {
+  font-size: clamp(44px, 5.2vw, 72px);
+}
+
+.market-feature {
+  display: grid;
+  grid-template-columns: 1.35fr .85fr;
+  overflow: hidden;
+  color: white;
+  background: var(--deep);
+  box-shadow: var(--shadow);
+}
+
+.market-main-photo {
+  position: relative;
+  min-height: 560px;
+  margin: 0;
+  overflow: hidden;
+}
+
+.market-main-photo::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background: linear-gradient(to top, rgba(4, 37, 41, .75), transparent 56%);
+}
+
+.market-main-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.market-main-photo figcaption {
+  position: absolute;
+  z-index: 1;
+  right: 34px;
+  bottom: 30px;
+  left: 34px;
+  font-family: "Noto Serif TC", Georgia, serif;
+  font-size: 25px;
+}
+
+.market-main-photo figcaption span {
+  display: block;
+  color: #ffbf9d;
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .12em;
+}
+
+.market-copy {
+  padding: 54px 48px 38px;
+}
+
+.market-priority {
+  display: inline-block;
+  padding: 5px 10px;
+  color: var(--deep);
+  border-radius: 999px;
+  background: #ffbf9d;
+  font-size: 10px;
+  font-weight: 900;
+}
+
+.market-copy h3,
+.market-secondary h3 {
+  margin: 18px 0 12px;
+  font-family: "Noto Serif TC", Georgia, serif;
+  font-size: 40px;
+  font-weight: 500;
+}
+
+.market-copy > p {
+  color: rgba(255,255,255,.76);
+}
+
+.market-copy dl {
+  margin: 30px 0;
+}
+
+.market-copy dl div {
+  display: grid;
+  grid-template-columns: 84px 1fr;
+  gap: 14px;
+  padding: 10px 0;
+  border-top: 1px solid rgba(255,255,255,.16);
+}
+
+.market-copy dt {
+  color: #ffbf9d;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.market-copy dd {
+  margin: 0;
+  font-size: 12px;
+}
+
+.market-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.market-actions a,
+.market-secondary a {
+  display: inline-block;
+  padding: 9px 12px;
+  border: 1px solid rgba(255,255,255,.35);
+  font-size: 11px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.market-detail-grid {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 340px;
+}
+
+.market-detail-grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.market-secondary {
+  display: grid;
+  grid-template-columns: .85fr 1.15fr;
+  margin-top: 22px;
+  background: #efe3cf;
+}
+
+.market-secondary > img {
+  width: 100%;
+  height: 100%;
+  min-height: 360px;
+  object-fit: cover;
+}
+
+.market-secondary > div {
+  padding: 46px 50px;
+}
+
+.market-secondary > div > span {
+  color: var(--coral-dark);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .14em;
+}
+
+.market-secondary h3 {
+  color: var(--deep);
+}
+
+.market-secondary a {
+  margin: 8px 8px 0 0;
+  color: var(--deep);
+  border-color: rgba(12,73,81,.3);
+}
+
+.market-note {
+  margin: 18px 0 0;
+  color: rgba(22,50,55,.65);
+  font-size: 12px;
+}
+
+.print-dialog[hidden] {
+  display: none;
+}
+
+.print-dialog {
+  position: fixed;
+  z-index: 80;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.print-dialog-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(3, 30, 34, .72);
+  backdrop-filter: blur(6px);
+}
+
+.print-dialog-panel {
+  position: relative;
+  z-index: 1;
+  width: min(680px, 100%);
+  max-height: 90vh;
+  overflow: auto;
+  padding: 45px;
+  background: var(--paper);
+  box-shadow: 0 30px 90px rgba(0,0,0,.35);
+}
+
+.print-dialog-panel h2 {
+  margin: 0;
+  font-family: "Noto Serif TC", Georgia, serif;
+  font-size: 36px;
+}
+
+.print-dialog-panel > p:not(.section-kicker) {
+  color: rgba(22,50,55,.65);
+  font-size: 13px;
+}
+
+.print-dialog-close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  width: 38px;
+  height: 38px;
+  color: var(--deep);
+  border: 0;
+  background: transparent;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.print-plan-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 26px;
+}
+
+.print-plan-grid button {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px;
+  color: var(--ink);
+  border: 1px solid var(--line);
+  background: white;
+  text-align: left;
+  cursor: pointer;
+}
+
+.print-plan-grid button:hover {
+  color: white;
+  background: var(--deep);
+}
+
+.print-plan-grid b {
+  font-family: Georgia, serif;
+  font-size: 32px;
+}
+
+.print-plan-grid span,
+.print-plan-grid small {
+  display: block;
+}
+
+.print-plan-grid span {
+  font-weight: 900;
+}
+
+.print-plan-grid small {
+  font-size: 10px;
+  font-weight: 500;
+  opacity: .7;
+}
+
+.print-sheet {
+  display: none;
+}
+
 @media (max-width: 1000px) {
   .site-header nav {
     display: none;
+  }
+
+  .menu-button {
+    display: flex;
+  }
+
+  body.menu-open {
+    overflow: hidden;
+  }
+
+  .mobile-nav-backdrop {
+    position: fixed;
+    z-index: 58;
+    inset: 0;
+    display: block;
+    background: rgba(3, 30, 34, .58);
+    backdrop-filter: blur(4px);
+  }
+
+  .mobile-nav-backdrop[hidden] {
+    display: none;
+  }
+
+  .mobile-nav {
+    position: fixed;
+    z-index: 60;
+    top: 0;
+    right: 0;
+    width: min(420px, 90vw);
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    color: var(--ink);
+    background: var(--paper);
+    box-shadow: -20px 0 70px rgba(0,0,0,.25);
+    transform: translateX(105%);
+    transition: transform .25s ease;
+  }
+
+  .mobile-nav.is-open {
+    transform: translateX(0);
+  }
+
+  .mobile-nav-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 18px;
+    color: var(--coral-dark);
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: .16em;
+  }
+
+  .mobile-nav-head button {
+    width: 42px;
+    height: 42px;
+    color: var(--deep);
+    border: 0;
+    background: transparent;
+    font-size: 32px;
+  }
+
+  .mobile-nav > a {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    align-items: center;
+    gap: 12px;
+    padding: 15px 4px;
+    border-bottom: 1px solid var(--line);
+    text-decoration: none;
+  }
+
+  .mobile-nav > a > b {
+    color: var(--coral);
+    font-family: Georgia, serif;
+    font-size: 25px;
+  }
+
+  .mobile-nav > a span,
+  .mobile-nav > a small {
+    display: block;
+  }
+
+  .mobile-nav > a span {
+    font-weight: 900;
+  }
+
+  .mobile-nav > a small {
+    color: rgba(22,50,55,.55);
+    font-size: 10px;
+    font-weight: 500;
+  }
+
+  .mobile-print-button {
+    margin-top: auto;
+    padding: 14px;
+    color: white;
+    border: 0;
+    background: var(--deep);
+    font-weight: 900;
   }
 
   .hero {
@@ -2113,10 +2577,6 @@ footer {
     grid-row: span 1;
   }
 
-  .plan-card-c {
-    grid-column: 1 / -1;
-  }
-
   .festival-banner {
     grid-template-columns: 90px 1fr;
   }
@@ -2145,6 +2605,10 @@ footer {
 }
 
 @media (max-width: 720px) {
+  body {
+    padding-bottom: 68px;
+  }
+
   .site-header {
     height: 66px;
     padding: 0 18px;
@@ -2171,9 +2635,54 @@ footer {
     display: none;
   }
 
+  .menu-button {
+    width: 46px;
+    height: 46px;
+  }
+
+  .mobile-quick-nav {
+    position: fixed;
+    z-index: 45;
+    right: 10px;
+    bottom: 10px;
+    left: 10px;
+    height: 58px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 14px;
+    background: rgba(6, 49, 54, .96);
+    box-shadow: 0 12px 35px rgba(0,0,0,.26);
+    backdrop-filter: blur(12px);
+  }
+
+  .mobile-quick-nav a,
+  .mobile-quick-nav button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1px;
+    padding: 5px;
+    color: white;
+    border: 0;
+    border-right: 1px solid rgba(255,255,255,.12);
+    background: transparent;
+    font-size: 10px;
+    font-weight: 800;
+    text-decoration: none;
+  }
+
+  .mobile-quick-nav span {
+    color: #ffbf9d;
+    font-size: 17px;
+    line-height: 1;
+  }
+
   .hero {
-    min-height: 750px;
-    height: 100svh;
+    min-height: 650px;
+    height: 92svh;
   }
 
   .hero > img {
@@ -2222,6 +2731,59 @@ footer {
     font-size: 8px;
   }
 
+  .mobile-home-actions {
+    display: block;
+    width: 100%;
+    padding: 22px 18px 26px;
+    color: white;
+    background: var(--deep);
+  }
+
+  .mobile-home-actions > p {
+    margin: 0 0 10px;
+    color: #ffbf9d;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: .14em;
+  }
+
+  .mobile-home-actions > div {
+    display: grid;
+    gap: 7px;
+  }
+
+  .mobile-home-actions a {
+    display: grid;
+    grid-template-columns: 36px 1fr;
+    align-items: center;
+    gap: 0 12px;
+    padding: 13px 14px;
+    border: 1px solid rgba(255,255,255,.17);
+    background: rgba(255,255,255,.07);
+    text-decoration: none;
+  }
+
+  .mobile-home-actions span {
+    grid-row: 1 / 3;
+    color: #ffbf9d;
+    font-family: Georgia, serif;
+    font-size: 23px;
+  }
+
+  .mobile-home-actions b,
+  .mobile-home-actions small {
+    display: block;
+  }
+
+  .mobile-home-actions b {
+    font-size: 14px;
+  }
+
+  .mobile-home-actions small {
+    color: rgba(255,255,255,.62);
+    font-size: 9px;
+  }
+
   .section-wrap {
     width: min(88vw, 620px);
   }
@@ -2234,8 +2796,8 @@ footer {
 
   .intro {
     gap: 12px;
-    padding-top: 90px;
-    padding-bottom: 80px;
+    padding-top: 54px;
+    padding-bottom: 54px;
   }
 
   .intro-copy {
@@ -2244,12 +2806,12 @@ footer {
   }
 
   .island-mood {
-    width: 100%;
-    min-height: 0;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 430px 250px 280px;
-    gap: 6px;
-    margin-bottom: 90px;
+    display: none;
+  }
+
+  .city-cinema,
+  .gallery-strip {
+    display: none;
   }
 
   .mood-tall {
@@ -2494,12 +3056,18 @@ footer {
   }
 
   .itinerary-heading {
-    display: flex;
-    align-items: flex-end;
+    display: block;
+  }
+
+  .plan-switch {
+    width: 100%;
+    margin-top: 22px;
+    overflow-x: auto;
   }
 
   .plan-switch button {
-    min-width: 64px;
+    min-width: 78px;
+    flex: 1 0 auto;
     padding: 8px 10px;
   }
 
@@ -2561,6 +3129,81 @@ footer {
     font-size: 17px;
   }
 
+  .market-section {
+    padding-top: 90px;
+    padding-bottom: 90px;
+  }
+
+  .market-heading h2 {
+    font-size: 42px;
+  }
+
+  .market-feature {
+    grid-template-columns: 1fr;
+  }
+
+  .market-main-photo {
+    min-height: 430px;
+  }
+
+  .market-main-photo figcaption {
+    right: 20px;
+    bottom: 20px;
+    left: 20px;
+    font-size: 21px;
+  }
+
+  .market-copy {
+    padding: 34px 24px;
+  }
+
+  .market-copy h3,
+  .market-secondary h3 {
+    font-size: 32px;
+  }
+
+  .market-copy dl div {
+    grid-template-columns: 72px 1fr;
+  }
+
+  .market-detail-grid {
+    height: auto;
+    grid-template-columns: 1fr;
+  }
+
+  .market-detail-grid img {
+    height: 280px;
+  }
+
+  .market-secondary {
+    grid-template-columns: 1fr;
+  }
+
+  .market-secondary > img {
+    min-height: 280px;
+  }
+
+  .market-secondary > div {
+    padding: 32px 24px;
+  }
+
+  .print-dialog {
+    padding: 14px;
+  }
+
+  .print-dialog-panel {
+    padding: 38px 22px 24px;
+  }
+
+  .print-dialog-panel h2 {
+    padding-right: 28px;
+    font-size: 27px;
+  }
+
+  .print-plan-grid {
+    grid-template-columns: 1fr;
+  }
+
   .guide {
     padding-top: 90px;
     padding-bottom: 80px;
@@ -2596,59 +3239,172 @@ footer {
 }
 
 @media print {
-  .site-header,
-  .hero-shade,
-  .print-button,
-  .select-plan,
-  .plan-switch,
-  .island-mood,
-  .social-picks,
-  .catalog-section,
-  .pass-section,
-  .faq-section,
-  .city-cinema,
-  .gallery-strip,
-  footer {
+  @page {
+    size: A4;
+    margin: 12mm 13mm;
+  }
+
+  body > :not(.print-sheet) {
     display: none !important;
   }
 
+  html,
   body {
+    padding: 0;
     background: white;
+    font-size: 10pt;
   }
 
-  .hero {
-    min-height: 390px;
-    height: 390px;
+  .print-sheet {
+    display: block !important;
+    color: #18383c;
+    font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+    line-height: 1.45;
   }
 
-  .hero-content {
-    top: 45%;
+  .print-sheet-header {
+    display: grid;
+    grid-template-columns: 1fr 150px;
+    gap: 20px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid #0c4951;
   }
 
-  .hero h1 {
-    font-size: 72px;
+  .print-sheet-header p {
+    margin: 0 0 4px;
+    color: #bf5137;
+    font-size: 8pt;
+    font-weight: 800;
+    letter-spacing: .12em;
   }
 
-  .section-wrap {
-    width: 92%;
+  .print-sheet-header h1 {
+    margin: 0;
+    font-family: Georgia, "Noto Serif TC", serif;
+    font-size: 24pt;
+    font-weight: 500;
   }
 
-  .intro,
-  .plans,
-  .guide {
-    padding-top: 50px;
-    padding-bottom: 50px;
+  .print-sheet-header span {
+    font-size: 9pt;
   }
 
-  .day-card {
+  .print-flight {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-content: center;
+    gap: 1px 8px;
+    text-align: right;
+  }
+
+  .print-flight b {
+    color: #0c4951;
+  }
+
+  .print-flight small {
+    color: #68797b;
+  }
+
+  .print-route {
+    display: flex;
+    gap: 4px;
+    margin: 12px 0 8px;
+  }
+
+  .print-route div {
+    flex: 1;
+    padding: 7px 9px;
+    color: white;
+    background: #0c4951;
+  }
+
+  .print-route b,
+  .print-route span,
+  .print-route small {
+    display: block;
+  }
+
+  .print-route b {
+    color: #ffd0b2;
+    font-size: 8pt;
+  }
+
+  .print-route small {
+    font-size: 7.5pt;
+    opacity: .75;
+  }
+
+  .print-days article {
+    display: grid;
+    grid-template-columns: 52px 1fr;
+    gap: 14px;
     break-inside: avoid;
-    grid-template-columns: 80px 1fr;
+    padding: 11px 0;
+    border-bottom: 1px solid #cad4d3;
   }
 
-  .day-gallery,
-  .day-options,
-  .drive-route,
-  .drive-note {
-    display: none;
+  .print-day-no small,
+  .print-day-no b,
+  .print-day-no span {
+    display: block;
+  }
+
+  .print-day-no small {
+    color: #bf5137;
+    font-size: 7pt;
+    font-weight: 800;
+  }
+
+  .print-day-no b {
+    font-family: Georgia, serif;
+    font-size: 22pt;
+    font-weight: 500;
+    line-height: 1;
+  }
+
+  .print-day-no span {
+    margin-top: 3px;
+    font-size: 8pt;
+  }
+
+  .print-days h2 {
+    margin: 0 0 2px;
+    font-family: "Noto Serif TC", Georgia, serif;
+    font-size: 13pt;
+  }
+
+  .print-day-route {
+    margin: 0 0 5px;
+    color: #bf5137;
+    font-size: 8pt;
+    font-weight: 700;
+  }
+
+  .print-timeline {
+    display: grid;
+    grid-template-columns: 42px 1fr;
+    gap: 1px 7px;
+    font-size: 8.5pt;
+  }
+
+  .print-timeline time {
+    color: #0c4951;
+    font-weight: 800;
+  }
+
+  .print-stay {
+    margin: 5px 0 0;
+    padding: 3px 7px;
+    background: #edf3ef;
+    font-size: 8pt;
+    font-weight: 700;
+  }
+
+  .print-sheet-footer {
+    display: block !important;
+    margin-top: 10px;
+    color: #68797b;
+    font-size: 7.5pt;
+    text-align: center;
   }
 }

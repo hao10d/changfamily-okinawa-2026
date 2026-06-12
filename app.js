@@ -353,6 +353,123 @@ const plans = {
         label: "NAHA AIRPORT DEPARTURE"
       }
     ]
+  },
+  d: {
+    title: "方案 D｜石垣・竹富跳島",
+    description: "那霸一晚、石垣兩晚，再回那霸兩晚。用本島北部換一段真正的離島旅行。",
+    route: [
+      { nights: "1", place: "那霸市區", note: "縣廳前／國際通" },
+      { nights: "2", place: "石垣市區", note: "離島碼頭／美崎町" },
+      { nights: "2", place: "那霸市區", note: "縣廳前／國際通" }
+    ],
+    days: [
+      {
+        date: "11.03",
+        weekday: "星期二",
+        title: "抵達那霸，先住一晚",
+        subtitle: "那霸機場 → 飯店寄放 → 首里城或國際通",
+        times: [
+          ["12:25", "抵達那霸機場，預留入境與領行李時間"],
+          ["14:15", "前往那霸市區飯店寄放行李"],
+          ["15:30", "依體力選首里城復興祭壓軸，或直接逛國際通"],
+          ["18:30", "晚餐後提早休息，整理隔天國內線隨身行李"]
+        ],
+        tags: ["那霸進出", "抵達日輕行程", "隔日跳島"],
+        stay: "那霸市區｜縣廳前／國際通",
+        image: "assets/shuri-steps.jpg",
+        imageAlt: "首里城歷史街區",
+        label: "WELCOME TO NAHA"
+      },
+      {
+        date: "11.04",
+        weekday: "星期三",
+        title: "飛往石垣，環島看海",
+        subtitle: "那霸機場 → 石垣機場 → 川平灣 → 石垣市區",
+        times: [
+          ["07:00", "從那霸市區前往機場，搭上午國內線飛石垣"],
+          ["09:30", "石垣機場取車，確認還車與油種"],
+          ["11:00", "川平灣展望與玻璃船，海況不佳則只看景"],
+          ["14:00", "米原周邊、御神崎或石垣島鐘乳洞三選二"],
+          ["18:00", "入住石垣市區，逛 Euglena Mall 與美崎町"]
+        ],
+        tags: ["國內線", "石垣租車", "川平灣"],
+        stay: "石垣市區｜離島碼頭／美崎町",
+        image: "assets/taketomi-island.webp",
+        imageAlt: "八重山離島紅瓦村落",
+        label: "FLY TO ISHIGAKI"
+      },
+      {
+        date: "11.05",
+        weekday: "星期四",
+        title: "搭船去竹富島",
+        subtitle: "石垣港 → 竹富島 → 紅瓦村落 → Kondoi 海灘",
+        times: [
+          ["08:00", "步行前往石垣港離島碼頭，依海況確認船班"],
+          ["09:00", "搭船約 15 分鐘抵達竹富島"],
+          ["09:30", "租自行車或搭島內巴士，走紅瓦村落與白沙路"],
+          ["12:30", "島上午餐，下午前往 Kondoi 海灘與西棧橋"],
+          ["16:30", "搭船返回石垣港，晚餐吃石垣牛或八重山麵"]
+        ],
+        tags: ["竹富島", "紅瓦聚落", "離島渡輪"],
+        stay: "石垣市區｜離島碼頭／美崎町",
+        image: "assets/taketomi-island.webp",
+        imageAlt: "竹富島紅瓦聚落與白沙路",
+        label: "TAKETOMI ISLAND"
+      },
+      {
+        date: "11.06",
+        weekday: "星期五",
+        title: "石垣晨光，飛回那霸",
+        subtitle: "石垣島南部 → 還車 → 那霸 → 國際通",
+        times: [
+          ["08:00", "退房後走石垣島南部短線，視班機調整"],
+          ["10:30", "還車、加油並前往南方之島石垣機場"],
+          ["12:30", "搭國內線返回那霸，班次以訂票結果為準"],
+          ["15:00", "那霸市區入住，下午安排壺屋通或購物"],
+          ["18:00", "國際通晚餐與散步"]
+        ],
+        tags: ["石垣回那霸", "班機日", "城市散步"],
+        stay: "那霸市區｜縣廳前／國際通",
+        image: "assets/naha-monorail.jpg",
+        imageAlt: "那霸單軌電車",
+        label: "BACK TO NAHA"
+      },
+      {
+        date: "11.07",
+        weekday: "星期六",
+        title: "魚貨市場與那霸老城",
+        subtitle: "泊いゆまち → 波上宮 → 牧志市場 → 國際通",
+        times: [
+          ["07:30", "前往泊いゆまち，看生鮪魚與當日魚貨"],
+          ["09:30", "波上宮與波之上海灘"],
+          ["11:30", "第一牧志公設市場、平和通與市場午餐"],
+          ["14:30", "壺屋通或首里城二選一"],
+          ["18:00", "最後晚餐與伴手禮採買"]
+        ],
+        tags: ["魚貨市場", "那霸老城", "最後採買"],
+        stay: "那霸市區｜縣廳前／國際通",
+        image: "assets/market-fish-3.jpg",
+        imageAlt: "沖繩魚市場冰台上的鮮魚",
+        label: "NAHA FISH MARKET"
+      },
+      {
+        date: "11.08",
+        weekday: "星期日",
+        title: "從那霸市區，從容前往機場",
+        subtitle: "飯店早餐 → 那霸機場 → 13:35 起飛",
+        times: [
+          ["08:00", "早餐、整理行李與退房"],
+          ["10:15", "從那霸市區出發前往那霸機場"],
+          ["10:45", "抵達航廈，辦理報到與托運"],
+          ["13:35", "由那霸機場起飛"]
+        ],
+        tags: ["那霸機場起飛", "免趕路", "旅程完成"],
+        stay: "溫暖的家",
+        image: "assets/naha-monorail.jpg",
+        imageAlt: "那霸夕暮中的單軌電車",
+        label: "NAHA AIRPORT DEPARTURE"
+      }
+    ]
   }
 };
 
@@ -373,8 +490,8 @@ const dayEnhancements = {
       drive: "第一天不建議立刻取車；市區停車與首里活動交通較複雜，搭單軌、計程車更輕鬆。"
     },
     {
-      route: ["取車", "齋場御嶽", "知念岬", "Cafe Curcuma", "Gangala 之谷／沖繩世界", "瀨長島"],
-      addOns: ["預約 Gangala 導覽可取代沖繩世界", "雨天改 DMM Kariyushi 水族館", "傍晚到瀨長島拍白色階梯與飛機"],
+      route: ["泊いゆまち", "取車", "齋場御嶽", "知念岬", "Gangala 之谷／沖繩世界", "瀨長島"],
+      addOns: ["07:30 先逛泊港魚市場，再於 09:00 左右取車", "預約 Gangala 導覽可取代沖繩世界", "雨天改 DMM Kariyushi 水族館"],
       food: [
         ["Cafe Curcuma", "泰式料理＋太平洋海景", "社群常見的南城高台海景餐廳"],
         ["糸滿魚市場", "海鮮、生魚片", "想吃海鮮可在回那霸前繞入"]
@@ -501,7 +618,7 @@ const dayEnhancements = {
       addOns: ["JUNGLIA 可整日取代本日", "古宇利海洋塔適合帶長輩", "心形岩與瀨底島依體力二選一"],
       food: [["KOURI SHRIMP", "蒜香蝦蝦飯", "古宇利人氣必吃"], ["古宇利島 錦屋", "海膽海葡萄丼", "當日有貨再點"], ["百年古家 大家", "阿古豬", "古宅庭園"]],
       photos: [["assets/aquarium.jpg", "美麗海", "鯨鯊"], ["assets/kouri-shrimp.jpg", "蝦蝦飯", "蒜香蝦與飯"], ["assets/nishikiya.jpg", "海膽海葡萄丼", "漁期限定感"]],
-      drive: "住恩納可最早抵達北部景點；這是三方案中北部日最舒服的安排。"
+      drive: "住恩納可最早抵達北部景點；這是三個本島方案中北部日最舒服的安排。"
     },
     {
       route: ["萬座毛", "真榮田岬", "琉球村", "座喜味城", "土花土花", "BANTA CAFE", "殘波岬"],
@@ -530,6 +647,50 @@ const dayEnhancements = {
       food: [["ポーたま", "豬肉蛋飯糰", "方便當早餐"], ["機場沖繩麵", "最後一餐", "看報到時間決定"]],
       photos: [["assets/potama.png", "ポーたま", "沖繩早餐"], ["assets/naha-monorail.jpg", "那霸單軌", "前往機場"], ["assets/naha-night.jpg", "那霸回憶", "城市慢旅收尾"]],
       drive: "C 方案已在前兩天還車，最後一天和 A 一樣從容。"
+    }
+  ],
+  d: [
+    {
+      route: ["那霸機場", "市區飯店", "首里城／國際通", "晚餐", "提早休息"],
+      addOns: ["首里復興祭視通關時間與體力決定", "隔天國內線只帶兩晚需要的行李更輕鬆"],
+      food: [["Jack's Steak House", "那霸牛排", "抵達日晚餐備選"], ["暖暮拉麵", "拉麵", "國際通宵夜備選"]],
+      photos: [["assets/shuri-steps.jpg", "首里城", "抵達日歷史散步"], ["assets/naha-night.jpg", "國際通", "夜晚逛街"], ["assets/jack-steak.png", "Jack's Steak", "那霸老字號"]],
+      drive: "第一天不租車。隔天飛石垣，建議預留國內線報到時間並把大件行李寄放那霸飯店。"
+    },
+    {
+      route: ["那霸機場", "石垣機場取車", "川平灣", "御神崎／米原", "石垣市區"],
+      addOns: ["玻璃船依海況決定", "宮古島可作為 D 的整套替換，不與石垣同趟混搭", "國內線班次與價格確認後再鎖定時刻"],
+      food: [["八重山そば", "八重山麵", "石垣在地麵食"], ["石垣牛燒肉", "和牛", "熱門店建議預約"]],
+      photos: [["assets/taketomi-island.webp", "八重山群島", "紅瓦與南島風景"], ["assets/kouri-heart.jpg", "島嶼海色", "示意海景"], ["assets/nishikiya.jpg", "島上海鮮", "依當日漁獲"]],
+      drive: "石垣機場取車後先走北線，晚上住離島碼頭附近，隔天搭船可直接步行。"
+    },
+    {
+      route: ["石垣港", "竹富港", "紅瓦村落", "Kondoi 海灘", "西棧橋", "石垣港"],
+      addOns: ["船班可能因風浪調整", "島上可租自行車，但長輩同行可搭巴士", "不加西表島，保留竹富的從容"],
+      food: [["竹富島島料理", "沖繩家常菜", "先確認當日營業"], ["石垣牛", "晚餐", "回石垣市區後享用"]],
+      photos: [["assets/taketomi-island.webp", "竹富島", "紅瓦村落與白沙路"], ["assets/miyako-island.webp", "離島海色", "官方離島旅行靈感"], ["assets/hamahiga.webp", "島嶼小路", "慢速旅行感"]],
+      drive: "今天不開車。車可留飯店或租車公司，主要靠步行、船、自行車與島內巴士。"
+    },
+    {
+      route: ["石垣市區", "南部短線", "石垣機場還車", "那霸機場", "那霸入住"],
+      addOns: ["回那霸班機不要選太晚，避免天候延誤壓縮後段", "下午可排壺屋通或 DFS，不再跑遠程景點"],
+      food: [["石垣機場餐廳", "簡單午餐", "依班機時間"], ["第一牧志公設市場周邊", "那霸晚餐", "回本島後再吃"]],
+      photos: [["assets/naha-monorail.jpg", "回到那霸", "城市交通"], ["assets/naha-night.jpg", "國際通", "夜晚散步"], ["assets/potama.png", "ポーたま", "移動日簡單吃"]],
+      drive: "石垣還車後搭國內線回那霸；那霸後兩天不租車，避免停車與跨島租車銜接複雜。"
+    },
+    {
+      route: ["泊いゆまち", "波上宮", "第一牧志公設市場", "壺屋通／首里城", "國際通"],
+      addOns: ["泊港 07:30–10:00 魚貨最齊", "牧志市場可看鮮魚、肉品與乾貨", "兩個市場都想逛就縮短首里或壺屋"],
+      food: [["泊いゆまち", "生鮪魚與魚貨", "上午到，熱門品項售完即收"], ["第一牧志公設市場", "市場料理", "一樓採買、二樓用餐"]],
+      photos: [["assets/market-fish-2.jpg", "泊いゆまち", "鮮魚市場通道"], ["assets/market-fish-3.jpg", "沖繩魚貨", "彩色近海魚"], ["assets/market-fish-4.jpg", "魚貝冰台", "當日漁獲"]],
+      drive: "泊港建議早上搭計程車；牧志市場位於步行商圈。這天不需要租車。"
+    },
+    {
+      route: ["飯店早餐", "ポーたま", "那霸機場", "13:35 起飛"],
+      addOns: ["10:15 離開市區", "機場商店留 60–90 分鐘"],
+      food: [["ポーたま", "豬肉蛋飯糰", "方便當早餐"], ["機場沖繩麵", "最後一餐", "看報到時間決定"]],
+      photos: [["assets/potama.png", "ポーたま", "沖繩早餐"], ["assets/naha-monorail.jpg", "那霸單軌", "前往機場"], ["assets/taketomi-island.webp", "竹富回憶", "跳島旅程收尾"]],
+      drive: "最後兩晚住那霸，回程和 A、C 一樣從容，不需要處理租車接駁。"
     }
   ]
 };
@@ -679,6 +840,14 @@ const routeTitle = document.querySelector("#routeTitle");
 const routeDescription = document.querySelector("#routeDescription");
 const planButtons = document.querySelectorAll("[data-plan]");
 const header = document.querySelector(".site-header");
+const menuButton = document.querySelector("#menuButton");
+const quickMenuButton = document.querySelector("#quickMenuButton");
+const closeMenuButton = document.querySelector("#closeMenuButton");
+const mobileNav = document.querySelector("#mobileNav");
+const mobileNavBackdrop = document.querySelector("#mobileNavBackdrop");
+const printDialog = document.querySelector("#printDialog");
+const printSheet = document.querySelector("#printSheet");
+const openPrintButtons = document.querySelectorAll("#openPrintDialog, #mobilePrintButton");
 
 let currentPlan = "a";
 
@@ -768,6 +937,92 @@ planButtons.forEach(button => {
 window.addEventListener("scroll", () => {
   header.classList.toggle("scrolled", window.scrollY > 70);
 }, { passive: true });
+
+function setMobileMenu(isOpen) {
+  document.body.classList.toggle("menu-open", isOpen);
+  mobileNav.classList.toggle("is-open", isOpen);
+  mobileNav.setAttribute("aria-hidden", String(!isOpen));
+  menuButton.setAttribute("aria-expanded", String(isOpen));
+  mobileNavBackdrop.hidden = !isOpen;
+}
+
+[menuButton, quickMenuButton].forEach(button => {
+  button?.addEventListener("click", () => setMobileMenu(true));
+});
+
+closeMenuButton?.addEventListener("click", () => setMobileMenu(false));
+mobileNavBackdrop?.addEventListener("click", () => setMobileMenu(false));
+mobileNav?.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => setMobileMenu(false));
+});
+
+function setPrintDialog(isOpen) {
+  if (isOpen) setMobileMenu(false);
+  printDialog.hidden = !isOpen;
+  document.body.classList.toggle("menu-open", isOpen);
+  if (isOpen) {
+    window.setTimeout(() => printDialog.querySelector("[data-print-plan]")?.focus(), 0);
+  }
+}
+
+openPrintButtons.forEach(button => {
+  button.addEventListener("click", () => setPrintDialog(true));
+});
+
+printDialog.querySelectorAll("[data-close-print]").forEach(button => {
+  button.addEventListener("click", () => setPrintDialog(false));
+});
+
+function renderPrintSheet(planKey) {
+  const plan = plans[planKey];
+  const enhancements = dayEnhancements[planKey];
+  printSheet.innerHTML = `
+    <header class="print-sheet-header">
+      <div>
+        <p>CHANG FAMILY · OKINAWA 2026</p>
+        <h1>${plan.title}</h1>
+        <span>${plan.description}</span>
+      </div>
+      <div class="print-flight">
+        <b>11/03 12:25</b><small>抵達那霸</small>
+        <b>11/08 13:35</b><small>那霸起飛</small>
+      </div>
+    </header>
+    <section class="print-route">
+      ${plan.route.map(stop => `<div><b>${stop.nights} 晚</b><span>${stop.place}</span><small>${stop.note}</small></div>`).join("")}
+    </section>
+    <main class="print-days">
+      ${plan.days.map((day, index) => `
+        <article>
+          <div class="print-day-no"><small>DAY</small><b>${String(index + 1).padStart(2, "0")}</b><span>${day.date}</span></div>
+          <div>
+            <h2>${day.title}</h2>
+            <p class="print-day-route">${enhancements[index].route.join(" → ")}</p>
+            <div class="print-timeline">
+              ${day.times.map(item => `<time>${item[0]}</time><span>${item[1]}</span>`).join("")}
+            </div>
+            <p class="print-stay">住宿｜${day.stay}</p>
+          </div>
+        </article>
+      `).join("")}
+    </main>
+    <footer class="print-sheet-footer">張家旅行社 · 行程與營業時間請於出發前再次確認</footer>
+  `;
+}
+
+printDialog.querySelectorAll("[data-print-plan]").forEach(button => {
+  button.addEventListener("click", () => {
+    renderPrintSheet(button.dataset.printPlan);
+    setPrintDialog(false);
+    window.setTimeout(() => window.print(), 60);
+  });
+});
+
+window.addEventListener("keydown", event => {
+  if (event.key !== "Escape") return;
+  setMobileMenu(false);
+  setPrintDialog(false);
+});
 
 selectPlan(currentPlan);
 initCatalogMap("spot", "spotLeafletMap");

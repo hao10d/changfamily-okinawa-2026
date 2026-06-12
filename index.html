@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="張家旅行社 2026 沖繩六日旅遊導覽，含那霸、恩納、北谷與北部三種住宿方案。">
+  <meta name="description" content="張家旅行社 2026 沖繩六日旅遊導覽，含沖繩本島與石垣竹富跳島四種方案、景點美食地圖及市場路線。">
   <meta name="theme-color" content="#0c4951">
   <title>沖繩島嶼慢旅｜張家旅行社</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
@@ -18,15 +18,39 @@
         <small>CHANG FAMILY TRAVEL</small>
       </span>
     </a>
-    <nav aria-label="主要導覽">
-      <a href="#social-picks">人氣靈感</a>
+    <nav id="desktopNav" aria-label="主要導覽">
       <a href="#spot-map">景點地圖</a>
-      <a href="#plans">三方案</a>
       <a href="#itinerary">每日行程</a>
+      <a href="#markets">市場</a>
       <a href="#food-map">美食地圖</a>
+      <a href="#plans">住宿方案</a>
     </nav>
-    <button class="print-button" type="button" onclick="window.print()">列印行程</button>
+    <button class="print-button" id="openPrintDialog" type="button">列印行程</button>
+    <button class="menu-button" id="menuButton" type="button" aria-expanded="false" aria-controls="mobileNav">
+      <span></span><span></span><span></span><b>選單</b>
+    </button>
   </header>
+
+  <div class="mobile-nav-backdrop" id="mobileNavBackdrop" hidden></div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="手機主要導覽" aria-hidden="true">
+    <div class="mobile-nav-head">
+      <span>快速前往</span>
+      <button id="closeMenuButton" type="button" aria-label="關閉選單">×</button>
+    </div>
+    <a href="#spot-map"><b>01</b><span>景點地圖<small>開車時最快找到區域</small></span></a>
+    <a href="#itinerary"><b>02</b><span>每日行程<small>切換 A／B／C／D 方案</small></span></a>
+    <a href="#markets"><b>03</b><span>魚貨市場<small>生鮪魚與沖繩當日魚貨</small></span></a>
+    <a href="#food-map"><b>04</b><span>美食地圖<small>餐廳位置與同區備選</small></span></a>
+    <a href="#plans"><b>05</b><span>住宿方案<small>本島分區或跳島</small></span></a>
+    <button class="mobile-print-button" id="mobilePrintButton" type="button">選擇方案並列印</button>
+  </nav>
+
+  <nav class="mobile-quick-nav" aria-label="手機快捷導覽">
+    <a href="#spot-map"><span>⌖</span>地圖</a>
+    <a href="#itinerary"><span>日</span>行程</a>
+    <a href="#markets"><span>市</span>市場</a>
+    <button id="quickMenuButton" type="button"><span>☰</span>更多</button>
+  </nav>
 
   <main id="top">
     <section class="hero">
@@ -53,8 +77,17 @@
       </div>
       <div class="hero-meta">
         <span>2026.11.03 TUE</span>
-        <span>沖繩本島</span>
+        <span>沖繩本島＋離島</span>
         <span>5 晚 6 日</span>
+      </div>
+    </section>
+
+    <section class="mobile-home-actions" aria-label="手機快速入口">
+      <p>先看你現在需要的</p>
+      <div>
+        <a href="#spot-map"><span>01</span><b>景點地圖</b><small>北部／中部／南部快速篩選</small></a>
+        <a href="#itinerary"><span>02</span><b>每日行程</b><small>切換 A／B／C／D 六天安排</small></a>
+        <a href="#markets"><span>03</span><b>魚貨市場</b><small>泊港魚市場與牧志鮮魚攤</small></a>
       </div>
     </section>
 
@@ -64,7 +97,7 @@
         <h2>住得順，<br>旅程才有餘裕。</h2>
       </div>
       <div class="intro-copy">
-        <p>這趟行程不把每天都塞滿。三種住宿順序分別照顧車程、搬行李次數與回程安心感，讓美麗海、古宇利島與恩納海岸不再是疲憊的長途折返。</p>
+        <p>這趟行程不把每天都塞滿。四種方案分別照顧車程、搬行李次數、回程安心感與跳島體驗；先選旅行方式，再看地圖與每日行程。</p>
         <div class="weather-note">
           <strong>11 月體感</strong>
           <span>平均約 23°C，日夜溫差明顯。短袖加薄外套最實用。</span>
@@ -89,91 +122,6 @@
         <img src="assets/naha-night.jpg" alt="那霸國際通夜晚街景">
         <figcaption><span>NAHA</span>夜裡回到有人情味的街</figcaption>
       </figure>
-    </section>
-
-    <section class="social-picks section-wrap" id="social-picks">
-      <div class="section-heading social-heading">
-        <div>
-          <p class="section-kicker">SOCIAL PICKS</p>
-          <h2>近期很想收藏的<br>沖繩畫面</h2>
-        </div>
-        <p>從沖繩咖啡與旅遊社群裡挑出六個有記憶點的場景，安排在順路的那一天，不必為了拍照硬繞遠路。</p>
-      </div>
-
-      <div class="social-grid">
-        <article class="pick-card pick-featured">
-          <a class="pick-media" href="https://banta-cafe.com/en/" target="_blank" rel="noreferrer" aria-label="查看 BANTA CAFE 官方介紹">
-            <img src="assets/banta-table.jpg" alt="BANTA CAFE 海景座席、彩色飲品與餐點">
-          </a>
-          <div class="pick-copy">
-            <span class="pick-tag">日落感 · 讀谷村</span>
-            <h3>BANTA CAFE</h3>
-            <p>海邊座敷、礁岩與彩色飲品，下午一路坐到夕陽最有氣氛。適合方案 A、C 的恩納住宿日。</p>
-            <a href="https://banta-cafe.com/en/" target="_blank" rel="noreferrer">官方介紹 ↗</a>
-          </div>
-        </article>
-
-        <article class="pick-card">
-          <a class="pick-media" href="https://dokadoka.jp/cafe/" target="_blank" rel="noreferrer" aria-label="查看土花土花官方介紹">
-            <img src="assets/dokadoka.jpg" alt="土花土花咖啡海景露台">
-          </a>
-          <div class="pick-copy">
-            <span class="pick-tag">陶器系 · 恩納村</span>
-            <h3>土花土花</h3>
-            <p>陶器、木質露台與整片東海，適合排成不趕時間的海景午餐。</p>
-            <a href="https://dokadoka.jp/cafe/" target="_blank" rel="noreferrer">官方介紹 ↗</a>
-          </div>
-        </article>
-
-        <article class="pick-card pick-hanon">
-          <a class="pick-media" href="https://cafe-hanon.com/en/seaside-cafe-hanon/" target="_blank" rel="noreferrer" aria-label="查看 Seaside Cafe Hanon 官方介紹">
-            <img src="assets/hanon-pancake.png" alt="Seaside Cafe Hanon 草莓鬆餅">
-          </a>
-          <div class="pick-copy">
-            <span class="pick-tag">甜點系 · 北谷</span>
-            <h3>Seaside Cafe Hanon</h3>
-            <p>藍白海景空間與厚鬆餅，排在美國村散步前後最順。</p>
-            <a href="https://cafe-hanon.com/en/seaside-cafe-hanon/" target="_blank" rel="noreferrer">官方介紹 ↗</a>
-          </div>
-        </article>
-
-        <article class="pick-card">
-          <a class="pick-media" href="https://www.oki-islandguide.com/attractions/senagajima-umikaji-terrace" target="_blank" rel="noreferrer" aria-label="查看瀨長島 Umikaji Terrace 介紹">
-            <img src="assets/umikaji.jpg" alt="瀨長島 Umikaji Terrace 白色階梯建築">
-          </a>
-          <div class="pick-copy">
-            <span class="pick-tag">白色海島 · 瀨長島</span>
-            <h3>Umikaji Terrace</h3>
-            <p>白色階梯、海景與低空飛機，已放進南部行程的夕陽時段。</p>
-            <a href="https://www.oki-islandguide.com/attractions/senagajima-umikaji-terrace" target="_blank" rel="noreferrer">景點介紹 ↗</a>
-          </div>
-        </article>
-
-        <article class="pick-card">
-          <a class="pick-media" href="https://okinawa.letsgojp.com/archives/16942/" target="_blank" rel="noreferrer" aria-label="查看港川外人住宅與黑糖可麗露介紹">
-            <img src="assets/houki-boshi.webp" alt="港川外人住宅的白色與薄荷綠小屋">
-          </a>
-          <div class="pick-copy">
-            <span class="pick-tag">小店散步 · 浦添</span>
-            <h3>港川外人住宅</h3>
-            <p>美式老屋、雜貨與黑糖可麗露，適合恩納回那霸的移動日。</p>
-            <a href="https://okinawa.letsgojp.com/archives/16942/" target="_blank" rel="noreferrer">人氣店介紹 ↗</a>
-          </div>
-        </article>
-
-        <article class="pick-card">
-          <a class="pick-media" href="https://www.okinawa-americanvillage.com/" target="_blank" rel="noreferrer" aria-label="查看美濱美國村官方網站">
-            <img src="assets/american-village.jpg" alt="北谷美濱美國村黃昏海景">
-          </a>
-          <div class="pick-copy">
-            <span class="pick-tag">霓虹夕陽 · 北谷</span>
-            <h3>美濱美國村</h3>
-            <p>彩色街區從傍晚拍到亮燈最好看，也是方案 B 三晚的散步主場。</p>
-            <a href="https://www.okinawa-americanvillage.com/" target="_blank" rel="noreferrer">官方網站 ↗</a>
-          </div>
-        </article>
-      </div>
-      <p class="social-note">店休日與營業時間可能調整，出發前請再開啟連結確認。照片呈現以拍攝當日為準。</p>
     </section>
 
     <section class="catalog-section spot-catalog" id="spot-map">
@@ -248,10 +196,10 @@
     <section class="plans section-wrap" id="plans">
       <div class="section-heading">
         <div>
-          <p class="section-kicker">THREE WAYS TO STAY</p>
-          <h2>三種住宿節奏</h2>
+          <p class="section-kicker">FOUR WAYS TO TRAVEL</p>
+          <h2>四種旅行方式</h2>
         </div>
-        <p>都保留完整南部、北部與中部海岸。差別在於最後一晚回不回那霸。</p>
+        <p>A／B／C 走沖繩本島，D 抽出兩晚飛石垣、搭船去竹富島。D 會犧牲本島北部，適合真的想跳島的人。</p>
       </div>
 
       <div class="plan-grid">
@@ -309,6 +257,25 @@
           <p class="hotel-area"><span>找飯店地名</span>恩納「萬座毛／冨著西海岸」<br>那霸「縣廳前／國際通」</p>
           <button class="select-plan" type="button" data-plan="c">查看方案 C</button>
         </article>
+
+        <article class="plan-card plan-card-d">
+          <div class="plan-label">D</div>
+          <div class="plan-badge plan-badge-island">跳島版</div>
+          <h3>石垣住兩晚，搭船去竹富</h3>
+          <p class="plan-summary">那霸 1 晚 → 石垣 2 晚 → 那霸 2 晚</p>
+          <div class="stay-track" aria-label="方案 D 住宿安排">
+            <div class="stay naha"><b>1</b><span>那霸</span></div>
+            <div class="stay ishigaki"><b>2</b><span>石垣</span></div>
+            <div class="stay naha"><b>2</b><span>那霸</span></div>
+          </div>
+          <ul>
+            <li>竹富島紅瓦村落、白沙路與海色一次收</li>
+            <li>最後兩晚回那霸，市場與回程班機都安心</li>
+            <li>不排美麗海與古宇利，國內線班次需另訂</li>
+          </ul>
+          <p class="hotel-area"><span>找飯店地名</span>石垣「離島碼頭／美崎町」<br>那霸「縣廳前／國際通」</p>
+          <button class="select-plan" type="button" data-plan="d">查看方案 D</button>
+        </article>
       </div>
     </section>
 
@@ -329,7 +296,7 @@
       <div class="city-cinema-copy">
         <p class="section-kicker">BACK TO NAHA</p>
         <h2>最後，把旅程留在那霸的暮色裡。</h2>
-        <p>單軌從城市上方滑過，市場開始亮燈。無論選 A、B 或 C，回程班機都由那霸機場起飛；差別只是最後一晚，要不要先回到城市。</p>
+        <p>單軌從城市上方滑過，市場開始亮燈。無論選 A、B、C 或 D，回程班機都由那霸機場起飛；D 也會提前兩晚回到那霸。</p>
       </div>
     </section>
 
@@ -344,6 +311,7 @@
           <button class="is-active" type="button" data-plan="a">方案 A</button>
           <button type="button" data-plan="b">方案 B</button>
           <button type="button" data-plan="c">方案 C</button>
+          <button type="button" data-plan="d">方案 D</button>
         </div>
       </div>
       <div class="day-list" id="dayList"></div>
@@ -366,6 +334,52 @@
         <img src="assets/naminoue.jpg" alt="那霸波上宮參道">
         <figcaption><span>NAHA</span> 城市裡的島嶼信仰</figcaption>
       </figure>
+    </section>
+
+    <section class="market-section section-wrap" id="markets">
+      <div class="section-heading market-heading">
+        <div>
+          <p class="section-kicker">FISH MARKET ROUTE</p>
+          <h2>爸爸的魚貨市場路線</h2>
+        </div>
+        <p>主要排魚貨，不只是餐廳。泊港看生鮪魚與整排當日漁獲，牧志看沖繩彩色魚、鮮肉與市場叫賣。</p>
+      </div>
+      <div class="market-feature">
+        <figure class="market-main-photo">
+          <img src="assets/market-fish-2.jpg" alt="泊いゆまち市場內的鮮魚攤與魚貨">
+          <figcaption><span>早上 08:00 前後最好逛</span>泊いゆまち｜泊港魚市場</figcaption>
+        </figure>
+        <div class="market-copy">
+          <span class="market-priority">爸爸優先排這個</span>
+          <h3>泊いゆまち</h3>
+          <p>24 間鮮魚店集中在泊漁港，水揚魚貨約七成是鮪魚。想看整尾魚、魚排、貝類與沖繩近海魚，建議上午到，過午熱門魚貨可能售完。</p>
+          <dl>
+            <div><dt>建議時間</dt><dd>07:30–10:00，停留 60–90 分鐘</dd></div>
+            <div><dt>交通</dt><dd>有停車場；從那霸市區開車約 10 分鐘</dd></div>
+            <div><dt>排進行程</dt><dd>A2／B2／C5／D5 上午</dd></div>
+          </dl>
+          <div class="market-actions">
+            <a href="https://www.google.com/maps/search/?api=1&query=泊いゆまち" target="_blank" rel="noreferrer">開啟地圖 ↗</a>
+            <a href="https://www.naha-navi.or.jp/sightseeing/tomariiyumachi-fishermans-market/" target="_blank" rel="noreferrer">那霸觀光介紹 ↗</a>
+          </div>
+        </div>
+        <div class="market-detail-grid">
+          <img src="assets/market-fish-3.jpg" alt="泊いゆまち冰台上的沖繩鮮魚">
+          <img src="assets/market-fish-4.jpg" alt="泊いゆまち的魚貨與貝類">
+        </div>
+      </div>
+      <article class="market-secondary">
+        <img src="assets/market-makishi.jpg" alt="第一牧志公設市場內的市場攤商">
+        <div>
+          <span>那霸散步版 · 不用開車</span>
+          <h3>第一牧志公設市場</h3>
+          <p>一樓可看鮮魚、肉品、乾貨與沖繩食材，再到二樓用餐。它比泊港更觀光、品項更雜，適合和國際通、平和通一起逛。</p>
+          <p><b>適合：</b>A1／B2／C5／D5 下午。官方營業 08:00–22:00，各店不同；持上樓調理的食材最晚接單時間依官方現場為準。</p>
+          <a href="https://www.makishi-public-market.jp/" target="_blank" rel="noreferrer">市場官方網站 ↗</a>
+          <a href="https://www.google.com/maps/search/?api=1&query=第一牧志公設市場" target="_blank" rel="noreferrer">開啟地圖 ↗</a>
+        </div>
+      </article>
+      <p class="market-note">行程取捨：魚貨感最強選泊いゆまち；想連國際通一起逛選牧志。兩個市場不用同一天都跑。</p>
     </section>
 
     <section class="catalog-section food-catalog" id="food-map">
@@ -483,7 +497,7 @@
             <p>第一次掃碼後連續 7 天有效，標準方案可從當期清單任選 3 項；另有「美麗海水族館＋任選項目」版本。</p>
             <ul>
               <li>建議兌換：沖繩世界、DMM 水族館、琉球村／名護鳳梨園</li>
-              <li>若購買含美麗海版：美麗海＋沖繩世界＋DMM 最符合 A/B/C</li>
+              <li>若購買含美麗海版：美麗海＋沖繩世界＋DMM 最符合 A/B/C；D 跳島版通常不划算</li>
               <li>同一設施只能使用一次，以手機 QR Code 入場或兌換</li>
               <li>JUNGLIA 目前不在公開適用清單，需另購</li>
             </ul>
@@ -497,7 +511,7 @@
               <li>不同商品可能是 2、3、4、5 項或含指定水族館</li>
               <li>部分商品另含美食兌換與購物優惠</li>
               <li>使用天數、兒童票與設施名單依購買頁為準</li>
-              <li>購買前把 A/B/C 選定，再依實際景點比價</li>
+              <li>購買前先選定 A／B／C／D，再依實際景點比價</li>
             </ul>
             <a href="https://okinawa.funpass.app/" target="_blank" rel="noreferrer">查看 FunPASS 官方介紹 ↗</a>
           </article>
@@ -557,7 +571,7 @@
         <article>
           <span class="guide-no">02</span>
           <h3>取車時機</h3>
-          <p>方案 A 建議 11/4 市區取車；方案 B 建議 11/5 取車；方案 C 則抵達那霸機場後直接取車前往恩納。依住宿順序選擇，不必在那霸市區多付停車費。</p>
+          <p>方案 A 建議 11/4 市區取車；B 建議 11/5 取車；C 抵達那霸機場後直接取車；D 只在石垣島租兩天，本島以單軌與計程車為主。</p>
         </article>
         <article>
           <span class="guide-no">03</span>
@@ -615,10 +629,17 @@
             <a href="https://www.donki.com/en/store/shop_detail.php?shop_id=323" target="_blank" rel="noreferrer">Don Quijote 國際通店</a>
             <a href="https://visitokinawajapan.com/destinations/okinawa-main-island/northern-okinawa-main-island/onna-coast/" target="_blank" rel="noreferrer">VISIT OKINAWA JAPAN｜恩納海岸</a>
             <a href="https://www.southeast-botanical.jp/illumination/" target="_blank" rel="noreferrer">東南植物樂園｜沖繩南國 Illumination</a>
+            <a href="https://visitokinawajapan.com/zh-hant/plan-your-trip/recommended-trips/four-day-remote-island/" target="_blank" rel="noreferrer">官方｜石垣・西表・竹富跳島行程</a>
+            <a href="https://visitokinawajapan.com/zh-hant/plan-your-trip/recommended-trips/three-day-main-island/" target="_blank" rel="noreferrer">官方｜沖繩本島三日行程</a>
+            <a href="https://visitokinawajapan.com/zh-hant/plan-your-trip/recommended-trips/three-days-miyako-island/" target="_blank" rel="noreferrer">官方｜宮古島三日行程</a>
+            <a href="https://visitokinawajapan.com/zh-hant/" target="_blank" rel="noreferrer">沖繩官方旅遊指南繁中首頁</a>
+            <a href="https://www.makishi-public-market.jp/" target="_blank" rel="noreferrer">第一牧志公設市場</a>
+            <a href="https://www.naha-navi.or.jp/sightseeing/tomariiyumachi-fishermans-market/" target="_blank" rel="noreferrer">那霸觀光協會｜泊いゆまち</a>
+            <a href="https://okinawa-labo.com/tomariiyumachi-69916" target="_blank" rel="noreferrer">泊いゆまち魚貨照片與介紹</a>
             <a href="https://www.pexels.com/search/okinawa/" target="_blank" rel="noreferrer">Pexels 沖繩照片</a>
             <a href="https://unsplash.com/s/photos/okinawa" target="_blank" rel="noreferrer">Unsplash 沖繩照片</a>
           </div>
-          <p>照片來自景點官方網站、沖繩官方旅遊網站、公開旅遊介紹、Wikimedia Commons、Pexels 與 Unsplash；首頁使用 VISIT OKINAWA JAPAN 的恩納海岸照片，咖啡照片取自 BANTA CAFE、土花土花、Seaside Cafe Hanon 等公開頁面。</p>
+          <p>照片來自景點官方網站、沖繩官方旅遊網站、那霸觀光協會、公開旅遊介紹、Wikimedia Commons、Pexels 與 Unsplash；首頁使用 VISIT OKINAWA JAPAN 的恩納海岸照片。</p>
         </div>
       </details>
     </section>
@@ -626,7 +647,7 @@
 
   <footer>
     <div class="brand footer-brand">
-      <span class="brand-mark">張</span>
+      <img class="brand-avatar footer-avatar" src="assets/chang-avatar.jpg" alt="張家旅行社大頭貼">
       <span><strong>張家旅行社</strong><small>讓每段路，都值得期待。</small></span>
     </div>
     <div class="footer-trip">
@@ -634,6 +655,23 @@
       <strong>11.03 → 11.08</strong>
     </div>
   </footer>
+
+  <div class="print-dialog" id="printDialog" hidden>
+    <div class="print-dialog-backdrop" data-close-print></div>
+    <section class="print-dialog-panel" role="dialog" aria-modal="true" aria-labelledby="printDialogTitle">
+      <button class="print-dialog-close" type="button" data-close-print aria-label="關閉">×</button>
+      <p class="section-kicker">PRINT ITINERARY</p>
+      <h2 id="printDialogTitle">要列印哪一套行程？</h2>
+      <p>只會列印所選方案的住宿路線、六天時程與住宿地區，不會把地圖、景點總表和購物資訊一起印出。</p>
+      <div class="print-plan-grid">
+        <button type="button" data-print-plan="a"><b>A</b><span>均衡分區<small>那霸 → 恩納 → 那霸</small></span></button>
+        <button type="button" data-print-plan="b"><b>B</b><span>只換一次<small>那霸 → 北谷</small></span></button>
+        <button type="button" data-print-plan="c"><b>C</b><span>先海後城<small>恩納 → 那霸</small></span></button>
+        <button type="button" data-print-plan="d"><b>D</b><span>石垣竹富跳島<small>那霸 → 石垣 → 那霸</small></span></button>
+      </div>
+    </section>
+  </div>
+  <section class="print-sheet" id="printSheet" aria-hidden="true"></section>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="app.js"></script>
