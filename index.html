@@ -7,7 +7,7 @@
   <meta name="theme-color" content="#0c4951">
   <title>沖繩島嶼慢旅｜張家旅行社</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-  <link rel="stylesheet" href="styles.css?v=20260612-events">
+  <link rel="stylesheet" href="styles.css?v=20260612-matrix">
 </head>
 <body>
   <header class="site-header">
@@ -20,8 +20,8 @@
     </a>
     <nav id="desktopNav" aria-label="主要導覽">
       <a href="#spot-map">景點地圖</a>
+      <a href="#plan-matrix">方案總表</a>
       <a href="#itinerary">每日行程</a>
-      <a href="#markets">市場</a>
       <a href="#events">期間活動</a>
       <a href="#food-map">美食地圖</a>
       <a href="#plans">住宿方案</a>
@@ -39,8 +39,8 @@
       <button id="closeMenuButton" type="button" aria-label="關閉選單">×</button>
     </div>
     <a href="#spot-map"><b>01</b><span>景點地圖<small>開車時最快找到區域</small></span></a>
-    <a href="#itinerary"><b>02</b><span>每日行程<small>切換 A／B／C／D 方案</small></span></a>
-    <a href="#markets"><b>03</b><span>魚貨市場<small>生鮪魚與沖繩當日魚貨</small></span></a>
+    <a href="#plan-matrix"><b>02</b><span>方案總表<small>景點、市場、美食與四方案勾選</small></span></a>
+    <a href="#itinerary"><b>03</b><span>每日行程<small>切換 A／B／C／D 方案</small></span></a>
     <a href="#events"><b>04</b><span>期間活動<small>11 月祭典與夜間燈光</small></span></a>
     <a href="#food-map"><b>05</b><span>美食地圖<small>餐廳位置與同區備選</small></span></a>
     <a href="#plans"><b>06</b><span>住宿方案<small>本島分區或跳島</small></span></a>
@@ -49,8 +49,8 @@
 
   <nav class="mobile-quick-nav" aria-label="手機快捷導覽">
     <a href="#spot-map"><span>⌖</span>地圖</a>
+    <a href="#plan-matrix"><span>✓</span>總表</a>
     <a href="#itinerary"><span>日</span>行程</a>
-    <a href="#markets"><span>市</span>市場</a>
     <button id="quickMenuButton" type="button"><span>☰</span>更多</button>
   </nav>
 
@@ -88,8 +88,8 @@
       <p>先看你現在需要的</p>
       <div>
         <a href="#spot-map"><span>01</span><b>景點地圖</b><small>北部／中部／南部快速篩選</small></a>
-        <a href="#itinerary"><span>02</span><b>每日行程</b><small>切換 A／B／C／D 六天安排</small></a>
-        <a href="#markets"><span>03</span><b>魚貨市場</b><small>泊港魚市場與牧志鮮魚攤</small></a>
+        <a href="#plan-matrix"><span>02</span><b>方案總表</b><small>一眼比較 A／B／C／D 去哪裡</small></a>
+        <a href="#itinerary"><span>03</span><b>每日行程</b><small>主線、可加點與對應照片</small></a>
       </div>
     </section>
 
@@ -368,6 +368,101 @@
       </div>
     </section>
 
+    <section class="plan-matrix section-wrap" id="plan-matrix">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">A / B / C / D AT A GLANCE</p>
+          <h2>行程去處總表</h2>
+        </div>
+        <p>景點、市場與美食全部放在同一張表。✓ 是行程主線，◇ 是同區可順路加入或整日替換，— 代表這個方案未安排。</p>
+      </div>
+
+      <div class="matrix-legend" aria-label="表格符號說明">
+        <span class="matrix-status is-main"><b>✓</b>主線</span>
+        <span class="matrix-status is-option"><b>◇</b>可加</span>
+        <span class="matrix-status is-none"><b>—</b>未排</span>
+      </div>
+
+      <div class="matrix-area-nav" aria-label="表格區域快速前往">
+        <a href="#matrix-north">北部</a>
+        <a href="#matrix-central">中部</a>
+        <a href="#matrix-south">那霸／南部</a>
+        <a href="#matrix-islands">石垣／竹富／慶良間</a>
+      </div>
+
+      <div class="matrix-scroll" role="region" aria-label="ABCD 行程景點市場美食比較表" tabindex="0">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th scope="col">區域・景點／市場／美食</th>
+              <th scope="col">A<br><small>均衡</small></th>
+              <th scope="col">B<br><small>少搬</small></th>
+              <th scope="col">C<br><small>先海</small></th>
+              <th scope="col">D<br><small>跳島</small></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="matrix-region" id="matrix-north"><th colspan="5">北部｜本部・名護・古宇利</th></tr>
+            <tr><th scope="row"><span class="matrix-kind is-spot">景點</span>美麗海水族館</th><td class="is-main">✓<small>主線</small></td><td class="is-main">✓<small>主線</small></td><td class="is-main">✓<small>主線</small></td><td class="is-none">—</td></tr>
+            <tr><th scope="row"><span class="matrix-kind is-spot">景點</span>備瀨福木林</th><td class="is-main">✓<small>主線</small></td><td class="is-main">✓<small>主線</small></td><td class="is-main">✓<small>主線</small></td><td class="is-none">—</td></tr>
+            <tr><th scope="row"><span class="matrix-kind is-spot">景點</span>古宇利島／心形岩</th><td class="is-main">✓<small>主線</small></td><td class="is-main">✓<small>主線</small></td><td class="is-main">✓<small>主線</small></td><td class="is-none">—</td></tr>
+            <tr><th scope="row"><span class="matrix-kind is-spot">景點</span>瀨底島</th><td class="is-option">◇<small>可加</small></td><td class="is-option">◇<small>可加</small></td><td class="is-option">◇<small>可加</small></td><td class="is-none">—</td></tr>
+            <tr><th scope="row"><span class="matrix-kind is-spot">景點</span>JUNGLIA 叢林樂園</th><td class="is-option">◇<small>整日換</small></td><td class="is-option">◇<small>整日換</small></td><td class="is-option">◇<small>整日換</small></td><td class="is-none">—</td></tr>
+            <tr><th scope="row"><span class="matrix-kind is-food">美食</span>KOURI SHRIMP 蝦蝦飯</th><td class="is-main">✓<small>主線</small></td><td class="is-main">✓<small>主線</small></td><td class="is-main">✓<small>主線</small></td><td class="is-none">—</td></tr>
+            <tr><th scope="row"><span class="matrix-kind is-food">美食</span>古宇利海膽／海葡萄丼</th><td class="is-option">◇<small>看漁獲</small></td><td class="is-option">◇<small>看漁獲</small></td><td class="is-option">◇<small>看漁獲</small></td><td class="is-none">—</td></tr>
+            <tr><th scope="row"><span class="matrix-kind is-food">美食</span>百年古家 大家</th><td class="is-option">◇<small>可加</small></td><td class="is-option">◇<small>可加</small></td><td class="is-option">◇<small>可加</small></td><td class="is-none">—</td></tr>
+            <tr><th scope="row"><span class="matrix-kind is-food">美食</span>Nakamura Soba／牛排 88</th><td class="is-option">◇<small>可加</small></td><td class="is-option">◇<small>可加</small></td><td class="is-option">◇<small>可加</small></td><td class="is-none">—</td></tr>
+
+            <tr class="matrix-region" id="matrix-central"><th colspan="5">中部｜恩納・讀谷・北谷</th></tr>
+            <tr><th scope="row"><span class="matrix-kind is-spot">景點</span>萬座毛</th><td class="is-main">✓<small>主線</small></td><td class="is-main">✓<small>主線</small></td><td class="is-main">✓<small>主線</small></td><td class="is-none">—</td></tr>
+            <tr><th scope="row"><span class="matrix-kind is-spot">景點</span>美國村</th><td class="is-main">✓<small>主線</small></td><td class="is-main">✓<small>住宿區</small></td><td class="is-main">✓<small>主線</small></td><td class="is-none">—</td></tr>
+            <tr><th scope="row"><span class="matrix-kind is-spot">景點</span>殘波岬</th><td class="is-main">✓<small>主線</small></td><td class="is-main">✓<small>主線</small></td><td class="is-main">✓<small>主線</small></td><td class="is-none">—</td></tr>
+            <tr><th scope="row"><span class="matrix-kind is-spot">景點</span>座喜味城</th><td class="is-main">✓<small>主線</small></td><td class="is-option">◇<small>二選一</small></td><td class="is-main">✓<small>主線</small></td><td class="is-none">—</td></tr>
+            <tr><th scope="row"><span class="matrix-kind is-spot">景點</span>琉球村</th><td class="is-main">✓<small>主線</small></td><td class="is-main">✓<small>主線</small></td><td class="is-main">✓<small>主線</small></td><td class="is-none">—</td></tr>
+            <tr><th scope="row"><span class="matrix-kind is-spot">景點</span>真榮田岬／青之洞窟</th><td class="is-option">◇<small>看海況</small></td><td class="is-option">◇<small>看海況</small></td><td class="is-option">◇<small>看海況</small></td><td class="is-none">—</td></tr>
+            <tr><th scope="row"><span class="matrix-kind is-spot">景點</span>東南植物園燈光秀</th><td class="is-option">◇<small>夜間</small></td><td class="is-option">◇<small>夜間</small></td><td class="is-option">◇<small>夜間</small></td><td class="is-none">—</td></tr>
+            <tr><th scope="row"><span class="matrix-kind is-spot">景點</span>喜璃癒志百萬夢幻節</th><td class="is-option">◇<small>夜間</small></td><td class="is-option">◇<small>夜間</small></td><td class="is-option">◇<small>夜間</small></td><td class="is-none">—</td></tr>
+            <tr><th scope="row"><span class="matrix-kind is-food">美食</span>BANTA CAFE</th><td class="is-main">✓<small>主線</small></td><td class="is-main">✓<small>主線</small></td><td class="is-main">✓<small>主線</small></td><td class="is-none">—</td></tr>
+            <tr><th scope="row"><span class="matrix-kind is-food">美食</span>Hanon 厚鬆餅／浜の家</th><td class="is-option">◇<small>可加</small></td><td class="is-option">◇<small>可加</small></td><td class="is-option">◇<small>可加</small></td><td class="is-none">—</td></tr>
+            <tr><th scope="row"><span class="matrix-kind is-food">美食</span>琉球的牛</th><td class="is-option">◇<small>預約</small></td><td class="is-option">◇<small>預約</small></td><td class="is-option">◇<small>預約</small></td><td class="is-none">—</td></tr>
+            <tr><th scope="row"><span class="matrix-kind is-food">美食</span>A&amp;W 牧港店</th><td class="is-main">✓<small>順路</small></td><td class="is-main">✓<small>順路</small></td><td class="is-option">◇<small>可加</small></td><td class="is-none">—</td></tr>
+
+            <tr class="matrix-region" id="matrix-south"><th colspan="5">那霸／南部｜首里・市場・南城・瀨長島</th></tr>
+            <tr><th scope="row"><span class="matrix-kind is-spot">景點</span>首里城／金城町石疊道</th><td class="is-main">✓<small>主線</small></td><td class="is-main">✓<small>主線</small></td><td class="is-main">✓<small>主線</small></td><td class="is-main">✓<small>主線</small></td></tr>
+            <tr><th scope="row"><span class="matrix-kind is-spot">景點</span>國際通／壺屋通</th><td class="is-main">✓<small>主線</small></td><td class="is-main">✓<small>主線</small></td><td class="is-main">✓<small>主線</small></td><td class="is-main">✓<small>主線</small></td></tr>
+            <tr><th scope="row"><span class="matrix-kind is-spot">景點</span>波上宮</th><td class="is-option">◇<small>可加</small></td><td class="is-main">✓<small>主線</small></td><td class="is-main">✓<small>主線</small></td><td class="is-main">✓<small>主線</small></td></tr>
+            <tr><th scope="row"><span class="matrix-kind is-market">市場</span>泊いゆまち魚市場</th><td class="is-main">✓<small>早市</small></td><td class="is-option">◇<small>可加</small></td><td class="is-option">◇<small>可加</small></td><td class="is-main">✓<small>早市</small></td></tr>
+            <tr><th scope="row"><span class="matrix-kind is-market">市場</span>第一牧志公設市場</th><td class="is-main">✓<small>主線</small></td><td class="is-main">✓<small>主線</small></td><td class="is-main">✓<small>主線</small></td><td class="is-main">✓<small>主線</small></td></tr>
+            <tr><th scope="row"><span class="matrix-kind is-spot">景點</span>齋場御嶽／知念岬</th><td class="is-main">✓<small>主線</small></td><td class="is-main">✓<small>主線</small></td><td class="is-main">✓<small>主線</small></td><td class="is-none">—</td></tr>
+            <tr><th scope="row"><span class="matrix-kind is-spot">景點</span>沖繩世界・玉泉洞</th><td class="is-main">✓<small>主線</small></td><td class="is-main">✓<small>主線</small></td><td class="is-main">✓<small>主線</small></td><td class="is-none">—</td></tr>
+            <tr><th scope="row"><span class="matrix-kind is-spot">景點</span>Gangala 之谷</th><td class="is-option">◇<small>二選一</small></td><td class="is-option">◇<small>二選一</small></td><td class="is-option">◇<small>二選一</small></td><td class="is-none">—</td></tr>
+            <tr><th scope="row"><span class="matrix-kind is-spot">景點</span>瀨長島海風露台</th><td class="is-main">✓<small>主線</small></td><td class="is-main">✓<small>主線</small></td><td class="is-main">✓<small>主線</small></td><td class="is-none">—</td></tr>
+            <tr><th scope="row"><span class="matrix-kind is-spot">景點</span>DMM Kariyushi 水族館</th><td class="is-option">◇<small>雨備</small></td><td class="is-option">◇<small>雨備</small></td><td class="is-option">◇<small>雨備</small></td><td class="is-none">—</td></tr>
+            <tr><th scope="row"><span class="matrix-kind is-food">美食</span>Jack's Steak House</th><td class="is-main">✓<small>晚餐</small></td><td class="is-main">✓<small>晚餐</small></td><td class="is-main">✓<small>晚餐</small></td><td class="is-main">✓<small>晚餐</small></td></tr>
+            <tr><th scope="row"><span class="matrix-kind is-food">美食</span>暖暮／琉家／一蘭拉麵</th><td class="is-option">◇<small>宵夜</small></td><td class="is-option">◇<small>宵夜</small></td><td class="is-option">◇<small>宵夜</small></td><td class="is-option">◇<small>宵夜</small></td></tr>
+            <tr><th scope="row"><span class="matrix-kind is-food">美食</span>ポーたま豬肉蛋飯糰</th><td class="is-main">✓<small>早餐</small></td><td class="is-main">✓<small>早餐</small></td><td class="is-main">✓<small>早餐</small></td><td class="is-main">✓<small>早餐</small></td></tr>
+            <tr><th scope="row"><span class="matrix-kind is-food">美食</span>Cafe Curcuma／幸福鬆餅</th><td class="is-option">◇<small>可加</small></td><td class="is-option">◇<small>可加</small></td><td class="is-option">◇<small>可加</small></td><td class="is-none">—</td></tr>
+
+            <tr class="matrix-region" id="matrix-islands"><th colspan="5">外島｜石垣・竹富・慶良間</th></tr>
+            <tr><th scope="row"><span class="matrix-kind is-spot">景點</span>石垣島川平灣</th><td class="is-none">—</td><td class="is-none">—</td><td class="is-none">—</td><td class="is-main">✓<small>主線</small></td></tr>
+            <tr><th scope="row"><span class="matrix-kind is-spot">景點</span>米原海岸</th><td class="is-none">—</td><td class="is-none">—</td><td class="is-none">—</td><td class="is-option">◇<small>可加</small></td></tr>
+            <tr><th scope="row"><span class="matrix-kind is-spot">景點</span>竹富島紅瓦村落</th><td class="is-none">—</td><td class="is-none">—</td><td class="is-none">—</td><td class="is-main">✓<small>主線</small></td></tr>
+            <tr><th scope="row"><span class="matrix-kind is-spot">景點</span>Kondoi 海灘</th><td class="is-none">—</td><td class="is-none">—</td><td class="is-none">—</td><td class="is-main">✓<small>主線</small></td></tr>
+            <tr><th scope="row"><span class="matrix-kind is-spot">景點</span>竹富島西棧橋</th><td class="is-none">—</td><td class="is-none">—</td><td class="is-none">—</td><td class="is-main">✓<small>主線</small></td></tr>
+            <tr><th scope="row"><span class="matrix-kind is-spot">景點</span>座間味島整日跳島</th><td class="is-option">◇<small>整日換</small></td><td class="is-option">◇<small>整日換</small></td><td class="is-option">◇<small>整日換</small></td><td class="is-none">—</td></tr>
+            <tr><th scope="row"><span class="matrix-kind is-food">美食</span>石垣牛燒肉</th><td class="is-none">—</td><td class="is-none">—</td><td class="is-none">—</td><td class="is-main">✓<small>晚餐</small></td></tr>
+            <tr><th scope="row"><span class="matrix-kind is-food">美食</span>八重山麵／竹富島料理</th><td class="is-none">—</td><td class="is-none">—</td><td class="is-none">—</td><td class="is-main">✓<small>主線</small></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <aside class="whale-note">
+        <div><span>WHALE WATCHING</span><strong>這趟 11/3–11/8 不排賞鯨。</strong></div>
+        <p>沖繩官方資料把座頭鯨主要觀賞期列為 1–3 月，座間味賞鯨協會通常約 12 月底至 4 月初出船。11 月初雖能搭船玩慶良間，但不是穩定賞鯨季，不能把「可能看到」當正式行程。</p>
+        <a href="https://visitokinawajapan.com/travel-inspiration/whale-watching-in-okinawa/" target="_blank" rel="noreferrer">官方賞鯨季節說明 ↗</a>
+      </aside>
+    </section>
+
     <section class="route-summary">
       <div class="section-wrap route-inner">
         <div>
@@ -394,7 +489,7 @@
         <div>
           <p class="section-kicker">DAY BY DAY</p>
           <h2>每日行程</h2>
-          <p class="itinerary-intro">每一天都有主線、順路加點、人氣餐廳與三張實景圖。租車自由行不用照表全跑，依天氣與體力現場增減。</p>
+          <p class="itinerary-intro">每一天的圖都對應當日地點，並清楚標成「主線／可加／必吃」。市場、離島與替代景點都直接放回所屬行程，不再拿別區照片代替。</p>
         </div>
         <div class="plan-switch" aria-label="切換行程方案">
           <button class="is-active" type="button" data-plan="a">方案 A</button>
@@ -423,52 +518,6 @@
         <img src="assets/naminoue.jpg" alt="那霸波上宮參道">
         <figcaption><span>NAHA</span> 城市裡的島嶼信仰</figcaption>
       </figure>
-    </section>
-
-    <section class="market-section section-wrap" id="markets">
-      <div class="section-heading market-heading">
-        <div>
-          <p class="section-kicker">FISH MARKET ROUTE</p>
-          <h2>爸爸的魚貨市場路線</h2>
-        </div>
-        <p>主要排魚貨，不只是餐廳。泊港看生鮪魚與整排當日漁獲，牧志看沖繩彩色魚、鮮肉與市場叫賣。</p>
-      </div>
-      <div class="market-feature">
-        <figure class="market-main-photo">
-          <img src="assets/market-fish-2.jpg" alt="泊いゆまち市場內的鮮魚攤與魚貨">
-          <figcaption><span>早上 08:00 前後最好逛</span>泊いゆまち｜泊港魚市場</figcaption>
-        </figure>
-        <div class="market-copy">
-          <span class="market-priority">爸爸優先排這個</span>
-          <h3>泊いゆまち</h3>
-          <p>24 間鮮魚店集中在泊漁港，水揚魚貨約七成是鮪魚。想看整尾魚、魚排、貝類與沖繩近海魚，建議上午到，過午熱門魚貨可能售完。</p>
-          <dl>
-            <div><dt>建議時間</dt><dd>07:30–10:00，停留 60–90 分鐘</dd></div>
-            <div><dt>交通</dt><dd>有停車場；從那霸市區開車約 10 分鐘</dd></div>
-            <div><dt>排進行程</dt><dd>A2／B2／C5／D5 上午</dd></div>
-          </dl>
-          <div class="market-actions">
-            <a href="https://www.google.com/maps/search/?api=1&query=泊いゆまち" target="_blank" rel="noreferrer">開啟地圖 ↗</a>
-            <a href="https://www.naha-navi.or.jp/sightseeing/tomariiyumachi-fishermans-market/" target="_blank" rel="noreferrer">那霸觀光介紹 ↗</a>
-          </div>
-        </div>
-        <div class="market-detail-grid">
-          <img src="assets/market-fish-3.jpg" alt="泊いゆまち冰台上的沖繩鮮魚">
-          <img src="assets/market-fish-4.jpg" alt="泊いゆまち的魚貨與貝類">
-        </div>
-      </div>
-      <article class="market-secondary">
-        <img src="assets/market-makishi.jpg" alt="第一牧志公設市場內的市場攤商">
-        <div>
-          <span>那霸散步版 · 不用開車</span>
-          <h3>第一牧志公設市場</h3>
-          <p>一樓可看鮮魚、肉品、乾貨與沖繩食材，再到二樓用餐。它比泊港更觀光、品項更雜，適合和國際通、平和通一起逛。</p>
-          <p><b>適合：</b>A1／B2／C5／D5 下午。官方營業 08:00–22:00，各店不同；持上樓調理的食材最晚接單時間依官方現場為準。</p>
-          <a href="https://www.makishi-public-market.jp/" target="_blank" rel="noreferrer">市場官方網站 ↗</a>
-          <a href="https://www.google.com/maps/search/?api=1&query=第一牧志公設市場" target="_blank" rel="noreferrer">開啟地圖 ↗</a>
-        </div>
-      </article>
-      <p class="market-note">行程取捨：魚貨感最強選泊いゆまち；想連國際通一起逛選牧志。兩個市場不用同一天都跑。</p>
     </section>
 
     <section class="catalog-section food-catalog" id="food-map">
@@ -726,6 +775,14 @@
             <a href="https://www.makishi-public-market.jp/" target="_blank" rel="noreferrer">第一牧志公設市場</a>
             <a href="https://www.naha-navi.or.jp/sightseeing/tomariiyumachi-fishermans-market/" target="_blank" rel="noreferrer">那霸觀光協會｜泊いゆまち</a>
             <a href="https://okinawa-labo.com/tomariiyumachi-69916" target="_blank" rel="noreferrer">泊いゆまち魚貨照片與介紹</a>
+            <a href="https://visitokinawajapan.com/travel-inspiration/whale-watching-in-okinawa/" target="_blank" rel="noreferrer">官方｜沖繩賞鯨季節</a>
+            <a href="https://www.zamamitourism.com/akuteibitei/%E3%83%9B%E3%82%A8%E3%83%BC%E3%83%AB%E3%82%A6%E3%82%A9%E3%83%83%E3%83%81%E3%83%B3%E3%82%B0%E5%8D%94%E4%BC%9A" target="_blank" rel="noreferrer">座間味｜賞鯨協會</a>
+            <a href="https://commons.wikimedia.org/" target="_blank" rel="noreferrer">Wikimedia Commons 公開照片</a>
+            <a href="https://www.okinawaclip.com/post/1707871694/" target="_blank" rel="noreferrer">沖繩 CLIP｜真榮田岬</a>
+            <a href="https://michinoeki-kadena.jp/" target="_blank" rel="noreferrer">道之驛嘉手納</a>
+            <a href="https://www.dee-okinawa.com/koneta/2021/03/tuboyasisa.html" target="_blank" rel="noreferrer">DEE Okinawa｜壺屋通</a>
+            <a href="https://www.gltjp.com/en/directory/item/13316/" target="_blank" rel="noreferrer">GOOD LUCK TRIP｜識名園</a>
+            <a href="https://www.gltjp.com/en/directory/item/16736/" target="_blank" rel="noreferrer">GOOD LUCK TRIP｜知念岬</a>
             <a href="https://www.pexels.com/search/okinawa/" target="_blank" rel="noreferrer">Pexels 沖繩照片</a>
             <a href="https://unsplash.com/s/photos/okinawa" target="_blank" rel="noreferrer">Unsplash 沖繩照片</a>
           </div>
@@ -764,6 +821,6 @@
   <section class="print-sheet" id="printSheet" aria-hidden="true"></section>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script src="app.js?v=20260612-events"></script>
+  <script src="app.js?v=20260612-matrix"></script>
 </body>
 </html>
