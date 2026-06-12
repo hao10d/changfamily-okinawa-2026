@@ -1040,7 +1040,7 @@ function renderPrintSheet(planKey) {
       </div>
       <div class="print-flight">
         <b>MM922 · A320</b><small>11/03 09:45 桃園 → 12:25 那霸</small>
-        <b>MM925 · A320</b><small>11/15 13:35 那霸 → 14:20 桃園</small>
+        <b>MM925 · A320</b><small>11/08 13:35 那霸 → 14:20 桃園</small>
       </div>
     </header>
     <section class="print-route">
@@ -1145,10 +1145,10 @@ function updateMobileMatrix(planKey) {
   if (!mobile || !matrix) return;
   const planIndex = ["a", "b", "c", "d"].indexOf(planKey);
   const summaries = {
-    a: "A｜分區慢住：11/3 衝復興祭，北部拆開住，換三次飯店但車程最舒服。",
-    b: "B｜只換一次：11/3 衝復興祭，那霸 5 晚後北谷 7 晚，回程需提早還車。",
-    c: "C｜先海後城：抵達直接開往恩納，因此確定錯過 11/3 復興祭，只換一次飯店。",
-    d: "D｜石垣竹富：11/3 衝復興祭，安排石垣 4 晚與竹富島，犧牲部分本島北部。"
+    a: "A｜均衡分區：那霸 1 晚、恩納 2 晚、再回那霸 2 晚；六天內兼顧南北與魚市場。",
+    b: "B｜只換一次：那霸 2 晚後住北谷 3 晚；少搬行李，但 11/8 要提早還車。",
+    c: "C｜先海後城：抵達直接開往恩納住 3 晚，因此確定錯過 11/3 復興祭，最後住那霸 2 晚。",
+    d: "D｜石垣竹富：石垣住 2 晚並保留竹富整日；放棄本島北部，也不再硬塞西表島。"
   };
   mobile.querySelectorAll("[data-mobile-plan]").forEach(button => {
     button.classList.toggle("is-active", button.dataset.mobilePlan === planKey);

@@ -1,10 +1,7 @@
 (() => {
   const dates = [
     ["11.03", "星期二"], ["11.04", "星期三"], ["11.05", "星期四"],
-    ["11.06", "星期五"], ["11.07", "星期六"], ["11.08", "星期日"],
-    ["11.09", "星期一"], ["11.10", "星期二"], ["11.11", "星期三"],
-    ["11.12", "星期四"], ["11.13", "星期五"], ["11.14", "星期六"],
-    ["11.15", "星期日"]
+    ["11.06", "星期五"], ["11.07", "星期六"], ["11.08", "星期日"]
   ];
 
   const templates = {
@@ -238,7 +235,7 @@
         ["assets/steak88.png", "牛排屋 88", "水族館附近牛排", "food"],
         ["assets/nakamura-soba-food.jpg", "沖繩麵", "實際麵食照片", "food"]
       ],
-      drive: "水族館與 JUNGLIA 不放同一天；13 天版已分開，行程不再硬塞。"
+      drive: "水族館與 JUNGLIA 都是整日主線；六天行程只能二選一。"
     },
     kouriNago: {
       title: "古宇利藍、蝦蝦飯與名護阿古豬",
@@ -281,7 +278,7 @@
         ["assets/junglia.jpg", "JUNGLIA", "北部新主題樂園整日遊", "main"],
         ["assets/aw-burger.jpg", "A&W 漢堡", "離園後的北部備選餐點", "food"]
       ],
-      drive: "13 天版才有餘裕把 JUNGLIA 獨立成一天，這也是 A、B 與短版行程最大的差別。"
+      drive: "六天版若選 JUNGLIA，就要整日替換美麗海、古宇利或南部其中一天。"
     },
     busenaNorth: {
       title: "部瀨名海中公園與恩納海景公路",
@@ -416,6 +413,104 @@
       ],
       drive: "長途旅行一定要有機動日，這天不預先綁死，才不會一路補行程補到累。"
     },
+    southTransfer: {
+      title: "南城海景與玉泉洞，傍晚移動中部",
+      subtitle: "齋場御嶽 → 知念岬 → Cafe Curcuma → 玉泉洞 → 恩納／北谷",
+      times: [
+        ["08:00", "那霸取車，前往齋場御嶽"],
+        ["10:30", "知念岬看太平洋海景"],
+        ["11:30", "Cafe Curcuma 泰式午餐"],
+        ["13:30", "沖繩世界／玉泉洞；或預約 Gangala 之谷"],
+        ["17:00", "沿高速公路前往恩納或北谷飯店"]
+      ],
+      tags: ["南部自駕", "換住宿", "玉泉洞二選一"],
+      route: ["齋場御嶽", "知念岬", "Cafe Curcuma", "玉泉洞／Gangala", "中部飯店"],
+      addOns: ["玉泉洞與 Gangala 之谷二選一", "這天不再塞瀨長島，避免南部結束後又繞路"],
+      food: [["Cafe Curcuma", "泰式咖哩", "高台海景午餐"], ["A&W", "漢堡與 Root Beer", "高速公路移動備選"]],
+      photos: [
+        ["assets/sefa-utaki.jpg", "齋場御嶽", "南城森林裡的琉球聖地", "main"],
+        ["assets/chinen-cape.jpg", "知念岬", "面向太平洋的岬角", "main"],
+        ["assets/gyokusendo.jpg", "玉泉洞", "與 Gangala 二選一", "main"],
+        ["assets/gangala.jpg", "Gangala 之谷", "預約導覽替代玉泉洞", "optional"],
+        ["assets/curcuma-curry.jpg", "Cafe Curcuma", "泰式綠咖哩實品", "food"]
+      ],
+      drive: "南部結束後直接換到中部住宿；導航時間外再留尖峰車流緩衝。"
+    },
+    northHighlights: {
+      title: "美麗海、備瀨與古宇利北部精華",
+      subtitle: "美麗海水族館 → 備瀨福木林 → 古宇利島 → 蝦蝦飯／阿古豬",
+      times: [
+        ["08:00", "提早出發，水族館開門前抵達"],
+        ["09:00", "黑潮之海、鯨鯊與海洋博公園"],
+        ["12:30", "備瀨福木林短程散步"],
+        ["14:30", "古宇利大橋、海洋塔或心形岩擇一"],
+        ["16:30", "KOURI SHRIMP；或預約百年古家大家早晚餐"]
+      ],
+      tags: ["北部精華", "鯨鯊", "古宇利島"],
+      route: ["美麗海水族館", "備瀨福木林", "古宇利大橋", "KOURI SHRIMP", "百年古家大家"],
+      addOns: ["心形岩與古宇利海洋塔依長輩體力二選一", "JUNGLIA 若要玩，必須整日取代本日，不能同日硬塞"],
+      food: [["KOURI SHRIMP", "蒜香蝦蝦飯", "古宇利人氣餐車"], ["古宇利海膽／海葡萄丼", "海鮮丼", "依漁獲供應"], ["百年古家 大家", "阿古豬", "有訂位再前往"]],
+      photos: [
+        ["assets/aquarium.jpg", "美麗海水族館", "黑潮之海鯨鯊", "main"],
+        ["assets/bise.jpg", "備瀨福木林", "水族館旁綠色聚落", "main"],
+        ["assets/kouri-heart.jpg", "古宇利島", "大橋、海灘與心形岩", "main"],
+        ["assets/kouri-shrimp.jpg", "KOURI SHRIMP", "蒜香蝦蝦飯實品", "food"],
+        ["assets/nishikiya.jpg", "海膽海葡萄丼", "有漁獲時再點", "food"],
+        ["assets/ufuya.png", "百年古家 大家", "有訂位再加入", "optional"],
+        ["assets/junglia.jpg", "JUNGLIA", "整日替換本日", "optional"]
+      ],
+      drive: "六天版把北部經典合成一天，古宇利只選海洋塔或心形岩其中一個。"
+    },
+    centralToNaha: {
+      title: "恩納、讀谷與美國村，傍晚回那霸",
+      subtitle: "萬座毛 → 真榮田岬／琉球村 → BANTA CAFE → 美國村 → 那霸",
+      times: [
+        ["08:30", "退房後先到萬座毛"],
+        ["10:30", "真榮田岬看海況；不能下水就改琉球村"],
+        ["13:30", "BANTA CAFE 或土花土花二選一"],
+        ["16:00", "美國村海邊散步與早晚餐"],
+        ["19:00", "回那霸市區飯店"]
+      ],
+      tags: ["中部海岸", "換住宿", "海景咖啡"],
+      route: ["萬座毛", "真榮田岬／琉球村", "BANTA CAFE", "美國村", "那霸"],
+      addOns: ["真榮田岬浮潛與琉球村二選一", "BANTA CAFE 與土花土花二選一", "2026 日期確認後，可用東南植物園燈光替換美國村"],
+      food: [["浜屋そば", "軟骨沖繩麵", "北谷人氣老店"], ["BANTA CAFE", "海景輕食", "讀谷下午茶"], ["琉球的牛", "燒肉", "有預約再排晚餐"]],
+      photos: [
+        ["assets/manzamo.jpg", "萬座毛", "恩納代表海岸", "main"],
+        ["assets/maeda-cape.jpg", "真榮田岬", "與琉球村二選一", "optional"],
+        ["assets/ryukyu-mura.jpg", "琉球村", "與浮潛二選一", "optional"],
+        ["assets/banta-cafe.jpg", "BANTA CAFE", "讀谷海邊下午茶", "food"],
+        ["assets/american-village.jpg", "美國村", "回那霸前看夕色", "main"],
+        ["assets/hamaya-soba.jpg", "浜屋そば", "軟骨沖繩麵實品", "food"],
+        ["assets/okinawa-illumination.webp", "沖繩南國燈光秀", "確認 2026 日期後替換晚間行程", "optional"]
+      ],
+      drive: "這天邊玩邊往南移動，晚上回那霸，最後兩晚不用再搬行李。"
+    },
+    marketHistory: {
+      title: "泊港魚貨、首里與牧志市場",
+      subtitle: "泊いゆまち → 波上宮 → 首里城 → 牧志公設市場 → 國際通",
+      times: [
+        ["07:30", "泊いゆまち看鮪魚、近海魚與魚貝冰台"],
+        ["09:30", "波上宮與波之上海灘"],
+        ["11:00", "首里城、金城町石疊道與沖繩麵"],
+        ["15:00", "第一牧志公設市場看魚貨與市場料理"],
+        ["18:00", "國際通、唐吉訶德與最後採買"]
+      ],
+      tags: ["爸爸市場日", "首里歷史", "那霸散步"],
+      route: ["泊いゆまち", "波上宮", "首里城", "第一牧志公設市場", "國際通"],
+      addOns: ["若 11/3 已完整走首里，可把首里換成 DFS 或 PARCO CITY", "波上宮與壺屋通依步行體力二選一"],
+      food: [["泊いゆまち", "鮪魚與海鮮", "早上魚貨最齊"], ["首里そば", "沖繩麵", "首里午餐"], ["Jack's Steak House", "牛排", "晚餐備選"]],
+      photos: [
+        ["assets/market-fish-2.jpg", "泊いゆまち", "鮮魚市場通道", "main"],
+        ["assets/market-fish-3.jpg", "泊港魚貨", "彩色近海魚與鮪魚", "main"],
+        ["assets/naminoue.jpg", "波上宮", "市場後的海邊神社", "main"],
+        ["assets/shuri-steps.jpg", "首里城", "王城石階與城郭", "main"],
+        ["assets/market-makishi.jpg", "牧志公設市場", "魚貨與海鮮攤位", "main"],
+        ["assets/shuri-soba.jpg", "首里そば", "沖繩麵實品", "food"],
+        ["assets/jack-steak-food.jpg", "Jack's Steak", "牛排套餐實品", "food"]
+      ],
+      drive: "泊港要早去；那霸市區可用計程車與單軌，避免一直找停車位。"
+    },
     flyIshigaki: {
       title: "飛往石垣，川平灣看海",
       subtitle: "那霸國內線 → 石垣取車 → 川平灣 → 石垣市區",
@@ -436,7 +531,7 @@
         ["assets/yaeyama-soba.jpg", "八重山そば", "實際八重山麵", "food"],
         ["assets/ishigaki-beef.jpg", "石垣牛", "燒肉實品", "food"]
       ],
-      drive: "國內線時刻需另訂；大件行李可寄放那霸飯店，只帶四晚用品。"
+      drive: "國內線時刻需另訂；大件行李可寄放那霸飯店，只帶兩晚用品。"
     },
     taketomi: {
       title: "竹富島紅瓦村落與 Kondoi 海灘",
@@ -504,26 +599,29 @@
       drive: "這天是否出海完全看海況，不能把套裝船班當成百分之百成立。"
     },
     backNaha: {
-      title: "石垣晨光，搭國內線回那霸",
-      subtitle: "石垣市區 → 還車 → 那霸 → 國際通",
+      title: "搭早班國內線回那霸，接魚市場與市區",
+      subtitle: "石垣還車 → 早班國內線 → 泊魚市場 → 波上宮 → 國際通",
       times: [
-        ["08:30", "石垣市區早餐與最後散步"],
-        ["10:30", "加油還車，前往石垣機場"],
-        ["12:30", "搭國內線返回那霸"],
-        ["15:30", "那霸飯店入住"],
-        ["18:00", "國際通晚餐"]
+        ["06:30", "退房、加油還車，前往石垣機場"],
+        ["08:30", "搭早班國內線返回那霸；班次依訂票調整"],
+        ["10:30", "那霸飯店寄放行李"],
+        ["11:30", "泊いゆまち魚市場與波上宮"],
+        ["16:00", "牧志公設市場、國際通晚餐"]
       ],
-      tags: ["移動日", "回那霸", "不排遠點"],
-      route: ["石垣還車", "國內線", "那霸飯店", "國際通"],
-      addOns: ["班機順利且體力足夠才加壺屋通", "回那霸後不再租車，隔天再決定"],
-      food: [["ポーたま", "豬肉蛋飯糰", "移動日簡單吃"], ["琉家拉麵", "拉麵", "回那霸晚餐"]],
+      tags: ["早班移動", "魚貨市場", "回那霸"],
+      route: ["石垣還車", "國內線", "泊いゆまち", "波上宮", "國際通"],
+      addOns: ["若只能訂到午班機，市場改第一牧志公設市場，不硬趕泊港", "班機順利且體力足夠才加壺屋通"],
+      food: [["泊いゆまち", "鮪魚與海鮮", "早班機抵達才排"], ["ポーたま", "豬肉蛋飯糰", "移動日簡單吃"], ["琉家拉麵", "拉麵", "回那霸晚餐"]],
       photos: [
+        ["assets/market-fish-2.jpg", "泊いゆまち", "回那霸後看實際魚貨", "main"],
+        ["assets/market-fish-4.jpg", "泊港魚貝冰台", "早班機才有餘裕前往", "main"],
+        ["assets/naminoue.jpg", "波上宮", "市場後順遊", "main"],
         ["assets/naha-night.jpg", "國際通", "回本島後散步", "main"],
         ["assets/tsuboya-pottery.jpg", "壺屋通", "班機順利才加", "optional"],
         ["assets/potama.png", "ポーたま", "移動日餐點", "food"],
         ["assets/ryuya.jpg", "琉家拉麵", "回那霸晚餐", "food"]
       ],
-      drive: "機場只是交通節點，不再放進行程照片。"
+      drive: "D 方案必須訂早班石垣回那霸，才能保留魚市場；午班機就刪掉泊港。"
     },
     departure: {
       title: "MM925 從那霸回桃園",
@@ -535,7 +633,7 @@
         ["13:35", "由那霸起飛"],
         ["14:20", "抵達桃園機場"]
       ],
-      tags: ["MM925", "那霸進出", "13 天完成"],
+      tags: ["MM925", "那霸進出", "6 天完成"],
       route: ["飯店", "那霸單軌／接送", "MM925", "桃園"],
       addOns: ["機場商店預留 60–90 分鐘", "最後一天不排景點，避免還車與交通意外"],
       food: [["ポーたま", "豬肉蛋飯糰", "早餐"], ["機場沖繩麵", "最後一餐", "依報到時間"]],
@@ -608,63 +706,50 @@
 
   const built = {
     a: buildPlan({
-      title: "方案 A｜分區慢住",
-      description: "那霸、恩納、本部／名護再回那霸。長途景點拆開玩，13 天最舒服。",
+      title: "方案 A｜均衡分區",
+      description: "那霸一晚、恩納兩晚、再回那霸兩晚。六天內兼顧南部、北部、市場與回程安心。",
       route: [
-        { nights: "3", place: "那霸市區", note: "11/3–11/6" },
-        { nights: "4", place: "恩納西海岸", note: "11/6–11/10" },
-        { nights: "2", place: "本部／名護", note: "11/10–11/12" },
-        { nights: "3", place: "那霸市區", note: "11/12–11/15" }
+        { nights: "1", place: "那霸市區", note: "11/3–11/4" },
+        { nights: "2", place: "恩納西海岸", note: "11/4–11/6" },
+        { nights: "2", place: "那霸市區", note: "11/6–11/8" }
       ]
     }, [
-      ["arrivalFestival", naha], ["nahaHistory", naha], ["southClassic", naha],
-      ["transferOnna", onna], ["onnaActive", onna], ["aquarium", onna],
-      ["kouriNago", onna], ["centralCoast", motobu], ["junglia", motobu],
-      ["busenaNorth", naha], ["fishShopping", naha], ["outletUrban", naha],
-      ["departure", home]
+      ["arrivalFestival", naha], ["southTransfer", onna], ["northHighlights", onna],
+      ["centralToNaha", naha], ["marketHistory", naha], ["departure", home]
     ]),
     b: buildPlan({
       title: "方案 B｜全程只換一次",
-      description: "那霸五晚、北谷七晚。搬行李最少，靠較多日數分散長途自駕。",
+      description: "那霸兩晚、北谷三晚。全程只搬一次行李，最後一天從北谷提早還車。",
       route: [
-        { nights: "5", place: "那霸市區", note: "11/3–11/8" },
-        { nights: "7", place: "北谷美濱", note: "11/8–11/15" }
+        { nights: "2", place: "那霸市區", note: "11/3–11/5" },
+        { nights: "3", place: "北谷美濱", note: "11/5–11/8" }
       ]
     }, [
-      ["arrivalFestival", naha], ["nahaHistory", naha], ["southClassic", naha],
-      ["itomanDmm", naha], ["kerama", naha], ["transferChatan", chatan],
-      ["onnaActive", chatan], ["aquarium", chatan], ["kouriNago", chatan],
-      ["junglia", chatan], ["eastCoast", chatan], ["centralCoast", chatan],
-      ["departureChatan", home]
+      ["arrivalFestival", naha], ["marketHistory", naha], ["southTransfer", chatan],
+      ["northHighlights", chatan], ["centralCoast", chatan], ["departureChatan", home]
     ]),
     c: buildPlan({
       title: "方案 C｜先海後城",
-      description: "抵達直接住恩納五晚，再回那霸七晚。只換一次，但明確放棄 11/3 復興祭。",
+      description: "抵達直接住恩納三晚，再回那霸兩晚。只換一次，但明確放棄 11/3 復興祭。",
       route: [
-        { nights: "5", place: "恩納西海岸", note: "11/3–11/8" },
-        { nights: "7", place: "那霸市區", note: "11/8–11/15" }
+        { nights: "3", place: "恩納西海岸", note: "11/3–11/6" },
+        { nights: "2", place: "那霸市區", note: "11/6–11/8" }
       ]
     }, [
-      ["arrivalOnna", onna], ["aquarium", onna], ["kouriNago", onna],
-      ["onnaActive", onna], ["centralCoast", onna], ["eastCoast", naha],
-      ["southClassic", naha], ["nahaHistory", naha], ["kerama", naha],
-      ["outletUrban", naha], ["fishShopping", naha], ["freeNaha", naha],
-      ["departure", home]
+      ["arrivalOnna", onna], ["northHighlights", onna], ["onnaActive", onna],
+      ["marketHistory", naha], ["southClassic", naha], ["departure", home]
     ]),
     d: buildPlan({
       title: "方案 D｜石垣・竹富跳島",
-      description: "那霸兩晚、石垣四晚、那霸六晚。離島份量最完整，也保留本島經典。",
+      description: "那霸一晚、石垣兩晚、再回那霸兩晚。保留川平灣與竹富島，放棄本島北部。",
       route: [
-        { nights: "2", place: "那霸市區", note: "11/3–11/5" },
-        { nights: "4", place: "石垣市區", note: "11/5–11/9" },
-        { nights: "6", place: "那霸市區", note: "11/9–11/15" }
+        { nights: "1", place: "那霸市區", note: "11/3–11/4" },
+        { nights: "2", place: "石垣市區", note: "11/4–11/6" },
+        { nights: "2", place: "那霸市區", note: "11/6–11/8" }
       ]
     }, [
-      ["arrivalFestival", naha], ["nahaHistory", naha], ["flyIshigaki", ishigaki],
-      ["taketomi", ishigaki], ["ishigakiNorth", ishigaki], ["iriomote", ishigaki],
-      ["backNaha", naha], ["southClassic", naha], ["centralCoast", naha],
-      ["aquarium", naha], ["fishShopping", naha], ["outletUrban", naha],
-      ["departure", home]
+      ["arrivalFestival", naha], ["flyIshigaki", ishigaki], ["taketomi", ishigaki],
+      ["backNaha", naha], ["southClassic", naha], ["departure", home]
     ])
   };
 
@@ -673,50 +758,51 @@
       ["活動", "首里城復興祭", ["main", "抵達後衝最後一天"], ["main", "抵達後衝最後一天"], ["none", "直奔恩納，確定錯過"], ["main", "抵達後衝最後一天"]]
     ]},
     { region: "北部｜本部・名護・古宇利", rows: [
-      ["景點", "美麗海水族館", ["main", "獨立一天"], ["main", "北谷往返"], ["main", "恩納出發最順"], ["main", "那霸長途日"]],
-      ["景點", "備瀨福木林", ["main", "水族館同日"], ["main", "水族館同日"], ["main", "水族館同日"], ["main", "水族館同日"]],
-      ["景點", "古宇利島／心形岩", ["main", "獨立一天"], ["main", "獨立一天"], ["main", "獨立一天"], ["none", "外島優先"]],
-      ["景點", "名護鳳梨園", ["option", "與水果樂園二選一"], ["option", "與水果樂園二選一"], ["option", "與水果樂園二選一"], ["none", "未排"]],
-      ["景點", "JUNGLIA", ["main", "整日主線"], ["main", "整日主線"], ["option", "替換自由日"], ["none", "離島優先"]],
-      ["景點", "部瀨名海中公園", ["main", "慢遊日"], ["option", "替換中部日"], ["option", "替換自由日"], ["option", "替換購物日"]],
-      ["美食", "KOURI SHRIMP 蝦蝦飯", ["main", "古宇利午餐"], ["main", "古宇利午餐"], ["main", "古宇利午餐"], ["none", "未排"]],
+      ["景點", "美麗海水族館", ["main", "11/5 北部精華日"], ["main", "11/6 北谷往返"], ["main", "11/4 恩納出發"], ["none", "跳島取代北部"]],
+      ["景點", "備瀨福木林", ["main", "水族館同日短停"], ["main", "水族館同日短停"], ["main", "水族館同日短停"], ["none", "未排"]],
+      ["景點", "古宇利島／心形岩", ["main", "海洋塔或心形岩擇一"], ["main", "海洋塔或心形岩擇一"], ["main", "海洋塔或心形岩擇一"], ["none", "未排"]],
+      ["景點", "名護鳳梨園／水果樂園", ["option", "縮短備瀨才加入"], ["option", "縮短備瀨才加入"], ["option", "縮短備瀨才加入"], ["none", "未排"]],
+      ["景點", "JUNGLIA", ["option", "整日替換北部精華"], ["option", "整日替換北部精華"], ["option", "整日替換北部精華"], ["none", "跳島優先"]],
+      ["景點", "部瀨名海中公園", ["option", "替換中部半日"], ["option", "替換讀谷日"], ["option", "替換恩納半日"], ["none", "未排"]],
+      ["美食", "KOURI SHRIMP 蝦蝦飯", ["main", "古宇利餐點"], ["main", "古宇利餐點"], ["main", "古宇利餐點"], ["none", "未排"]],
       ["美食", "古宇利海膽／海葡萄丼", ["option", "與蝦蝦飯二選一"], ["option", "與蝦蝦飯二選一"], ["option", "與蝦蝦飯二選一"], ["none", "未排"]],
-      ["美食", "百年古家 大家", ["main", "阿古豬晚餐"], ["main", "阿古豬晚餐"], ["main", "阿古豬晚餐"], ["none", "未排"]]
+      ["美食", "百年古家 大家", ["option", "有訂位再加"], ["option", "有訂位再加"], ["option", "有訂位再加"], ["none", "未排"]]
     ]},
-    { region: "中部｜恩納・讀谷・北谷・東海岸", rows: [
-      ["景點", "萬座毛", ["main", "恩納日"], ["main", "北谷出發"], ["main", "住宿區"], ["option", "中部日可加"]],
-      ["景點", "美國村", ["main", "移動日"], ["main", "住宿區"], ["main", "抵達日"], ["main", "中部日"]],
-      ["景點", "真榮田岬／青之洞窟", ["main", "海況許可"], ["main", "海況許可"], ["main", "海況許可"], ["none", "未排"]],
-      ["景點", "座喜味城", ["option", "與港川二選一"], ["main", "讀谷日"], ["main", "讀谷日"], ["main", "中部日"]],
-      ["景點", "BANTA CAFE", ["main", "與土花土花二選一"], ["main", "與土花土花二選一"], ["main", "與土花土花二選一"], ["main", "與土花土花二選一"]],
-      ["景點", "海中道路／濱比嘉島", ["none", "未排"], ["main", "東海岸日"], ["main", "移動回那霸"], ["none", "未排"]],
-      ["景點", "東南植物園燈光秀", ["option", "與喜璃癒志二選一"], ["main", "2026 日期待確認"], ["option", "與喜璃癒志二選一"], ["option", "2026 日期待確認"]],
-      ["美食", "浜屋そば", ["main", "中部午餐"], ["main", "中部午餐"], ["main", "中部午餐"], ["option", "中部日可加"]],
-      ["美食", "King Tacos", ["none", "未排"], ["main", "東海岸午餐"], ["main", "東海岸午餐"], ["none", "未排"]],
-      ["美食", "A&W 牧港", ["option", "移動日可加"], ["main", "搬飯店日"], ["option", "回那霸可加"], ["option", "中部日可加"]]
+    { region: "中部｜恩納・讀谷・北谷", rows: [
+      ["景點", "萬座毛", ["main", "11/6 回那霸途中"], ["option", "11/7 讀谷日前加"], ["main", "11/5 恩納日"], ["none", "未排"]],
+      ["景點", "美國村", ["main", "11/6 傍晚"], ["main", "住宿區"], ["main", "抵達日"], ["none", "未排"]],
+      ["景點", "真榮田岬／青之洞窟", ["option", "與琉球村二選一"], ["option", "替換讀谷半日"], ["main", "海況許可"], ["none", "未排"]],
+      ["景點", "琉球村", ["option", "與浮潛二選一"], ["option", "替換讀谷半日"], ["main", "不能下水時主線"], ["none", "未排"]],
+      ["景點", "座喜味城／殘波岬", ["option", "縮短美國村才加"], ["main", "11/7 讀谷日"], ["option", "恩納日加點"], ["none", "未排"]],
+      ["景點", "BANTA CAFE／土花土花", ["main", "11/6 二選一"], ["main", "11/7 二選一"], ["option", "恩納日二選一"], ["none", "未排"]],
+      ["景點", "東南植物園燈光秀", ["option", "確認日期後換晚間"], ["option", "確認日期後換晚間"], ["option", "確認日期後換晚間"], ["none", "未排"]],
+      ["美食", "浜屋そば", ["main", "中部午餐"], ["option", "北谷餐點"], ["main", "北谷餐點"], ["none", "未排"]],
+      ["美食", "琉球的牛／浜の家", ["option", "有預約再排"], ["option", "有預約再排"], ["option", "有預約再排"], ["none", "未排"]],
+      ["美食", "A&W 牧港", ["option", "回那霸途中"], ["option", "住宿區備選"], ["option", "回那霸途中"], ["none", "未排"]]
     ]},
     { region: "那霸／南部｜首里・市場・南城・購物", rows: [
-      ["景點", "首里城／金城町", ["main", "祭典＋歷史日"], ["main", "祭典＋歷史日"], ["main", "回那霸後"], ["main", "祭典＋歷史日"]],
-      ["市場", "泊いゆまち魚市場", ["main", "爸爸市場日"], ["option", "那霸日可加"], ["main", "爸爸市場日"], ["main", "爸爸市場日"]],
-      ["市場", "第一牧志公設市場", ["main", "魚貨與市場料理"], ["main", "魚貨與市場料理"], ["main", "魚貨與市場料理"], ["main", "魚貨與市場料理"]],
-      ["景點", "齋場御嶽／知念岬", ["main", "南部日"], ["main", "南部日"], ["main", "南部日"], ["main", "南部日"]],
-      ["景點", "玉泉洞", ["main", "與 Gangala 二選一"], ["main", "與 Gangala 二選一"], ["main", "與 Gangala 二選一"], ["main", "與 Gangala 二選一"]],
+      ["景點", "首里城／金城町", ["main", "祭典＋11/7 補走"], ["main", "祭典＋11/4 補走"], ["main", "11/6 市場日"], ["main", "抵達日祭典"]],
+      ["市場", "泊いゆまち魚市場", ["main", "11/7 爸爸市場日"], ["main", "11/4 爸爸市場日"], ["main", "11/6 爸爸市場日"], ["main", "早班機回那霸才排"]],
+      ["市場", "第一牧志公設市場", ["main", "11/7 魚貨與料理"], ["main", "11/4 魚貨與料理"], ["main", "11/6 魚貨與料理"], ["main", "11/6 回那霸後"]],
+      ["景點", "波上宮", ["main", "市場同日"], ["main", "市場同日"], ["main", "市場同日"], ["main", "市場同日"]],
+      ["景點", "齋場御嶽／知念岬", ["main", "11/4 南部日"], ["main", "11/5 南部日"], ["main", "11/7 南部日"], ["main", "11/7 南部日"]],
+      ["景點", "沖繩世界／玉泉洞", ["main", "與 Gangala 二選一"], ["main", "與 Gangala 二選一"], ["main", "與 Gangala 二選一"], ["main", "與 Gangala 二選一"]],
       ["景點", "Gangala 之谷", ["option", "替換玉泉洞"], ["option", "替換玉泉洞"], ["option", "替換玉泉洞"], ["option", "替換玉泉洞"]],
-      ["景點", "瀨長島", ["main", "南部夕陽"], ["main", "南部夕陽"], ["main", "南部夕陽"], ["main", "南部夕陽"]],
-      ["景點", "DMM 水族館", ["option", "雨天替代"], ["main", "購物雨備日"], ["option", "與瀨長島二選一"], ["option", "與瀨長島二選一"]],
-      ["景點", "ASHIBINAA／PARCO CITY", ["main", "後段購物日"], ["main", "那霸購物日"], ["main", "後段購物日"], ["main", "後段購物日"]],
-      ["美食", "Jack's Steak House", ["main", "那霸餐"], ["main", "那霸餐"], ["main", "那霸餐"], ["main", "那霸餐"]],
+      ["景點", "瀨長島", ["option", "南部日不繞路"], ["option", "南部日不繞路"], ["main", "11/7 夕陽"], ["main", "11/7 夕陽"]],
+      ["景點", "DMM 水族館", ["option", "雨天替代南部"], ["option", "雨天替代南部"], ["option", "雨天替代南部"], ["option", "雨天替代南部"]],
+      ["景點", "ASHIBINAA／PARCO CITY", ["option", "市場日替換首里"], ["option", "市場日替換首里"], ["option", "南部日縮短才加"], ["option", "南部日縮短才加"]],
+      ["美食", "Jack's Steak House", ["main", "那霸晚餐"], ["main", "那霸晚餐"], ["main", "那霸晚餐"], ["main", "那霸晚餐"]],
       ["美食", "Cafe Curcuma", ["main", "南城午餐"], ["main", "南城午餐"], ["main", "南城午餐"], ["main", "南城午餐"]],
       ["美食", "ポーたま", ["main", "早餐"], ["main", "早餐"], ["main", "早餐"], ["main", "早餐"]]
     ]},
-    { region: "外島｜慶良間・石垣・竹富・西表", rows: [
-      ["景點", "座間味／渡嘉敷跳島", ["option", "替換購物日"], ["main", "整日跳島"], ["main", "整日跳島"], ["none", "八重山優先"]],
-      ["景點", "石垣島川平灣", ["none", "未排"], ["none", "未排"], ["none", "未排"], ["main", "主線"]],
-      ["景點", "竹富島紅瓦村落", ["none", "未排"], ["none", "未排"], ["none", "未排"], ["main", "整日主線"]],
+    { region: "外島｜慶良間・石垣・竹富", rows: [
+      ["景點", "座間味／渡嘉敷跳島", ["option", "整日替換市場日"], ["option", "整日替換市場日"], ["option", "整日替換南部日"], ["none", "八重山優先"]],
+      ["景點", "石垣島川平灣", ["none", "未排"], ["none", "未排"], ["none", "未排"], ["main", "11/4 主線"]],
+      ["景點", "竹富島紅瓦村落", ["none", "未排"], ["none", "未排"], ["none", "未排"], ["main", "11/5 整日"]],
       ["景點", "Kondoi 海灘／西棧橋", ["none", "未排"], ["none", "未排"], ["none", "未排"], ["main", "竹富同日"]],
-      ["景點", "西表島／由布島", ["none", "未排"], ["none", "未排"], ["none", "未排"], ["option", "與石垣休息日二選一"]],
-      ["美食", "石垣牛燒肉", ["none", "未排"], ["none", "未排"], ["none", "未排"], ["main", "晚餐"]],
-      ["美食", "八重山麵／竹富島料理", ["none", "未排"], ["none", "未排"], ["none", "未排"], ["main", "島上主線"]]
+      ["景點", "西表島／由布島", ["none", "未排"], ["none", "未排"], ["none", "未排"], ["none", "六天排不進"]],
+      ["美食", "石垣牛燒肉", ["none", "未排"], ["none", "未排"], ["none", "未排"], ["main", "11/4 晚餐"]],
+      ["美食", "八重山麵／竹富島料理", ["none", "未排"], ["none", "未排"], ["none", "未排"], ["main", "11/4–11/5"]]
     ]}
   ];
 
