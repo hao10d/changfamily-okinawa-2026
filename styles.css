@@ -89,6 +89,21 @@ a {
   font-weight: 700;
 }
 
+.brand-avatar {
+  width: 46px;
+  height: 46px;
+  flex: 0 0 46px;
+  object-fit: cover;
+  object-position: center 32%;
+  border: 2px solid rgba(255,255,255,.84);
+  border-radius: 50%;
+  box-shadow: 0 4px 15px rgba(5, 35, 39, .24);
+}
+
+.site-header.scrolled .brand-avatar {
+  border-color: rgba(12, 73, 81, .18);
+}
+
 .brand strong,
 .brand small {
   display: block;
@@ -1959,6 +1974,12 @@ footer {
     width: 36px;
     height: 36px;
     font-size: 17px;
+  }
+
+  .brand-avatar {
+    width: 40px;
+    height: 40px;
+    flex-basis: 40px;
   }
 
   .brand strong {
