@@ -1297,6 +1297,7 @@ a {
 }
 
 .event-radar {
+  scroll-margin-top: 88px;
   padding-bottom: 125px;
 }
 
