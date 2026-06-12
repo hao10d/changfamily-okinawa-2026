@@ -94,7 +94,7 @@ a {
   height: 46px;
   flex: 0 0 46px;
   object-fit: cover;
-  object-position: center 24%;
+  object-position: center 30%;
   border: 2px solid rgba(255,255,255,.84);
   border-radius: 50%;
   box-shadow: 0 4px 15px rgba(5, 35, 39, .24);
@@ -1509,6 +1509,10 @@ a {
   scrollbar-color: var(--sea) #e7e1d6;
 }
 
+.mobile-matrix {
+  display: none;
+}
+
 .comparison-table {
   width: 100%;
   min-width: 650px;
@@ -2263,8 +2267,29 @@ a {
   color: var(--coral-dark);
 }
 
-.day-gallery {
+.day-photo-groups {
   grid-column: 2;
+  display: grid;
+  gap: 22px;
+}
+
+.day-photo-group h4 {
+  margin: 0 0 8px;
+  color: var(--deep);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .12em;
+}
+
+.day-photo-group-food h4 {
+  color: #a86a08;
+}
+
+.day-photo-group-optional h4 {
+  color: var(--coral-dark);
+}
+
+.day-gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
   gap: 9px;
@@ -3511,32 +3536,128 @@ footer {
   }
 
   .matrix-scroll {
-    margin-right: -24px;
+    display: none;
   }
 
-  .comparison-table {
-    min-width: 560px;
+  .mobile-matrix {
+    display: block;
   }
 
-  .comparison-table thead th:first-child,
-  .comparison-table tbody th[scope="row"] {
-    min-width: 205px;
-    max-width: 205px;
+  .mobile-matrix-tabs {
+    position: sticky;
+    z-index: 5;
+    top: 66px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+    padding: 8px 0;
+    background: var(--paper);
   }
 
-  .comparison-table th,
-  .comparison-table td {
-    padding: 11px 9px;
+  .mobile-matrix-tabs button {
+    padding: 11px 6px;
+    color: var(--deep);
+    border: 1px solid rgba(12, 73, 81, .2);
+    border-radius: 4px;
+    background: var(--white);
+    font-family: Georgia, serif;
+    font-size: 18px;
+    font-weight: 800;
   }
 
-  .comparison-table td {
-    min-width: 74px;
+  .mobile-matrix-tabs button.is-active {
+    color: var(--white);
+    border-color: var(--deep);
+    background: var(--deep);
   }
 
-  .matrix-kind {
-    display: flex;
-    width: max-content;
-    margin: 0 0 5px;
+  .mobile-matrix-summary {
+    margin: 10px 0 18px;
+    padding: 16px 18px;
+    color: var(--white);
+    border-left: 4px solid var(--coral);
+    background: var(--deep);
+    font-size: 13px;
+    font-weight: 800;
+    line-height: 1.65;
+  }
+
+  .mobile-matrix-list {
+    display: grid;
+    gap: 20px;
+  }
+
+  .mobile-matrix-list section {
+    overflow: hidden;
+    border: 1px solid var(--line);
+    background: var(--white);
+  }
+
+  .mobile-matrix-list h3 {
+    margin: 0;
+    padding: 12px 14px;
+    color: var(--white);
+    background: var(--sea);
+    font-size: 12px;
+  }
+
+  .mobile-matrix-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 30px;
+    gap: 3px 10px;
+    padding: 13px 14px;
+    border-bottom: 1px solid rgba(22, 50, 55, .09);
+  }
+
+  .mobile-matrix-row:last-child {
+    border-bottom: 0;
+  }
+
+  .mobile-matrix-row div {
+    min-width: 0;
+  }
+
+  .mobile-matrix-row div span,
+  .mobile-matrix-row div b {
+    display: block;
+  }
+
+  .mobile-matrix-row div span {
+    color: var(--coral-dark);
+    font-size: 9px;
+    font-weight: 900;
+  }
+
+  .mobile-matrix-row div b {
+    font-size: 14px;
+  }
+
+  .mobile-matrix-row strong {
+    grid-column: 2;
+    grid-row: 1 / 3;
+    align-self: center;
+    color: var(--deep);
+    font-family: Georgia, serif;
+    font-size: 23px;
+    text-align: center;
+  }
+
+  .mobile-matrix-row small {
+    grid-column: 1;
+    color: rgba(22, 50, 55, .64);
+    font-size: 11px;
+  }
+
+  .mobile-matrix-row.is-option {
+    background: #fff8f2;
+  }
+
+  .mobile-matrix-row.is-option strong {
+    color: var(--coral-dark);
+  }
+
+  .mobile-matrix-row.is-none {
+    opacity: .5;
   }
 
   .whale-note {
@@ -3660,8 +3781,12 @@ footer {
     grid-template-columns: 1fr;
   }
 
-  .day-gallery {
+  .day-photo-groups {
     grid-column: 1 / -1;
+    gap: 18px;
+  }
+
+  .day-gallery {
     grid-template-columns: 1fr 1fr;
     gap: 6px;
   }
@@ -3681,6 +3806,12 @@ footer {
   .day-gallery figure:first-child {
     grid-column: 1 / -1;
     height: 270px;
+  }
+
+  .day-photo-group-food .day-gallery figure:first-child,
+  .day-photo-group-optional .day-gallery figure:first-child {
+    grid-column: auto;
+    height: 190px;
   }
 
   .gallery-strip {
@@ -3838,10 +3969,26 @@ footer {
 
   .print-sheet-header {
     display: grid;
-    grid-template-columns: 1fr 150px;
+    grid-template-columns: minmax(0, 1fr) 230px;
     gap: 20px;
     padding-bottom: 14px;
     border-bottom: 2px solid #0c4951;
+  }
+
+  .print-brand {
+    display: grid;
+    grid-template-columns: 54px minmax(0, 1fr);
+    align-items: center;
+    gap: 12px;
+  }
+
+  .print-brand img {
+    width: 54px;
+    height: 54px;
+    object-fit: cover;
+    object-position: center 30%;
+    border: 2px solid #0c4951;
+    border-radius: 50%;
   }
 
   .print-sheet-header p {
@@ -3865,18 +4012,21 @@ footer {
 
   .print-flight {
     display: grid;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: 1fr;
     align-content: center;
-    gap: 1px 8px;
+    gap: 0;
     text-align: right;
   }
 
   .print-flight b {
+    margin-top: 3px;
     color: #0c4951;
+    font-size: 8.5pt;
   }
 
   .print-flight small {
     color: #68797b;
+    font-size: 7.5pt;
   }
 
   .print-route {
@@ -3913,7 +4063,7 @@ footer {
     grid-template-columns: 52px 1fr;
     gap: 14px;
     break-inside: avoid;
-    padding: 11px 0;
+    padding: 13px 0;
     border-bottom: 1px solid #cad4d3;
   }
 
@@ -3972,6 +4122,71 @@ footer {
     background: #edf3ef;
     font-size: 8pt;
     font-weight: 700;
+  }
+
+  .print-day-photos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px;
+    margin-top: 7px;
+  }
+
+  .print-day-photos figure {
+    position: relative;
+    height: 27mm;
+    margin: 0;
+    overflow: hidden;
+    background: #dbe6e2;
+  }
+
+  .print-day-photos img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .print-day-photos figcaption {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 3px 5px;
+    color: white;
+    background: rgba(8, 45, 49, .78);
+    font-size: 6.5pt;
+  }
+
+  .print-flex-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+    margin-top: 6px;
+  }
+
+  .print-flex-grid section {
+    padding: 5px 7px;
+    border-left: 2px solid #bf5137;
+    background: #f6f2e9;
+  }
+
+  .print-flex-grid section:last-child {
+    border-left-color: #0c6871;
+  }
+
+  .print-flex-grid b {
+    color: #173f43;
+    font-size: 7.5pt;
+  }
+
+  .print-flex-grid ul {
+    margin: 2px 0 0;
+    padding-left: 13px;
+    font-size: 7pt;
+    line-height: 1.35;
+  }
+
+  .print-flex-grid li + li {
+    margin-top: 1px;
   }
 
   .print-sheet-footer {

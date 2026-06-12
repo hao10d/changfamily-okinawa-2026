@@ -713,6 +713,15 @@ const dayEnhancements = {
   ]
 };
 
+if (window.extendedTripData) {
+  Object.entries(window.extendedTripData.plans).forEach(([key, plan]) => {
+    plans[key] = plan;
+  });
+  Object.entries(window.extendedTripData.enhancements).forEach(([key, enhancements]) => {
+    dayEnhancements[key] = enhancements;
+  });
+}
+
 const mapCatalogs = {
   spot: [
     { name: "JUNGLIA 叢林樂園", region: "north", coords: [26.654, 127.953], note: "整日主題樂園" },
@@ -891,6 +900,11 @@ function renderDays(plan) {
       optional: ["可加", "is-optional"],
       food: ["必吃", "is-food"]
     };
+    const photoGroups = [
+      ["當日主線", "main", photos.filter(photo => (photo[3] || "main") === "main")],
+      ["必吃料理", "food", photos.filter(photo => photo[3] === "food")],
+      ["順路加點／替代方案", "optional", photos.filter(photo => photo[3] === "optional")]
+    ].filter(group => group[2].length);
     return `
     <article class="day-card">
       <div class="day-number">
@@ -924,19 +938,26 @@ function renderDays(plan) {
         <p class="stay-night">今晚住宿｜<b>${day.stay}</b></p>
       </div>
       <div class="day-gallery-head">
-        <span>當日景點實景</span>
-        <div class="day-gallery-legend"><i>主線</i><i class="legend-option">可加</i><i class="legend-food">必吃</i></div>
+        <span>當日對應照片</span>
+        <div class="day-gallery-legend"><i>主線</i><i class="legend-food">必吃</i><i class="legend-option">可加</i></div>
       </div>
-      <div class="day-gallery">
-        ${photos.map(photo => {
-          const status = photoStatus[photo[3] || "main"];
-          return `
-          <figure>
-            <img src="${photo[0]}" alt="${photo[2]}" loading="lazy">
-            <span class="photo-status ${status[1]}">${status[0]}</span>
-            <figcaption><b>${photo[1]}</b><span>${photo[2]}</span></figcaption>
-          </figure>
-        `}).join("")}
+      <div class="day-photo-groups">
+        ${photoGroups.map(group => `
+          <section class="day-photo-group day-photo-group-${group[1]}">
+            <h4>${group[0]}</h4>
+            <div class="day-gallery">
+              ${group[2].map(photo => {
+                const status = photoStatus[photo[3] || "main"];
+                return `
+                <figure>
+                  <img src="${photo[0]}" alt="${photo[2]}" loading="lazy">
+                  <span class="photo-status ${status[1]}">${status[0]}</span>
+                  <figcaption><b>${photo[1]}</b><span>${photo[2]}</span></figcaption>
+                </figure>
+              `}).join("")}
+            </div>
+          </section>
+        `).join("")}
       </div>
     </article>
   `;
@@ -952,6 +973,7 @@ function selectPlan(planKey, shouldScroll = false) {
   planButtons.forEach(button => {
     button.classList.toggle("is-active", button.dataset.plan === planKey);
   });
+  updateMobileMatrix(planKey);
 
   if (shouldScroll) {
     document.querySelector("#itinerary").scrollIntoView({ behavior: "smooth", block: "start" });
@@ -1008,14 +1030,17 @@ function renderPrintSheet(planKey) {
   const enhancements = dayEnhancements[planKey];
   printSheet.innerHTML = `
     <header class="print-sheet-header">
-      <div>
-        <p>CHANG FAMILY · OKINAWA 2026</p>
-        <h1>${plan.title}</h1>
-        <span>${plan.description}</span>
+      <div class="print-brand">
+        <img src="assets/chang-avatar.jpg" alt="張家旅行社大頭貼">
+        <div>
+          <p>張家旅行社 · CHANG FAMILY TRAVEL</p>
+          <h1>${plan.title}</h1>
+          <span>${plan.description}</span>
+        </div>
       </div>
       <div class="print-flight">
-        <b>11/03 12:25</b><small>抵達那霸</small>
-        <b>11/08 13:35</b><small>那霸起飛</small>
+        <b>MM922 · A320</b><small>11/03 09:45 桃園 → 12:25 那霸</small>
+        <b>MM925 · A320</b><small>11/15 13:35 那霸 → 14:20 桃園</small>
       </div>
     </header>
     <section class="print-route">
@@ -1025,19 +1050,120 @@ function renderPrintSheet(planKey) {
       ${plan.days.map((day, index) => `
         <article>
           <div class="print-day-no"><small>DAY</small><b>${String(index + 1).padStart(2, "0")}</b><span>${day.date}</span></div>
-          <div>
+          <div class="print-day-body">
             <h2>${day.title}</h2>
             <p class="print-day-route">${enhancements[index].route.join(" → ")}</p>
             <div class="print-timeline">
               ${day.times.map(item => `<time>${item[0]}</time><span>${item[1]}</span>`).join("")}
             </div>
             <p class="print-stay">住宿｜${day.stay}</p>
+            <div class="print-day-photos">
+              ${[
+                ...enhancements[index].photos.filter(photo => (photo[3] || "main") === "main").slice(0, 2),
+                ...enhancements[index].photos.filter(photo => photo[3] === "food").slice(0, 1),
+                ...enhancements[index].photos.filter(photo => photo[3] === "optional").slice(0, 1)
+              ].slice(0, 4).map(photo => `
+                <figure>
+                  <img src="${photo[0]}" alt="${photo[2]}">
+                  <figcaption>${photo[1]}</figcaption>
+                </figure>
+              `).join("")}
+            </div>
+            <div class="print-flex-grid">
+              <section>
+                <b>順路加點／替代方案</b>
+                <ul>
+                  ${enhancements[index].addOns.map(item => `<li>${item}</li>`).join("")}
+                </ul>
+              </section>
+              <section>
+                <b>人氣餐廳／必吃</b>
+                <ul>
+                  ${enhancements[index].food.map(item => `<li><strong>${item[0]}</strong>｜${item[1]}：${item[2]}</li>`).join("")}
+                </ul>
+              </section>
+            </div>
           </div>
         </article>
       `).join("")}
     </main>
-    <footer class="print-sheet-footer">張家旅行社 · 行程與營業時間請於出發前再次確認</footer>
+    <footer class="print-sheet-footer">張家旅行社 · MM922 / MM925 · 行程與營業時間請於出發前再次確認</footer>
   `;
+}
+
+function matrixCellHtml(cell) {
+  const [status, note] = cell;
+  const symbol = status === "main" ? "✓" : status === "option" ? "◇" : "—";
+  return `<td class="is-${status}">${symbol}<small>${note}</small></td>`;
+}
+
+function renderPlanMatrix() {
+  const matrix = window.extendedTripData?.matrix;
+  const container = document.querySelector(".matrix-scroll");
+  if (!matrix || !container) return;
+  const regionIds = ["matrix-event", "matrix-north", "matrix-central", "matrix-south", "matrix-islands"];
+
+  container.innerHTML = `
+    <table class="comparison-table">
+      <thead><tr><th scope="col">區域・景點／市場／美食</th><th>A<br><small>分區慢住</small></th><th>B<br><small>只換一次</small></th><th>C<br><small>先海後城</small></th><th>D<br><small>石垣竹富</small></th></tr></thead>
+      <tbody>
+        ${matrix.map((group, groupIndex) => `
+          <tr class="matrix-region" id="${regionIds[groupIndex] || `matrix-region-${groupIndex}`}"><th colspan="5">${group.region}</th></tr>
+          ${group.rows.map(row => `
+            <tr>
+              <th scope="row"><span class="matrix-kind is-${row[0] === "美食" ? "food" : row[0] === "市場" ? "market" : "spot"}">${row[0]}</span>${row[1]}</th>
+              ${row.slice(2).map(matrixCellHtml).join("")}
+            </tr>
+          `).join("")}
+        `).join("")}
+      </tbody>
+    </table>
+  `;
+
+  let mobile = document.querySelector(".mobile-matrix");
+  if (!mobile) {
+    mobile = document.createElement("div");
+    mobile.className = "mobile-matrix";
+    container.insertAdjacentElement("afterend", mobile);
+  }
+  mobile.innerHTML = `
+    <div class="mobile-matrix-tabs" aria-label="選擇要比較的行程">
+      ${["a", "b", "c", "d"].map(key => `<button type="button" data-mobile-plan="${key}">${key.toUpperCase()}</button>`).join("")}
+    </div>
+    <div class="mobile-matrix-summary"></div>
+    <div class="mobile-matrix-list"></div>
+  `;
+  mobile.querySelectorAll("[data-mobile-plan]").forEach(button => {
+    button.addEventListener("click", () => updateMobileMatrix(button.dataset.mobilePlan));
+  });
+  updateMobileMatrix(currentPlan);
+}
+
+function updateMobileMatrix(planKey) {
+  const mobile = document.querySelector(".mobile-matrix");
+  const matrix = window.extendedTripData?.matrix;
+  if (!mobile || !matrix) return;
+  const planIndex = ["a", "b", "c", "d"].indexOf(planKey);
+  const summaries = {
+    a: "A｜分區慢住：11/3 衝復興祭，北部拆開住，換三次飯店但車程最舒服。",
+    b: "B｜只換一次：11/3 衝復興祭，那霸 5 晚後北谷 7 晚，回程需提早還車。",
+    c: "C｜先海後城：抵達直接開往恩納，因此確定錯過 11/3 復興祭，只換一次飯店。",
+    d: "D｜石垣竹富：11/3 衝復興祭，安排石垣 4 晚與竹富島，犧牲部分本島北部。"
+  };
+  mobile.querySelectorAll("[data-mobile-plan]").forEach(button => {
+    button.classList.toggle("is-active", button.dataset.mobilePlan === planKey);
+  });
+  mobile.querySelector(".mobile-matrix-summary").textContent = summaries[planKey];
+  mobile.querySelector(".mobile-matrix-list").innerHTML = matrix.map(group => `
+    <section>
+      <h3>${group.region}</h3>
+      ${group.rows.map(row => {
+        const cell = row[planIndex + 2];
+        const symbol = cell[0] === "main" ? "✓" : cell[0] === "option" ? "◇" : "—";
+        return `<article class="mobile-matrix-row is-${cell[0]}"><div><span>${row[0]}</span><b>${row[1]}</b></div><strong>${symbol}</strong><small>${cell[1]}</small></article>`;
+      }).join("")}
+    </section>
+  `).join("");
 }
 
 printDialog.querySelectorAll("[data-print-plan]").forEach(button => {
@@ -1054,6 +1180,7 @@ window.addEventListener("keydown", event => {
   setPrintDialog(false);
 });
 
+renderPlanMatrix();
 selectPlan(currentPlan);
 initCatalogMap("spot", "spotLeafletMap");
 initCatalogMap("food", "foodLeafletMap");
