@@ -915,15 +915,23 @@ function renderDays(plan) {
       <div class="day-content">
         <h3>${day.title}</h3>
         <p class="day-subtitle">${day.subtitle}</p>
-        <p class="drive-time-note">點到點預估時間｜一般路況，不含停車、排隊與尖峰塞車</p>
         <div class="drive-route" aria-label="當日自駕路線">
-          ${extra.route.map((stop, stopIndex) => `
-            <span>
-              <b>${stopIndex + 1}. ${stop}</b>
-              ${extra.travel?.[stopIndex] ? `<small>到下一站｜${extra.travel[stopIndex]}</small>` : ""}
-            </span>
-          `).join("")}
+          ${extra.route.map((stop, stopIndex) => `<span><b>${stopIndex + 1}. ${stop}</b></span>`).join("")}
         </div>
+        <section class="drive-time-panel" aria-label="點到點車程">
+          <div class="drive-time-head">
+            <b>點到點車程</b>
+            <small>一般路況估計，不含停車、排隊與尖峰塞車</small>
+          </div>
+          <div class="drive-time-list">
+            ${extra.travel.map((travelTime, travelIndex) => `
+              <div>
+                <span>${extra.route[travelIndex]} <i>→</i> ${extra.route[travelIndex + 1]}</span>
+                <strong>${travelTime}</strong>
+              </div>
+            `).join("")}
+          </div>
+        </section>
         <div class="timeline">
           ${day.times.map(item => `<time>${item[0]}</time><span>${item[1]}</span>`).join("")}
         </div>
@@ -1061,11 +1069,13 @@ function renderPrintSheet(planKey) {
           <div class="print-day-no"><small>DAY</small><b>${String(index + 1).padStart(2, "0")}</b><span>${day.date}</span></div>
           <div class="print-day-body">
             <h2>${day.title}</h2>
-            <p class="print-day-route">
-              ${enhancements[index].route.map((stop, stopIndex) =>
-                `${stop}${enhancements[index].travel?.[stopIndex] ? ` →【${enhancements[index].travel[stopIndex]}】→ ` : ""}`
-              ).join("").replace(/→\s*$/, "")}
-            </p>
+            <p class="print-day-route">${enhancements[index].route.join(" → ")}</p>
+            <div class="print-drive-times">
+              <b>點到點車程</b>
+              ${enhancements[index].travel.map((travelTime, travelIndex) => `
+                <span>${enhancements[index].route[travelIndex]} → ${enhancements[index].route[travelIndex + 1]}｜<strong>${travelTime}</strong></span>
+              `).join("")}
+            </div>
             <div class="print-timeline">
               ${day.times.map(item => `<time>${item[0]}</time><span>${item[1]}</span>`).join("")}
             </div>

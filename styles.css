@@ -2161,13 +2161,6 @@ a {
   letter-spacing: .06em;
 }
 
-.drive-time-note {
-  margin: -10px 0 9px;
-  color: rgba(22, 50, 55, .58);
-  font-size: 10px;
-  font-weight: 700;
-}
-
 .drive-route {
   display: flex;
   flex-wrap: wrap;
@@ -2186,21 +2179,67 @@ a {
   letter-spacing: .05em;
 }
 
-.drive-route span b,
-.drive-route span small {
-  display: block;
-}
-
 .drive-route span b {
+  display: block;
   font-size: 10px;
 }
 
-.drive-route span small {
-  margin-top: 3px;
-  color: #ffd0b2;
+.drive-time-panel {
+  margin: -8px 0 25px;
+  border: 2px solid var(--sea);
+  background: var(--white);
+}
+
+.drive-time-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 10px 14px;
+  color: var(--white);
+  background: var(--sea);
+}
+
+.drive-time-head b {
+  font-size: 14px;
+  letter-spacing: .08em;
+}
+
+.drive-time-head small {
+  color: rgba(255, 255, 255, .78);
   font-size: 9px;
+}
+
+.drive-time-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.drive-time-list > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 13px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.drive-time-list span {
+  min-width: 0;
+  font-size: 10px;
   font-weight: 700;
-  letter-spacing: 0;
+}
+
+.drive-time-list i {
+  color: var(--coral-dark);
+  font-style: normal;
+}
+
+.drive-time-list strong {
+  flex: 0 0 auto;
+  color: var(--coral-dark);
+  font-size: 12px;
 }
 
 .drive-route span:not(:last-child)::after {
@@ -3842,6 +3881,28 @@ footer {
     font-size: 13px;
   }
 
+  .drive-time-head {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 1px;
+  }
+
+  .drive-time-list {
+    grid-template-columns: 1fr;
+  }
+
+  .drive-time-list > div {
+    border-right: 0;
+  }
+
+  .drive-time-list span {
+    font-size: 11px;
+  }
+
+  .drive-time-list strong {
+    font-size: 13px;
+  }
+
   .day-options {
     grid-template-columns: 1fr;
   }
@@ -4167,6 +4228,27 @@ footer {
     color: #bf5137;
     font-size: 8pt;
     font-weight: 700;
+  }
+
+  .print-drive-times {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px 8px;
+    margin: 0 0 5px;
+    padding: 4px 6px;
+    border: 1px solid #9db8b5;
+    background: #f1f7f5;
+    font-size: 7pt;
+  }
+
+  .print-drive-times > b {
+    grid-column: 1 / -1;
+    color: #0c4951;
+  }
+
+  .print-drive-times span,
+  .print-drive-times strong {
+    display: block;
   }
 
   .print-timeline {
