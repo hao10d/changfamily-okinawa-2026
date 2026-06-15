@@ -1740,6 +1740,23 @@ a {
   background: #f3e8db;
 }
 
+.plan-card-pass {
+  grid-column: 1 / -1;
+  border-color: rgba(12, 73, 81, .24);
+  background:
+    linear-gradient(115deg, rgba(232, 245, 239, .98), rgba(255, 247, 225, .96));
+}
+
+.plan-card-pass .plan-label {
+  color: rgba(12, 73, 81, .14);
+}
+
+.plan-card-pass .select-plan {
+  color: var(--white);
+  border-color: var(--deep);
+  background: var(--deep);
+}
+
 .plan-card-d {
   color: #eef8f6;
   border-color: transparent;
@@ -3083,7 +3100,7 @@ footer {
 
 .print-plan-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 10px;
   margin-top: 26px;
 }
@@ -3927,6 +3944,10 @@ footer {
   }
 
   .plan-card-c {
+    grid-column: auto;
+  }
+
+  .plan-card-pass {
     grid-column: auto;
   }
 
