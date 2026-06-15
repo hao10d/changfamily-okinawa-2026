@@ -731,7 +731,7 @@ const mapCatalogs = {
     { name: "名護鳳梨園", region: "north", coords: [26.6164, 127.9692], note: "親子與雨天備案" },
     { name: "萬座毛", region: "central", coords: [26.5048, 127.8503], note: "恩納海岸經典斷崖" },
     { name: "美國村", region: "central", coords: [26.3157, 127.757], note: "夕陽、晚餐與夜景" },
-    { name: "永旺沖繩來客夢", region: "central", coords: [26.3146, 127.7967], note: "大型商場與雨天備案" },
+    { name: "永旺夢樂城沖繩來客夢", region: "central", coords: [26.3146, 127.7967], note: "11/3 美國村後的晚餐與購物主線" },
     { name: "沖繩南國 Illumination", region: "central", coords: [26.423, 127.805], note: "東南植物樂園夜間燈光秀" },
     { name: "沖繩水果樂園", region: "north", coords: [26.6169, 127.9698], note: "熱帶水果與互動體驗" },
     { name: "沖繩兒童王國", region: "central", coords: [26.3344, 127.8057], note: "動物園與親子設施" },
