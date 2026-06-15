@@ -2161,6 +2161,13 @@ a {
   letter-spacing: .06em;
 }
 
+.drive-time-note {
+  margin: -10px 0 9px;
+  color: rgba(22, 50, 55, .58);
+  font-size: 10px;
+  font-weight: 700;
+}
+
 .drive-route {
   display: flex;
   flex-wrap: wrap;
@@ -2177,6 +2184,23 @@ a {
   font-size: 10px;
   font-weight: 800;
   letter-spacing: .05em;
+}
+
+.drive-route span b,
+.drive-route span small {
+  display: block;
+}
+
+.drive-route span b {
+  font-size: 10px;
+}
+
+.drive-route span small {
+  margin-top: 3px;
+  color: #ffd0b2;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0;
 }
 
 .drive-route span:not(:last-child)::after {
