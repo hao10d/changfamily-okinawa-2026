@@ -1053,8 +1053,7 @@ function setPrintDialog(isOpen) {
 
 openPrintButtons.forEach(button => {
   button.addEventListener("click", () => {
-    renderPrintSheet("c");
-    window.setTimeout(() => window.print(), 60);
+    setPrintDialog(true);
   });
 });
 

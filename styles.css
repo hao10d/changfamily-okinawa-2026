@@ -1929,6 +1929,29 @@ a {
   background: var(--deep);
 }
 
+.plan-verdict {
+  display: grid;
+  grid-template-columns: minmax(230px, .7fr) minmax(0, 1.5fr);
+  gap: 28px;
+  margin-top: 24px;
+  padding: 24px 28px;
+  color: var(--white);
+  background: var(--deep);
+}
+
+.plan-verdict b {
+  color: #ffd0b2;
+  font-family: "Noto Serif TC", Georgia, serif;
+  font-size: 18px;
+  line-height: 1.55;
+}
+
+.plan-verdict span {
+  color: rgba(255,255,255,.78);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
 .route-summary {
   color: var(--white);
   background: var(--deep);
@@ -3913,6 +3936,12 @@ footer {
 
   .hotel-area {
     min-height: 0;
+  }
+
+  .plan-verdict {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 22px 20px;
   }
 
   .route-inner {
