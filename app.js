@@ -890,6 +890,45 @@ function renderRoute(plan) {
   `).join("");
 }
 
+function renderJourneyFlow(flow, printMode = false) {
+  const movementLabels = {
+    drive: "開車",
+    walk: "步行",
+    shuttle: "接駁"
+  };
+  const prefix = printMode ? "print-" : "";
+
+  return `
+    <section class="${prefix}journey-flow" aria-label="逐段行程與車程">
+      ${printMode ? "" : `
+        <div class="journey-flow-head">
+          <b>逐段行程</b>
+          <small>時間依一般路況估算，車程已放在前後景點之間</small>
+        </div>
+      `}
+      <div class="${prefix}journey-flow-list">
+        ${flow.map(item => {
+          if (item[0] === "activity") {
+            return `
+              <article class="${prefix}journey-stop">
+                <time>${item[1]}</time>
+                <div><b>${item[2]}</b><small>${item[3] || ""}</small></div>
+              </article>
+            `;
+          }
+          return `
+            <div class="${prefix}journey-move ${prefix}journey-move-${item[0]}">
+              <span>${movementLabels[item[0]] || "移動"}</span>
+              <strong>${item[1]}</strong>
+              <small>${item[2]}</small>
+            </div>
+          `;
+        }).join("")}
+      </div>
+    </section>
+  `;
+}
+
 function renderDays(plan) {
   const enhancements = dayEnhancements[currentPlan];
   dayList.innerHTML = plan.days.map((day, index) => {
@@ -915,26 +954,7 @@ function renderDays(plan) {
       <div class="day-content">
         <h3>${day.title}</h3>
         <p class="day-subtitle">${day.subtitle}</p>
-        <div class="drive-route" aria-label="當日自駕路線">
-          ${extra.route.map((stop, stopIndex) => `<span><b>${stopIndex + 1}. ${stop}</b></span>`).join("")}
-        </div>
-        <section class="drive-time-panel" aria-label="點到點車程">
-          <div class="drive-time-head">
-            <b>點到點車程</b>
-            <small>一般路況估計，不含停車、排隊與尖峰塞車</small>
-          </div>
-          <div class="drive-time-list">
-            ${extra.travel.map((travelTime, travelIndex) => `
-              <div>
-                <span>${extra.route[travelIndex]} <i>→</i> ${extra.route[travelIndex + 1]}</span>
-                <strong>${travelTime}</strong>
-              </div>
-            `).join("")}
-          </div>
-        </section>
-        <div class="timeline">
-          ${day.times.map(item => `<time>${item[0]}</time><span>${item[1]}</span>`).join("")}
-        </div>
+        ${renderJourneyFlow(extra.flow.length ? extra.flow : day.times.map(item => ["activity", item[0], item[1], ""]))}
         <div class="day-options">
           <div class="add-on-box">
             <small>自駕順路加點</small>
@@ -1070,15 +1090,12 @@ function renderPrintSheet(planKey) {
           <div class="print-day-body">
             <h2>${day.title}</h2>
             <p class="print-day-route">${enhancements[index].route.join(" → ")}</p>
-            <div class="print-drive-times">
-              <b>點到點車程</b>
-              ${enhancements[index].travel.map((travelTime, travelIndex) => `
-                <span>${enhancements[index].route[travelIndex]} → ${enhancements[index].route[travelIndex + 1]}｜<strong>${travelTime}</strong></span>
-              `).join("")}
-            </div>
-            <div class="print-timeline">
-              ${day.times.map(item => `<time>${item[0]}</time><span>${item[1]}</span>`).join("")}
-            </div>
+            ${renderJourneyFlow(
+              enhancements[index].flow.length
+                ? enhancements[index].flow
+                : day.times.map(item => ["activity", item[0], item[1], ""]),
+              true
+            )}
             <p class="print-stay">住宿｜${day.stay}</p>
             <div class="print-day-photos">
               ${[

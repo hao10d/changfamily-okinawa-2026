@@ -2165,6 +2165,116 @@ a {
   letter-spacing: .06em;
 }
 
+.journey-flow {
+  overflow: hidden;
+  border: 1px solid rgba(15, 109, 113, .26);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, .76);
+  box-shadow: 0 12px 32px rgba(12, 73, 81, .06);
+}
+
+.journey-flow-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 16px;
+  color: var(--white);
+  background: var(--sea);
+}
+
+.journey-flow-head b {
+  font-size: 14px;
+  letter-spacing: .1em;
+}
+
+.journey-flow-head small {
+  color: rgba(255, 255, 255, .78);
+  font-size: 10px;
+}
+
+.journey-flow-list {
+  padding: 5px 16px 10px;
+}
+
+.journey-stop {
+  display: grid;
+  grid-template-columns: 112px minmax(0, 1fr);
+  gap: 15px;
+  padding: 13px 0;
+  border-bottom: 1px solid rgba(22, 50, 55, .1);
+}
+
+.journey-stop time {
+  color: var(--sea);
+  font-family: Georgia, serif;
+  font-size: 14px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.journey-stop b,
+.journey-stop small {
+  display: block;
+}
+
+.journey-stop b {
+  color: var(--deep);
+  font-size: 14px;
+}
+
+.journey-stop small {
+  margin-top: 3px;
+  color: rgba(22, 50, 55, .62);
+  font-size: 11px;
+  line-height: 1.55;
+}
+
+.journey-move {
+  display: grid;
+  grid-template-columns: 48px 106px minmax(0, 1fr);
+  align-items: center;
+  gap: 9px;
+  margin: 6px 0 6px 48px;
+  padding: 8px 11px;
+  border-left: 3px solid var(--coral);
+  background: #fff3e9;
+}
+
+.journey-move span {
+  display: inline-flex;
+  justify-content: center;
+  padding: 3px 6px;
+  color: var(--white);
+  border-radius: 999px;
+  background: var(--coral-dark);
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: .08em;
+}
+
+.journey-move strong {
+  color: var(--coral-dark);
+  font-size: 12px;
+}
+
+.journey-move small {
+  color: rgba(22, 50, 55, .72);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.journey-move-walk,
+.journey-move-shuttle {
+  border-left-color: var(--sea);
+  background: #eef7f5;
+}
+
+.journey-move-walk span,
+.journey-move-shuttle span {
+  background: var(--sea);
+}
+
 .drive-route {
   display: flex;
   flex-wrap: wrap;
@@ -3880,9 +3990,49 @@ footer {
     font-size: 22px;
   }
 
-  .timeline {
-    grid-template-columns: 52px 1fr;
+  .journey-flow-head {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .journey-flow-list {
+    padding: 4px 12px 9px;
+  }
+
+  .journey-stop {
+    grid-template-columns: 92px minmax(0, 1fr);
+    gap: 10px;
+    padding: 11px 0;
+  }
+
+  .journey-stop time {
+    font-size: 12px;
+  }
+
+  .journey-stop b {
     font-size: 13px;
+  }
+
+  .journey-stop small {
+    font-size: 10px;
+  }
+
+  .journey-move {
+    grid-template-columns: 48px minmax(0, 1fr);
+    gap: 7px;
+    margin-left: 12px;
+    padding: 7px 9px;
+  }
+
+  .journey-move strong {
+    font-size: 11px;
+  }
+
+  .journey-move small {
+    grid-column: 1 / -1;
+    font-size: 9px;
+    line-height: 1.45;
   }
 
   .drive-time-head {
@@ -4234,37 +4384,75 @@ footer {
     font-weight: 700;
   }
 
-  .print-drive-times {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1px 8px;
-    margin: 0 0 5px;
+  .print-journey-flow {
+    margin-bottom: 4px;
     padding: 4px 6px;
-    border: 1px solid #9db8b5;
-    background: #f1f7f5;
-    font-size: 7pt;
+    border: 1px solid #b7c9c6;
+    background: #f8fbfa;
   }
 
-  .print-drive-times > b {
-    grid-column: 1 / -1;
+  .print-journey-flow-list {
+    column-count: 2;
+    column-gap: 12px;
+  }
+
+  .print-journey-stop,
+  .print-journey-move {
+    break-inside: avoid;
+  }
+
+  .print-journey-stop {
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    gap: 4px;
+    padding: 2px 0;
+    border-bottom: 1px solid #d8e1df;
+  }
+
+  .print-journey-stop time {
     color: #0c4951;
+    font-size: 7pt;
+    font-weight: 800;
   }
 
-  .print-drive-times span,
-  .print-drive-times strong {
+  .print-journey-stop b,
+  .print-journey-stop small {
     display: block;
   }
 
-  .print-timeline {
-    display: grid;
-    grid-template-columns: 42px 1fr;
-    gap: 1px 7px;
-    font-size: 8.5pt;
+  .print-journey-stop b {
+    font-size: 7.5pt;
   }
 
-  .print-timeline time {
+  .print-journey-stop small {
+    color: #667777;
+    font-size: 6.5pt;
+  }
+
+  .print-journey-move {
+    display: grid;
+    grid-template-columns: 27px 51px 1fr;
+    gap: 3px;
+    padding: 2px 4px;
+    color: #70432f;
+    border-left: 2px solid #d66b4d;
+    background: #fff1e7;
+    font-size: 6.5pt;
+  }
+
+  .print-journey-move span {
+    font-weight: 900;
+  }
+
+  .print-journey-move strong {
+    color: #b14c33;
+  }
+
+  .print-journey-move-walk,
+  .print-journey-move-shuttle {
     color: #0c4951;
-    font-weight: 800;
+    border-left-color: #0f6d71;
+    background: #edf7f5;
   }
 
   .print-stay {
