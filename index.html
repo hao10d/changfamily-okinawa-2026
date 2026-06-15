@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="張家旅行社 2026 沖繩六日旅遊導覽，含沖繩本島與石垣竹富跳島四種方案、景點美食地圖及市場路線。">
+  <meta name="description" content="張家旅行社 2026 沖繩六日自駕導覽：前三晚住本部美麗海、後兩晚住那霸，含景點、美食、魚市場地圖與完整列印行程。">
   <meta name="theme-color" content="#0c4951">
   <title>沖繩島嶼慢旅｜張家旅行社</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-  <link rel="stylesheet" href="styles.css?v=20260612-6days">
+  <link rel="stylesheet" href="styles.css?v=20260615-final-route">
 </head>
 <body>
   <header class="site-header">
@@ -20,11 +20,11 @@
     </a>
     <nav id="desktopNav" aria-label="主要導覽">
       <a href="#spot-map">景點地圖</a>
-      <a href="#plan-matrix">方案總表</a>
+      <a href="#plan-matrix">行程總覽</a>
       <a href="#itinerary">每日行程</a>
       <a href="#events">期間活動</a>
       <a href="#food-map">美食地圖</a>
-      <a href="#plans">住宿方案</a>
+      <a href="#plans">住宿安排</a>
     </nav>
     <button class="print-button" id="openPrintDialog" type="button">列印行程</button>
     <button class="menu-button" id="menuButton" type="button" aria-expanded="false" aria-controls="mobileNav">
@@ -39,12 +39,12 @@
       <button id="closeMenuButton" type="button" aria-label="關閉選單">×</button>
     </div>
     <a href="#spot-map"><b>01</b><span>景點地圖<small>開車時最快找到區域</small></span></a>
-    <a href="#plan-matrix"><b>02</b><span>方案總表<small>景點、市場、美食與四方案勾選</small></span></a>
-    <a href="#itinerary"><b>03</b><span>每日行程<small>切換 A／B／C／D 方案</small></span></a>
+    <a href="#plan-matrix"><b>02</b><span>行程總覽<small>主線、可替換與必吃</small></span></a>
+    <a href="#itinerary"><b>03</b><span>每日行程<small>六天動線與對應照片</small></span></a>
     <a href="#events"><b>04</b><span>期間活動<small>11 月祭典與夜間燈光</small></span></a>
     <a href="#food-map"><b>05</b><span>美食地圖<small>餐廳位置與同區備選</small></span></a>
-    <a href="#plans"><b>06</b><span>住宿方案<small>本島分區或跳島</small></span></a>
-    <button class="mobile-print-button" id="mobilePrintButton" type="button">選擇方案並列印</button>
+    <a href="#plans"><b>06</b><span>住宿安排<small>本部三晚、那霸兩晚</small></span></a>
+    <button class="mobile-print-button" id="mobilePrintButton" type="button">列印完整行程</button>
   </nav>
 
   <nav class="mobile-quick-nav" aria-label="手機快捷導覽">
@@ -79,7 +79,7 @@
       </div>
       <div class="hero-meta">
         <span>2026.11.03 → 11.08</span>
-        <span>沖繩本島＋離島</span>
+        <span>本部 3 晚＋那霸 2 晚</span>
         <span>5 晚 6 日</span>
       </div>
     </section>
@@ -88,7 +88,7 @@
       <p>先看你現在需要的</p>
       <div>
         <a href="#spot-map"><span>01</span><b>景點地圖</b><small>北部／中部／南部快速篩選</small></a>
-        <a href="#plan-matrix"><span>02</span><b>方案總表</b><small>一眼比較 A／B／C／D 去哪裡</small></a>
+        <a href="#plan-matrix"><span>02</span><b>行程總覽</b><small>主線與可替換景點一次看</small></a>
         <a href="#itinerary"><span>03</span><b>每日行程</b><small>主線、可加點與對應照片</small></a>
       </div>
     </section>
@@ -99,7 +99,7 @@
         <h2>住得順，<br>旅程才有餘裕。</h2>
       </div>
       <div class="intro-copy">
-        <p>這趟行程不把每天都塞滿。四種方案分別照顧車程、搬行李次數、回程安心感與跳島體驗；先選旅行方式，再看地圖與每日行程。</p>
+        <p>這次確定走「先北後那霸」：抵達後取車，經中部吃晚餐再往本部；前三晚住美麗海旁，後兩晚回那霸，只換一次飯店。</p>
         <div class="weather-note">
           <strong>11 月體感</strong>
           <span>平均約 23°C，日夜溫差明顯。短袖加薄外套最實用。</span>
@@ -109,8 +109,8 @@
 
     <section class="island-mood" aria-label="沖繩旅行印象">
       <figure class="mood-tall">
-        <img src="assets/shuri-steps.jpg" alt="旅人走入首里城歷史街區">
-        <figcaption><span>SHURI</span>王城的紅，藏在石階盡頭</figcaption>
+        <img src="assets/smile-smart-inn-churaumi.jpg" alt="スマイルスマートイン沖縄美ら海客房">
+        <figcaption><span>MOTOBU</span>前三晚，住在美麗海水族館旁</figcaption>
       </figure>
       <figure class="mood-wide">
         <img src="assets/kouri-heart.jpg" alt="古宇利島心形岩與海岸">
@@ -154,10 +154,10 @@
             <img src="assets/junglia.jpg" alt="JUNGLIA OKINAWA 叢林樂園">
             <div><span>北部 · 整日</span><h3>JUNGLIA 叢林樂園</h3><p>2025 開幕的新世代北部主題樂園。建議整天安排，直接取代美麗海＋古宇利日，不要硬塞在同一天。</p><a href="https://junglia.jp/en/" target="_blank" rel="noreferrer">官方網站 ↗</a></div>
           </article>
-          <article class="catalog-card"><img src="assets/aquarium.jpg" alt="美麗海水族館黑潮之海"><div><span>北部 · 3 小時</span><h3>美麗海水族館</h3><p>A3／B4／C2 主線，建議開門就進。</p><a href="https://churaumi.okinawa/en/" target="_blank" rel="noreferrer">官方網站 ↗</a></div></article>
+          <article class="catalog-card"><img src="assets/aquarium.jpg" alt="美麗海水族館黑潮之海"><div><span>北部 · 3 小時</span><h3>美麗海水族館</h3><p>11/4 固定主線，住在附近可以開門就進。</p><a href="https://churaumi.okinawa/en/" target="_blank" rel="noreferrer">官方網站 ↗</a></div></article>
           <article class="catalog-card"><img src="assets/kouri-heart.jpg" alt="古宇利島海岸"><div><span>北部 · 1.5–2 小時</span><h3>古宇利海洋塔</h3><p>海洋塔、古宇利大橋、蝦蝦飯可串成一站。</p><a href="https://www.kouri-oceantower.com/" target="_blank" rel="noreferrer">官方網站 ↗</a></div></article>
           <article class="catalog-card"><img src="assets/sesoko.webp" alt="沖繩北部透明海色"><div><span>北部 · 1.5 小時</span><h3>部瀨名海中公園</h3><p>海中展望塔與玻璃船，天氣好再排。</p><a href="https://www.busena-marinepark.com/" target="_blank" rel="noreferrer">官方網站 ↗</a></div></article>
-          <article class="catalog-card"><img src="assets/ufuya.png" alt="沖繩北部紅瓦古家"><div><span>北部 · 1.5–2 小時</span><h3>名護鳳梨園</h3><p>親子、雨天友善，可和百年古家大家一起排。</p><a href="https://www.nagopine.com/" target="_blank" rel="noreferrer">官方網站 ↗</a></div></article>
+          <article class="catalog-card"><img src="assets/nago-pineapple-park.jpg" alt="名護鳳梨園鳳梨車與熱帶植物"><div><span>北部 · 1.5–2 小時</span><h3>名護鳳梨園</h3><p>11/5 固定主線，親子與雨天都友善，晚餐接百年古家大家。</p><a href="https://www.nagopine.com/" target="_blank" rel="noreferrer">官方網站 ↗</a></div></article>
           <article class="catalog-card"><img src="assets/manzamo.jpg" alt="萬座毛海岸斷崖"><div><span>中部 · 45 分鐘</span><h3>萬座毛</h3><p>恩納住宿日的經典短停靠點。</p><a href="https://www.manzamo.jp/" target="_blank" rel="noreferrer">官方網站 ↗</a></div></article>
           <article class="catalog-card"><img src="assets/american-village.jpg" alt="美濱美國村"><div><span>中部 · 2–3 小時</span><h3>美國村</h3><p>傍晚到亮燈最好拍，也適合安排晚餐。</p><a href="https://www.okinawa-americanvillage.com/" target="_blank" rel="noreferrer">官方網站 ↗</a></div></article>
           <article class="catalog-card"><img src="assets/dmm-aquarium.png" alt="沖繩室內水族館"><div><span>中部 · 2–4 小時</span><h3>永旺沖繩來客夢</h3><p>大型購物中心，放在雨天或採買備案。</p><a href="https://okinawarycom-aeonmall.com/" target="_blank" rel="noreferrer">官方網站 ↗</a></div></article>
@@ -182,17 +182,17 @@
       </div>
     </section>
 
-    <section class="festival-banner section-wrap" aria-label="首里城重要通知">
+    <section class="festival-banner section-wrap" aria-label="抵達日動線決定">
       <div class="festival-date">
         <span>NOV</span>
         <strong>03</strong>
       </div>
       <div>
-        <p class="section-kicker">ARRIVAL DAY SPECIAL</p>
-        <h2>11/3 抵達日，是首里城復興祭最後一天。</h2>
-        <p>官方已確認 2026 首里城復興祭為 11/1–11/3。MM922 於 12:25 抵達，A、B、D 會在通關後直接前往首里；C 為了第一晚住恩納，則明確放棄祭典。11/3 詳細節目時刻尚未公布，出發前再確認。</p>
+        <p class="section-kicker">ROUTE DECISION</p>
+        <h2>放棄復興祭，抵達後直接走中部、晚上住北部。</h2>
+        <p>MM922 於 12:25 抵達。取車後只在美國村短停，17:00 預約琉球的牛恩納本館，晚餐後前往本部町，入住スマイルスマートイン沖縄美ら海。</p>
       </div>
-      <a href="https://oki-park.jp/shurijo/events/c/43" target="_blank" rel="noreferrer">首里城官方公告 ↗</a>
+      <a href="https://smile-smart-inn.com/churaumi/" target="_blank" rel="noreferrer">北部飯店官網 ↗</a>
     </section>
 
     <section class="event-radar section-wrap" id="events">
@@ -205,7 +205,7 @@
       </div>
 
       <div class="event-grid">
-        <article class="event-card event-card-featured">
+        <article class="event-card event-card-featured" hidden>
           <img src="assets/event-shuri.webp" alt="首里城祭琉球王朝行列">
           <div class="event-card-copy">
             <div class="event-card-meta"><span class="event-status event-status-priority">已確認 11/1–11/3</span><span>那霸 · 抵達日重點</span></div>
@@ -225,7 +225,7 @@
             <div class="event-card-meta"><span class="event-status event-status-priority">優先追蹤</span><span>沖繩市 · 夜間</span></div>
             <h3>沖繩南國 Illumination</h3>
             <p>熱帶植物、蓮池與大型燈飾，是本次最順路的夜間活動。上一季為 2025/10/24–2026/5/24，新一季日期待公布。</p>
-            <strong>適合：A 第 4 天、B 第 5 天、C 第 3 天，取代原本晚間行程。</strong>
+            <strong>若 2026 日期吻合，可用 11/3 美國村或 11/5 晚餐後時段替換；不要再加成第六個景點。</strong>
             <div class="event-actions">
               <a href="https://www.southeast-botanical.jp/illumination/" target="_blank" rel="noreferrer">活動官網 ↗</a>
               <a href="https://www.google.com/maps/search/?api=1&query=Southeast+Botanical+Gardens+Okinawa" target="_blank" rel="noreferrer">開啟地圖 ↗</a>
@@ -239,7 +239,7 @@
             <div class="event-card-meta"><span class="event-status">上一季 11/1 起</span><span>恩納北側 · 夜間</span></div>
             <h3>喜璃癒志百萬夢幻節</h3>
             <p>度假村庭園與泳池周邊的藍色燈海。上一季為 2025/11/1–2026/2/28，住恩納或名護時比從那霸專程北上合理。</p>
-            <strong>適合：A／C 恩納住宿夜，北部行程回飯店前順看；B 從北谷前往較遠。</strong>
+            <strong>若 2026 日期吻合，可在北部住宿期間挑一晚順看，並刪掉同日晚間加點。</strong>
             <div class="event-actions">
               <a href="https://visitokinawajapan.com/zh-hant/discover/events/" target="_blank" rel="noreferrer">官方介紹 ↗</a>
               <a href="https://www.google.com/maps/search/?api=1&query=Okinawa+Kariyushi+Beach+Resort+Ocean+Spa" target="_blank" rel="noreferrer">開啟地圖 ↗</a>
@@ -267,7 +267,7 @@
             <div class="event-card-meta"><span class="event-status">上一季 11 月</span><span>慶良間 · 整日跳島</span></div>
             <h3>座間味島粉絲感謝月</h3>
             <p>上一季活動為 2025/11/1–11/22，包含島上舞台與交流活動。要從泊港搭船，受海況與船班影響，不能當一般市區加點。</p>
-            <strong>適合：A／B／C 用整日替換市場日或南部日；D 已飛石垣，不再加第二套跳島。</strong>
+            <strong>只有全家確定想跳島時，才用整天替換 11/7 南部行程；本次主線仍留在本島。</strong>
             <div class="event-actions">
               <a href="https://visitokinawajapan.com/zh-hant/discover/events/" target="_blank" rel="noreferrer">官方介紹 ↗</a>
               <a href="https://www.google.com/maps/search/?api=1&query=Zamami+Island+Okinawa" target="_blank" rel="noreferrer">開啟地圖 ↗</a>
@@ -278,92 +278,38 @@
 
       <div class="event-exclusion">
         <b>這趟先不排：</b>
-        <span>美國村冬季點燈上一季在本次旅程結束後才開始，因此不列正式行程；石垣島祭上一季在 11/1–11/2，也早於 D 方案抵達石垣。2026 若日期調整，再從官方頁補進去。</span>
+        <span>首里城復興祭已確定放棄；美國村冬季點燈上一季在本次旅程結束後才開始，因此也不列正式行程。其他 2026 活動日期出發前再確認。</span>
       </div>
     </section>
 
     <section class="plans section-wrap" id="plans">
       <div class="section-heading">
         <div>
-          <p class="section-kicker">FOUR WAYS TO TRAVEL</p>
-          <h2>四種旅行方式</h2>
+          <p class="section-kicker">ONE FINAL ROUTE</p>
+          <h2>這次就走這一套</h2>
         </div>
-        <p>現在是 5 晚 6 日。A 前後住那霸、中段住恩納；B 只搬一次；C 第一晚直住恩納並放棄 11/3 祭典；D 用石垣兩晚換取竹富跳島。</p>
+        <p>前三晚住本部町美麗海旁，後兩晚住那霸。只換一次飯店，北部精華、魚市場與南部自駕都保留。</p>
       </div>
 
-      <div class="plan-grid">
-        <article class="plan-card plan-card-featured">
-          <div class="plan-label">A</div>
-          <div class="plan-badge">六天最均衡</div>
-          <h3>前後住那霸，中段住恩納</h3>
-          <p class="plan-summary">那霸 1 晚 → 恩納 2 晚 → 那霸 2 晚</p>
-          <div class="stay-track" aria-label="方案 A 住宿安排">
-            <div class="stay naha"><b>1</b><span>那霸</span></div>
-            <div class="stay onna"><b>2</b><span>恩納</span></div>
-            <div class="stay naha"><b>2</b><span>那霸</span></div>
-          </div>
-          <ul>
-            <li>11/3 抵達後可衝首里城復興祭</li>
-            <li>南部、北部、市場都有正式主線</li>
-            <li>換兩次飯店，最後兩晚回那霸最安心</li>
-          </ul>
-          <p class="hotel-area"><span>找飯店地名</span>那霸「縣廳前／國際通」<br>恩納「萬座毛／冨著西海岸」</p>
-          <button class="select-plan is-active" type="button" data-plan="a">查看方案 A</button>
-        </article>
-
-        <article class="plan-card">
-          <div class="plan-label">B</div>
-          <div class="plan-badge plan-badge-light">只換一次</div>
-          <h3>六天只搬一次行李</h3>
-          <p class="plan-summary">那霸 2 晚 → 北谷 3 晚</p>
-          <div class="stay-track" aria-label="方案 B 住宿安排">
-            <div class="stay naha"><b>2</b><span>那霸</span></div>
-            <div class="stay chatan"><b>3</b><span>北谷</span></div>
-          </div>
-          <ul>
-            <li>11/3 可衝復興祭，11/5 搬去北谷</li>
-            <li>北部精華集中一天，讀谷中部另一天</li>
-            <li>回程需從北谷提早還車，這是少搬的代價</li>
-          </ul>
-          <p class="hotel-area"><span>找飯店地名</span>那霸「縣廳前／國際通」<br>北谷「美濱美國村周邊」</p>
-          <button class="select-plan" type="button" data-plan="b">查看方案 B</button>
-        </article>
-
-        <article class="plan-card plan-card-c">
+      <div class="plan-grid single-plan">
+        <article class="plan-card plan-card-c plan-card-featured">
           <div class="plan-label">C</div>
-          <div class="plan-badge plan-badge-sunset">先海後城</div>
-          <h3>抵達直接住海邊，後住那霸</h3>
-          <p class="plan-summary">恩納 3 晚 → 那霸 2 晚</p>
-          <div class="stay-track" aria-label="方案 C 住宿安排">
-            <div class="stay onna stay-long"><b>3</b><span>恩納</span></div>
-            <div class="stay naha"><b>2</b><span>那霸</span></div>
+          <div class="plan-badge plan-badge-sunset">主行程已確定</div>
+          <h3>前三晚住美麗海，後兩晚住那霸</h3>
+          <p class="plan-summary">スマイルスマートイン沖縄美ら海 3 晚 → 那霸市區 2 晚</p>
+          <div class="stay-track" aria-label="本次住宿安排">
+            <div class="stay onna stay-long"><b>3</b><span>本部町山川</span></div>
+            <div class="stay naha"><b>2</b><span>那霸市區</span></div>
           </div>
           <ul>
-            <li>第一天直接北上，因此確定錯過 11/3 復興祭</li>
-            <li>前半集中北部中部，後半留南部與魚市場</li>
-            <li>只換一次飯店，回程從那霸最從容</li>
+            <li>11/3 抵達後走美國村、琉球的牛，再前往北部住宿</li>
+            <li>11/4 美麗海；11/5 古宇利、蝦蝦飯、名護鳳梨園</li>
+            <li>11/6 沿西海岸南下；11/7 魚市場與南部自駕</li>
           </ul>
-          <p class="hotel-area"><span>找飯店地名</span>恩納「萬座毛／冨著西海岸」<br>那霸「縣廳前／國際通」</p>
-          <button class="select-plan" type="button" data-plan="c">查看方案 C</button>
-        </article>
-
-        <article class="plan-card plan-card-d">
-          <div class="plan-label">D</div>
-          <div class="plan-badge plan-badge-island">跳島版</div>
-          <h3>石垣住兩晚，保留竹富整日</h3>
-          <p class="plan-summary">那霸 1 晚 → 石垣 2 晚 → 那霸 2 晚</p>
-          <div class="stay-track" aria-label="方案 D 住宿安排">
-            <div class="stay naha"><b>1</b><span>那霸</span></div>
-            <div class="stay ishigaki"><b>2</b><span>石垣</span></div>
-            <div class="stay naha"><b>2</b><span>那霸</span></div>
-          </div>
-          <ul>
-            <li>11/3 先衝復興祭，11/4 早班飛石垣</li>
-            <li>竹富島整日；六天版不再硬塞西表島</li>
-            <li>放棄本島北部，回本島保留市場與南部</li>
-          </ul>
-          <p class="hotel-area"><span>找飯店地名</span>石垣「離島碼頭／美崎町」<br>那霸「縣廳前／國際通」</p>
-          <button class="select-plan" type="button" data-plan="d">查看方案 D</button>
+          <p class="hotel-area"><span>住宿地點</span>
+            <a href="https://smile-smart-inn.com/churaumi/" target="_blank" rel="noreferrer">スマイルスマートイン沖縄美ら海｜本部町山川</a><br>
+            那霸建議找「縣廳前／國際通」附近
+          </p>
         </article>
       </div>
     </section>
@@ -371,10 +317,10 @@
     <section class="plan-matrix section-wrap" id="plan-matrix">
       <div class="section-heading">
         <div>
-          <p class="section-kicker">A / B / C / D AT A GLANCE</p>
-          <h2>行程去處總表</h2>
+          <p class="section-kicker">FINAL ROUTE AT A GLANCE</p>
+          <h2>主線與彈性總表</h2>
         </div>
-        <p>景點、市場、美食與首日活動放在同一張表。◇ 後面會直接寫清楚「和誰二選一」；手機版一次只顯示一個方案，不再橫向遮住 B、C、D。</p>
+        <p>景點、市場與美食放在同一張表。✓ 是已排入主線，◇ 會直接寫清楚要替換哪一站，手機版改成直向卡片，不必左右滑。</p>
       </div>
 
       <div class="matrix-legend" aria-label="表格符號說明">
@@ -387,10 +333,9 @@
         <a href="#matrix-north">北部</a>
         <a href="#matrix-central">中部</a>
         <a href="#matrix-south">那霸／南部</a>
-        <a href="#matrix-islands">石垣／竹富／慶良間</a>
       </div>
 
-      <div class="matrix-scroll" role="region" aria-label="ABCD 行程景點市場美食比較表" tabindex="0">
+      <div class="matrix-scroll" role="region" aria-label="主行程景點市場美食總表" tabindex="0">
         <table class="comparison-table">
           <thead>
             <tr>
@@ -467,8 +412,8 @@
       <div class="section-wrap route-inner">
         <div>
           <p class="section-kicker">SELECTED ROUTE</p>
-          <h2 id="routeTitle">方案 A｜均衡分區</h2>
-          <p id="routeDescription">前後住那霸，中段住恩納。移動最順，最後一天最從容。</p>
+          <h2 id="routeTitle">張家主行程｜先北後那霸</h2>
+          <p id="routeDescription">前三晚住本部美麗海，後兩晚住那霸；只換一次飯店。</p>
         </div>
         <div class="route-map" id="routeMap" aria-label="住宿移動路線"></div>
       </div>
@@ -480,7 +425,7 @@
       <div class="city-cinema-copy">
         <p class="section-kicker">BACK TO NAHA</p>
         <h2>最後，把旅程留在那霸的暮色裡。</h2>
-        <p>單軌從城市上方滑過，市場開始亮燈。A、C、D 最後兩晚回到那霸；B 為了只換一次飯店，回程當天需從北谷提早出發。</p>
+        <p>前三晚把北部玩好，11/6 再一路沿西海岸回到那霸。最後兩晚住市區，魚市場、南部自駕與回程都更從容。</p>
       </div>
     </section>
 
@@ -491,12 +436,7 @@
           <h2>每日行程</h2>
           <p class="itinerary-intro">每一天的圖都對應當日地點，並清楚標成「主線／可加／必吃」。市場、離島與替代景點都直接放回所屬行程，不再拿別區照片代替。</p>
         </div>
-        <div class="plan-switch" aria-label="切換行程方案">
-          <button class="is-active" type="button" data-plan="a">方案 A</button>
-          <button type="button" data-plan="b">方案 B</button>
-          <button type="button" data-plan="c">方案 C</button>
-          <button type="button" data-plan="d">方案 D</button>
-        </div>
+        <span class="single-plan-label">唯一主行程</span>
       </div>
       <div class="day-list" id="dayList"></div>
     </section>
@@ -547,7 +487,7 @@
 
         <div class="food-map-grid">
           <article class="food-map-card"><b>01</b><span>那霸 · 拉麵</span><h3>暖暮拉麵</h3><p>牧志店適合國際通宵夜；福岡系連鎖，不是沖繩限定。</p><a href="https://www.google.com/maps/search/?api=1&query=暖暮+那覇牧志店" target="_blank" rel="noreferrer">Google 地圖 ↗</a></article>
-          <article class="food-map-card food-must"><b>02</b><span>古宇利 · 蝦料理</span><h3>KOURI SHRIMP 蝦蝦飯</h3><p>古宇利島代表必吃，安排 A3／B4／C2。</p><a href="https://www.google.com/maps/search/?api=1&query=KOURI+SHRIMP" target="_blank" rel="noreferrer">Google 地圖 ↗</a></article>
+          <article class="food-map-card food-must"><b>02</b><span>古宇利 · 蝦料理</span><h3>KOURI SHRIMP 蝦蝦飯</h3><p>古宇利島代表必吃，已排在 11/5 午餐。</p><a href="https://www.google.com/maps/search/?api=1&query=KOURI+SHRIMP" target="_blank" rel="noreferrer">Google 地圖 ↗</a></article>
           <article class="food-map-card food-book"><b>03</b><span>恩納／北谷／那霸 · 燒肉</span><h3>琉球的牛</h3><p>住恩納或北谷時最順，熱門時段建議預約。</p><a href="https://www.u-shi.net/reservation.html" target="_blank" rel="noreferrer">官方預約 ↗</a></article>
           <article class="food-map-card food-book"><b>04</b><span>名護 · 阿古豬</span><h3>百年古家大家</h3><p>紅瓦古宅吃阿古豬，北部日可當早晚餐。</p><a href="https://ufuya.com/" target="_blank" rel="noreferrer">官方網站 ↗</a></article>
           <article class="food-map-card food-must"><b>05</b><span>那霸 · 牛排</span><h3>Jack's Steak House</h3><p>那霸老字號，不接受預約時需現場候位。</p><a href="https://www.google.com/maps/search/?api=1&query=Jack's+Steak+House+Okinawa" target="_blank" rel="noreferrer">Google 地圖 ↗</a></article>
@@ -584,14 +524,14 @@
             <div class="shopping-rank"><b>01</b><span>推薦 4.0</span></div>
             <h3>T Galleria Okinawa by DFS</h3>
             <p>おもろまち站直結，精品、香水與化妝品集中。購物時登記回程航班，商品於那霸機場指定櫃台提領。</p>
-            <dl><dt>適合安排</dt><dd>A5／B2／C5 回程前一天</dd><dt>注意</dt><dd>提貨截止依航班而定，勿壓最後時限</dd></dl>
+            <dl><dt>適合安排</dt><dd>11/6 或 11/7 那霸住宿日</dd><dt>注意</dt><dd>提貨截止依航班而定，勿壓最後時限</dd></dl>
             <a href="https://www.dfs.com/en/okinawa" target="_blank" rel="noreferrer">官方網站 ↗</a>
           </article>
           <article class="shopping-card shopping-top">
             <div class="shopping-rank"><b>02</b><span>推薦 5.0</span></div>
             <h3>ASHIBINAA Outlet</h3>
             <p>機場南側的 Outlet，運動與國際品牌集中；與 iias 豐崎、DMM 水族館可排成半日。</p>
-            <dl><dt>公開時間</dt><dd>10:00–20:00</dd><dt>適合安排</dt><dd>A2／B3／C4 南部行程</dd></dl>
+            <dl><dt>公開時間</dt><dd>10:00–20:00</dd><dt>適合安排</dt><dd>11/7 與瀨長島／幸福鬆餅擇一</dd></dl>
             <a href="https://www.ashibinaa.com/" target="_blank" rel="noreferrer">官方網站 ↗</a>
           </article>
           <article class="shopping-card">
@@ -635,7 +575,7 @@
             <p>第一次掃碼後連續 7 天有效，標準方案可從當期清單任選 3 項；另有「美麗海水族館＋任選項目」版本。</p>
             <ul>
               <li>建議兌換：沖繩世界、DMM 水族館、琉球村／名護鳳梨園</li>
-              <li>若購買含美麗海版：美麗海＋沖繩世界＋DMM 最符合 A/B/C；D 跳島版通常不划算</li>
+              <li>若購買含美麗海版，可比較美麗海＋沖繩世界＋琉球村或名護鳳梨園的組合</li>
               <li>同一設施只能使用一次，以手機 QR Code 入場或兌換</li>
               <li>JUNGLIA 目前不在公開適用清單，需另購</li>
             </ul>
@@ -649,7 +589,7 @@
               <li>不同商品可能是 2、3、4、5 項或含指定水族館</li>
               <li>部分商品另含美食兌換與購物優惠</li>
               <li>使用天數、兒童票與設施名單依購買頁為準</li>
-              <li>購買前先選定 A／B／C／D，再依實際景點比價</li>
+              <li>購買前依這份主行程的實際景點比價，不為了回本增加車程</li>
             </ul>
             <a href="https://okinawa.funpass.app/" target="_blank" rel="noreferrer">查看 FunPASS 官方介紹 ↗</a>
           </article>
@@ -709,7 +649,7 @@
         <article>
           <span class="guide-no">02</span>
           <h3>取車時機</h3>
-          <p>方案 A 建議 11/4 市區取車；B 建議 11/5 取車；C 抵達那霸機場後直接取車；D 只在石垣島租兩天，本島以單軌與計程車為主。</p>
+          <p>11/3 抵達那霸機場後直接取車，11/8 約 10:00 前完成加油還車。租車會使用到 11/7 南部自駕，因此不建議 11/6 提前還車。</p>
         </article>
         <article>
           <span class="guide-no">03</span>
@@ -730,7 +670,7 @@
         <h2>建議先訂</h2>
       </div>
       <ol>
-        <li><span>01</span><div><strong>住宿區域</strong><small>恩納村西海岸、北谷美濱、那霸縣廳前／國際通</small></div></li>
+        <li><span>01</span><div><strong>住宿確認</strong><small>本部町山川 3 晚；那霸縣廳前／國際通 2 晚</small></div></li>
         <li><span>02</span><div><strong>租車與兒童座椅</strong><small>確認 ETC 卡、保險與還車據點</small></div></li>
         <li><span>03</span><div><strong>美麗海門票</strong><small>出發前再查營業與節目時間</small></div></li>
       </ol>
@@ -740,7 +680,7 @@
       <details>
         <summary>資料來源與照片授權</summary>
         <div class="source-content">
-          <p>行程資訊更新於 2026/06/12。營業時間、祭典節目、交通與門票仍以出發前官方公告為準。</p>
+          <p>行程資訊更新於 2026/06/15。營業時間、活動場次、交通與門票仍以出發前官方公告為準。</p>
           <div class="source-links">
             <a href="https://visitokinawajapan.com/plan-your-trip/when-to-visit-climate-seasons/okinawa-november/" target="_blank" rel="noreferrer">沖繩 11 月氣候</a>
             <a href="https://oki-park.jp/shurijo/" target="_blank" rel="noreferrer">首里城公園</a>
@@ -755,6 +695,9 @@
             <a href="https://okinawa.letsgojp.com/archives/16942/" target="_blank" rel="noreferrer">港川外人住宅介紹</a>
             <a href="https://lovesokinawa.co.jp/" target="_blank" rel="noreferrer">KOURI SHRIMP</a>
             <a href="https://ufuya.com/" target="_blank" rel="noreferrer">百年古家 大家</a>
+            <a href="https://smile-smart-inn.com/churaumi/" target="_blank" rel="noreferrer">スマイルスマートイン沖縄美ら海</a>
+            <a href="https://www.nagopine.com/index.html" target="_blank" rel="noreferrer">名護鳳梨園</a>
+            <a href="https://www.u-shi.net/onna.html" target="_blank" rel="noreferrer">琉球的牛 恩納本館</a>
             <a href="https://junglia.jp/en/" target="_blank" rel="noreferrer">JUNGLIA OKINAWA</a>
             <a href="https://en.kariyushi-aquarium.com/" target="_blank" rel="noreferrer">DMM Kariyushi 水族館</a>
             <a href="https://adventurousmark.tw/places-to-go-in-okinawa/" target="_blank" rel="noreferrer">社群熱門景點整理</a>
@@ -808,20 +751,17 @@
     <section class="print-dialog-panel" role="dialog" aria-modal="true" aria-labelledby="printDialogTitle">
       <button class="print-dialog-close" type="button" data-close-print aria-label="關閉">×</button>
       <p class="section-kicker">PRINT ITINERARY</p>
-      <h2 id="printDialogTitle">要列印哪一套行程？</h2>
-        <p>列印所選方案的 6 天住宿路線、每日時程、對應照片、順路加點／替代方案、人氣餐廳／必吃，以及張家旅行社大頭貼與航班資訊。</p>
+      <h2 id="printDialogTitle">列印張家沖繩主行程</h2>
+        <p>列印 6 天住宿路線、每日時程、對應照片、順路加點／替代方案、人氣餐廳與航班資訊。</p>
       <div class="print-plan-grid">
-        <button type="button" data-print-plan="a"><b>A</b><span>均衡分區<small>那霸 1 晚 → 恩納 2 晚 → 那霸 2 晚</small></span></button>
-        <button type="button" data-print-plan="b"><b>B</b><span>只換一次<small>那霸 2 晚 → 北谷 3 晚</small></span></button>
-        <button type="button" data-print-plan="c"><b>C</b><span>先海後城<small>恩納 3 晚 → 那霸 2 晚</small></span></button>
-        <button type="button" data-print-plan="d"><b>D</b><span>石垣竹富跳島<small>那霸 1 晚 → 石垣 2 晚 → 那霸 2 晚</small></span></button>
+        <button type="button" data-print-plan="c"><b>印</b><span>先北後那霸<small>本部美麗海 3 晚 → 那霸 2 晚</small></span></button>
       </div>
     </section>
   </div>
   <section class="print-sheet" id="printSheet" aria-hidden="true"></section>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script src="trip-data.js?v=20260612-6days"></script>
-  <script src="app.js?v=20260612-6days"></script>
+  <script src="trip-data.js?v=20260615-final-route"></script>
+  <script src="app.js?v=20260615-final-route"></script>
 </body>
 </html>

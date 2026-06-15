@@ -1521,6 +1521,19 @@ a {
   font-size: 12px;
 }
 
+.comparison-table.single-plan-table {
+  min-width: 0;
+}
+
+.single-plan-table thead th:first-child,
+.single-plan-table tbody th[scope="row"] {
+  width: 58%;
+}
+
+.single-plan-table td {
+  width: 42%;
+}
+
 .comparison-table th,
 .comparison-table td {
   padding: 13px 12px;
@@ -1688,6 +1701,15 @@ a {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 24px;
+}
+
+.plan-grid.single-plan {
+  grid-template-columns: minmax(0, 920px);
+  justify-content: center;
+}
+
+.plan-grid.single-plan .plan-card {
+  width: 100%;
 }
 
 .plan-card {
@@ -2028,6 +2050,19 @@ a {
 
 .itinerary-heading {
   align-items: center;
+}
+
+.single-plan-label {
+  display: inline-flex;
+  align-items: center;
+  min-height: 42px;
+  padding: 9px 16px;
+  color: var(--white);
+  border-radius: 999px;
+  background: var(--deep);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .08em;
 }
 
 .itinerary-intro {

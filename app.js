@@ -876,7 +876,7 @@ const printDialog = document.querySelector("#printDialog");
 const printSheet = document.querySelector("#printSheet");
 const openPrintButtons = document.querySelectorAll("#openPrintDialog, #mobilePrintButton");
 
-let currentPlan = "a";
+let currentPlan = "c";
 
 function renderRoute(plan) {
   routeTitle.textContent = plan.title;
@@ -1018,7 +1018,10 @@ function setPrintDialog(isOpen) {
 }
 
 openPrintButtons.forEach(button => {
-  button.addEventListener("click", () => setPrintDialog(true));
+  button.addEventListener("click", () => {
+    renderPrintSheet("c");
+    window.setTimeout(() => window.print(), 60);
+  });
 });
 
 printDialog.querySelectorAll("[data-close-print]").forEach(button => {
@@ -1101,18 +1104,18 @@ function renderPlanMatrix() {
   const matrix = window.extendedTripData?.matrix;
   const container = document.querySelector(".matrix-scroll");
   if (!matrix || !container) return;
-  const regionIds = ["matrix-event", "matrix-north", "matrix-central", "matrix-south", "matrix-islands"];
+  const regionIds = ["matrix-north", "matrix-central", "matrix-south"];
 
   container.innerHTML = `
-    <table class="comparison-table">
-      <thead><tr><th scope="col">區域・景點／市場／美食</th><th>A<br><small>分區慢住</small></th><th>B<br><small>只換一次</small></th><th>C<br><small>先海後城</small></th><th>D<br><small>石垣竹富</small></th></tr></thead>
+    <table class="comparison-table single-plan-table">
+      <thead><tr><th scope="col">區域・景點／市場／美食</th><th scope="col">這次安排</th></tr></thead>
       <tbody>
         ${matrix.map((group, groupIndex) => `
-          <tr class="matrix-region" id="${regionIds[groupIndex] || `matrix-region-${groupIndex}`}"><th colspan="5">${group.region}</th></tr>
+          <tr class="matrix-region" id="${regionIds[groupIndex] || `matrix-region-${groupIndex}`}"><th colspan="2">${group.region}</th></tr>
           ${group.rows.map(row => `
             <tr>
               <th scope="row"><span class="matrix-kind is-${row[0] === "美食" ? "food" : row[0] === "市場" ? "market" : "spot"}">${row[0]}</span>${row[1]}</th>
-              ${row.slice(2).map(matrixCellHtml).join("")}
+              ${matrixCellHtml(row[2])}
             </tr>
           `).join("")}
         `).join("")}
@@ -1127,38 +1130,21 @@ function renderPlanMatrix() {
     container.insertAdjacentElement("afterend", mobile);
   }
   mobile.innerHTML = `
-    <div class="mobile-matrix-tabs" aria-label="選擇要比較的行程">
-      ${["a", "b", "c", "d"].map(key => `<button type="button" data-mobile-plan="${key}">${key.toUpperCase()}</button>`).join("")}
-    </div>
-    <div class="mobile-matrix-summary"></div>
+    <div class="mobile-matrix-summary">前三晚住本部美麗海、後兩晚住那霸；✓ 是固定主線，◇ 是可替換選項。</div>
     <div class="mobile-matrix-list"></div>
   `;
-  mobile.querySelectorAll("[data-mobile-plan]").forEach(button => {
-    button.addEventListener("click", () => updateMobileMatrix(button.dataset.mobilePlan));
-  });
-  updateMobileMatrix(currentPlan);
+  updateMobileMatrix();
 }
 
-function updateMobileMatrix(planKey) {
+function updateMobileMatrix() {
   const mobile = document.querySelector(".mobile-matrix");
   const matrix = window.extendedTripData?.matrix;
   if (!mobile || !matrix) return;
-  const planIndex = ["a", "b", "c", "d"].indexOf(planKey);
-  const summaries = {
-    a: "A｜均衡分區：那霸 1 晚、恩納 2 晚、再回那霸 2 晚；六天內兼顧南北與魚市場。",
-    b: "B｜只換一次：那霸 2 晚後住北谷 3 晚；少搬行李，但 11/8 要提早還車。",
-    c: "C｜先海後城：抵達直接開往恩納住 3 晚，因此確定錯過 11/3 復興祭，最後住那霸 2 晚。",
-    d: "D｜石垣竹富：石垣住 2 晚並保留竹富整日；放棄本島北部，也不再硬塞西表島。"
-  };
-  mobile.querySelectorAll("[data-mobile-plan]").forEach(button => {
-    button.classList.toggle("is-active", button.dataset.mobilePlan === planKey);
-  });
-  mobile.querySelector(".mobile-matrix-summary").textContent = summaries[planKey];
   mobile.querySelector(".mobile-matrix-list").innerHTML = matrix.map(group => `
     <section>
       <h3>${group.region}</h3>
       ${group.rows.map(row => {
-        const cell = row[planIndex + 2];
+        const cell = row[2];
         const symbol = cell[0] === "main" ? "✓" : cell[0] === "option" ? "◇" : "—";
         return `<article class="mobile-matrix-row is-${cell[0]}"><div><span>${row[0]}</span><b>${row[1]}</b></div><strong>${symbol}</strong><small>${cell[1]}</small></article>`;
       }).join("")}
