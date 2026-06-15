@@ -1029,14 +1029,19 @@
       ...template,
       tags: [`周遊券兌換｜${attraction}`, ...template.tags],
       addOns: [
-        `本日使用 1 Week Free Pass 兌換「${attraction}」；到櫃台出示 QR Code，出發前再確認當期適用名單。`,
+        `本日使用「沖繩 FunPASS 美麗海四合一」兌換「${attraction}」；到櫃台出示 QR Code，出發前再確認當期適用名單。`,
         ticketNote,
         ...template.addOns
       ],
-      drive: `周遊券版｜${attraction} 已排在原本順路動線，不增加額外車程。${template.drive}`
+      drive: `周遊券兌換｜${attraction} 已排在原本順路動線，不增加額外車程。${template.drive}`
     };
   }
 
+  templates.churaumiLocalPass = makePassTemplate(
+    templates.churaumiLocal,
+    "美麗海水族館",
+    "購買方案名稱必須明確寫「美麗海水族館＋任選 3 項」；一般版 1 Week Free Pass 目前不含美麗海。"
+  );
   templates.kouriPineapplePass = makePassTemplate(
     templates.kouriPineapple,
     "名護鳳梨園",
@@ -1051,6 +1056,16 @@
     templates.southFish,
     "沖繩世界／玉泉洞",
     "沖繩世界成人現場票 ¥2,000；與鳳梨園、琉球村合計 ¥5,500。"
+  );
+  templates.kouriToNahaPass = makePassTemplate(
+    templates.kouriToNaha,
+    "名護鳳梨園",
+    "DINO 恐龍公園現場成人票 ¥1,000，建議單買，不占用三個兌換名額。"
+  );
+  templates.nahaToFlipperPass = makePassTemplate(
+    templates.nahaToFlipper,
+    "琉球村",
+    "琉球村成人現場票 ¥2,000，是三個兌換名額之一。"
   );
 
   function buildPlan(meta, daySpecs) {
@@ -1092,37 +1107,37 @@
 
   const built = {
     c: buildPlan({
-      title: "張家主行程｜先北後那霸",
-      description: "前三晚住スマイルスマートイン沖縄美ら海，後兩晚住那霸；只換一次飯店，放棄復興祭。",
+      title: "建議用周遊券行程｜北部 3 晚＋那霸 2 晚",
+      description: "已套用沖繩 FunPASS 美麗海四合一；路線完全不變，美麗海、鳳梨園、琉球村與沖繩世界都不用另買門票。",
       route: [
         { nights: "3", place: "スマイルスマートイン沖縄美ら海", note: "11/3–11/6｜本部町山川" },
         { nights: "2", place: "那霸市區", note: "11/6–11/8" }
+      ]
+    }, [
+      ["arrivalMotobu", motobu], ["churaumiLocalPass", motobu], ["kouriPineapplePass", motobu],
+      ["coastToNahaPass", naha], ["southFishPass", naha], ["departure", home]
+    ]),
+    nopass: buildPlan({
+      title: "沒有使用周遊券行程｜北部 3 晚＋那霸 2 晚",
+      description: "景點、時間、住宿與推薦行程完全相同；差別只有美麗海、鳳梨園、琉球村與沖繩世界改為各自購票。",
+      route: [
+        { nights: "3", place: "スマイルスマートイン沖縄美ら海", note: "11/3–11/6｜本部町山川" },
+        { nights: "2", place: "那霸市區", note: "11/6–11/8｜縣廳前／國際通" }
       ]
     }, [
       ["arrivalMotobu", motobu], ["churaumiLocal", motobu], ["kouriPineapple", motobu],
       ["coastToNaha", naha], ["southFish", naha], ["departure", home]
     ]),
     n3: buildPlan({
-      title: "比較方案｜北部 2 晚＋那霸 3 晚",
-      description: "前兩晚住スマイルスマートイン沖縄美ら海，第三晚起住那霸；提早進市區，但阿古豬後需夜駕，那霸也要往返名護吃潛水員牛排。",
+      title: "不推薦方案｜北部 2 晚＋那霸 3 晚",
+      description: "同樣可使用 FunPASS 美麗海四合一，但阿古豬晚餐後需夜駕 75–95 分鐘，隔天又從那霸往返名護，總車程更多。",
       route: [
         { nights: "2", place: "スマイルスマートイン沖縄美ら海", note: "11/3–11/5｜本部町山川" },
         { nights: "3", place: "那霸市區", note: "11/5–11/8" }
       ]
     }, [
-      ["arrivalMotobu", motobu], ["churaumiLocal", motobu], ["kouriToNaha", naha],
-      ["nahaToFlipper", naha], ["southFish", naha], ["departure", home]
-    ]),
-    pass: buildPlan({
-      title: "周遊券省票版｜北部 3 晚＋那霸 2 晚",
-      description: "住宿與 C1 相同，不為通票繞路；11/5 鳳梨園、11/6 琉球村、11/7 沖繩世界各兌換一項。",
-      route: [
-        { nights: "3", place: "スマイルスマートイン沖縄美ら海", note: "11/3–11/6｜本部町山川" },
-        { nights: "2", place: "那霸市區", note: "11/6–11/8｜縣廳前／國際通" }
-      ]
-    }, [
-      ["arrivalMotobu", motobu], ["churaumiLocal", motobu], ["kouriPineapplePass", motobu],
-      ["coastToNahaPass", naha], ["southFishPass", naha], ["departure", home]
+      ["arrivalMotobu", motobu], ["churaumiLocalPass", motobu], ["kouriToNahaPass", naha],
+      ["nahaToFlipperPass", naha], ["southFishPass", naha], ["departure", home]
     ])
   };
 

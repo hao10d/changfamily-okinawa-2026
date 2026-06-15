@@ -1740,23 +1740,6 @@ a {
   background: #f3e8db;
 }
 
-.plan-card-pass {
-  grid-column: 1 / -1;
-  border-color: rgba(12, 73, 81, .24);
-  background:
-    linear-gradient(115deg, rgba(232, 245, 239, .98), rgba(255, 247, 225, .96));
-}
-
-.plan-card-pass .plan-label {
-  color: rgba(12, 73, 81, .14);
-}
-
-.plan-card-pass .select-plan {
-  color: var(--white);
-  border-color: var(--deep);
-  background: var(--deep);
-}
-
 .plan-card-d {
   color: #eef8f6;
   border-color: transparent;
@@ -1830,6 +1813,39 @@ a {
 .plan-badge-sunset {
   color: #fff;
   background: #b66a4c;
+}
+
+.plan-card-not-recommended {
+  grid-column: 1 / -1;
+  border-color: rgba(164, 65, 48, .32);
+  background: #fff8f4;
+}
+
+.plan-card-no-pass {
+  border-style: dashed;
+  background: #f7f7f2;
+}
+
+.plan-badge-warning {
+  background: #9f3f32;
+}
+
+.plan-warning {
+  position: relative;
+  margin: 18px 0 0;
+  padding: 14px 16px;
+  color: #74382f;
+  border-left: 4px solid #9f3f32;
+  background: #f6e2dc;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.plan-warning b {
+  display: block;
+  margin-bottom: 3px;
+  font-size: 11px;
+  letter-spacing: .1em;
 }
 
 .plan-card h3 {
@@ -3944,10 +3960,6 @@ footer {
   }
 
   .plan-card-c {
-    grid-column: auto;
-  }
-
-  .plan-card-pass {
     grid-column: auto;
   }
 
