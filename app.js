@@ -1082,10 +1082,10 @@ function renderPrintSheet(planKey) {
             <p class="print-stay">住宿｜${day.stay}</p>
             <div class="print-day-photos">
               ${[
-                ...enhancements[index].photos.filter(photo => (photo[3] || "main") === "main").slice(0, 2),
+                ...enhancements[index].photos.filter(photo => (photo[3] || "main") === "main").slice(0, 3),
                 ...enhancements[index].photos.filter(photo => photo[3] === "food").slice(0, 1),
                 ...enhancements[index].photos.filter(photo => photo[3] === "optional").slice(0, 1)
-              ].slice(0, 4).map(photo => `
+              ].slice(0, 5).map(photo => `
                 <figure>
                   <img src="${photo[0]}" alt="${photo[2]}">
                   <figcaption>${photo[1]}</figcaption>
@@ -1134,7 +1134,7 @@ function renderPlanMatrix() {
           <tr class="matrix-region" id="${regionIds[groupIndex] || `matrix-region-${groupIndex}`}"><th colspan="2">${group.region}</th></tr>
           ${group.rows.map(row => `
             <tr>
-              <th scope="row"><span class="matrix-kind is-${row[0] === "美食" ? "food" : row[0] === "市場" ? "market" : "spot"}">${row[0]}</span>${row[1]}</th>
+              <th scope="row"><span class="matrix-kind is-${row[0] === "美食" ? "food" : row[0] === "市場" ? "market" : row[0] === "購物" ? "shopping" : "spot"}">${row[0]}</span>${row[1]}</th>
               ${matrixCellHtml(row[2])}
             </tr>
           `).join("")}
