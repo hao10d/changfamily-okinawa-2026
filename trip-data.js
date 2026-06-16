@@ -1041,12 +1041,12 @@
   templates.coastToNahaPass = makePassTemplate(
     templates.coastToNaha,
     "琉球村",
-    "琉球村成人現場票 ¥2,000，是三個兌換名額之一。"
+    "琉球村無券成人 ¥2,000，是三個兌換名額之一。"
   );
   templates.southFishPass = makePassTemplate(
     templates.southFish,
     "沖繩世界／玉泉洞",
-    "沖繩世界成人現場票 ¥2,000；與鳳梨園、琉球村合計 ¥5,500。"
+    "沖繩世界無券成人 ¥2,000；與鳳梨園、琉球村合計 ¥5,500。"
   );
   templates.kouriToNahaPass = makePassTemplate(
     templates.kouriToNaha,
@@ -1056,7 +1056,7 @@
   templates.nahaToFlipperPass = makePassTemplate(
     templates.nahaToFlipper,
     "琉球村",
-    "琉球村成人現場票 ¥2,000，是三個兌換名額之一。"
+    "琉球村無券成人 ¥2,000，是三個兌換名額之一。"
   );
 
   function buildPlan(meta, daySpecs) {

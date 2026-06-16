@@ -1264,19 +1264,41 @@ a {
 }
 
 .pass-card ul {
-  margin: 27px 0 34px;
+  margin: 22px 0 26px;
   padding: 0;
   list-style: none;
 }
 
 .pass-card li {
-  padding: 9px 0 9px 19px;
+  padding: 8px 0 8px 19px;
   border-top: 1px solid rgba(255,255,255,.12);
   font-size: 12px;
+  line-height: 1.5;
 }
 
 .pass-recommended li {
   border-color: var(--line);
+}
+
+.pass-card li b,
+.pass-card li span {
+  display: block;
+}
+
+.pass-card li b {
+  color: currentColor;
+  font-size: 12px;
+}
+
+.pass-card li span {
+  margin-top: 2px;
+  color: rgba(255,255,255,.62);
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.pass-recommended li span {
+  color: rgba(22, 50, 55, .66);
 }
 
 .pass-card li::before {
@@ -3857,8 +3879,21 @@ footer {
     min-height: 360px;
   }
 
+  .pass-section {
+    padding-top: 66px;
+    padding-bottom: 74px;
+  }
+
   .pass-card {
-    padding: 30px 24px;
+    padding: 24px 20px;
+  }
+
+  .pass-card h3 {
+    margin: 16px 0 12px;
+  }
+
+  .pass-card ul {
+    margin: 16px 0 18px;
   }
 
   .faq-list summary {
