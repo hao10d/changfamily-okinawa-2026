@@ -19,12 +19,12 @@
       </span>
     </a>
     <nav id="desktopNav" aria-label="主要導覽">
+      <a href="#itinerary">每日行程</a>
       <a href="#spot-map">景點地圖</a>
       <a href="#plan-matrix">行程總覽</a>
-      <a href="#itinerary">每日行程</a>
-      <a href="#events">期間活動</a>
       <a href="#food-map">美食地圖</a>
-      <a href="#plans">住宿安排</a>
+      <a href="#shopping-map">購物地圖</a>
+      <a href="#pass-guide">票券門票</a>
     </nav>
     <button class="print-button" id="openPrintDialog" type="button">列印行程</button>
     <button class="menu-button" id="menuButton" type="button" aria-expanded="false" aria-controls="mobileNav">
@@ -38,12 +38,22 @@
       <span>快速前往</span>
       <button id="closeMenuButton" type="button" aria-label="關閉選單">×</button>
     </div>
-    <a href="#spot-map"><b>01</b><span>景點地圖<small>開車時最快找到區域</small></span></a>
-    <a href="#plan-matrix"><b>02</b><span>行程總覽<small>主線、可替換與必吃</small></span></a>
-    <a href="#itinerary"><b>03</b><span>每日行程<small>六天動線與對應照片</small></span></a>
-    <a href="#events"><b>04</b><span>期間活動<small>11 月祭典與夜間燈光</small></span></a>
+    <p class="mobile-nav-section-title">先看行程</p>
+    <a href="#itinerary"><b>01</b><span>每日行程<small>時間、車程、門票、購物提示</small></span></a>
+    <a href="#plan-matrix"><b>02</b><span>主線總表<small>景點／美食／購物有沒有排</small></span></a>
+    <a href="#plans"><b>03</b><span>住宿方案<small>周遊券與不推薦方案比較</small></span></a>
+    <p class="mobile-nav-section-title">地圖分類</p>
+    <a href="#spot-map"><b>04</b><span>景點地圖<small>北部／中部／那霸南部</small></span></a>
     <a href="#food-map"><b>05</b><span>美食地圖<small>餐廳位置與同區備選</small></span></a>
-    <a href="#plans"><b>06</b><span>住宿安排<small>本部三晚、那霸兩晚</small></span></a>
+    <a href="#shopping-map"><b>06</b><span>購物地圖<small>伴手禮與網紅常逛店</small></span></a>
+    <p class="mobile-nav-section-title">票券與重點</p>
+    <a href="#pass-guide"><b>07</b><span>周遊券／門票<small>FunPASS、單買票價比較</small></span></a>
+    <a href="#events"><b>08</b><span>期間活動<small>11 月祭典與夜間燈光</small></span></a>
+    <a href="#souvenir-guide"><b>09</b><span>伴手禮清單<small>紅芋塔、雪鹽、黑糖、藥妝</small></span></a>
+    <p class="mobile-nav-section-title">出發前</p>
+    <a href="#guide"><b>10</b><span>自駕提醒<small>證件、取車、雨天備案</small></span></a>
+    <a href="#booking"><b>11</b><span>建議先訂<small>住宿、租車、門票</small></span></a>
+    <a href="#sources"><b>12</b><span>資料來源<small>官方連結與票價來源</small></span></a>
     <button class="mobile-print-button" id="mobilePrintButton" type="button">列印完整行程</button>
   </nav>
 
@@ -51,6 +61,7 @@
     <a href="#spot-map"><span>⌖</span>地圖</a>
     <a href="#plan-matrix"><span>✓</span>總表</a>
     <a href="#itinerary"><span>日</span>行程</a>
+    <a href="#shopping-map"><span>買</span>購物</a>
     <button id="quickMenuButton" type="button"><span>☰</span>更多</button>
   </nav>
 
@@ -90,6 +101,8 @@
         <a href="#spot-map"><span>01</span><b>景點地圖</b><small>北部／中部／南部快速篩選</small></a>
         <a href="#plan-matrix"><span>02</span><b>行程總覽</b><small>主線與可替換景點一次看</small></a>
         <a href="#itinerary"><span>03</span><b>每日行程</b><small>主線、可加點與對應照片</small></a>
+        <a href="#shopping-map"><span>04</span><b>購物伴手禮</b><small>推薦店與必買清單</small></a>
+        <a href="#pass-guide"><span>05</span><b>票券門票</b><small>FunPASS 與單買價格</small></a>
       </div>
     </section>
 
@@ -520,11 +533,11 @@
             <p class="section-kicker">OKINAWA FOOD MAP 2026</p>
             <h2>沖繩美食地圖 2026</h2>
           </div>
-          <p>14 間餐廳全收錄。六天不可能全部吃完：依住宿區域選主餐，排隊太長就切換同區備選。</p>
+          <p>15 間餐廳全收錄。六天不可能全部吃完：依住宿區域選主餐，排隊太長就切換同區備選。</p>
         </div>
 
         <div class="catalog-filter food-filter" data-catalog="food" aria-label="美食區域篩選">
-          <button class="is-active" type="button" data-filter="all">全部 14</button>
+          <button class="is-active" type="button" data-filter="all">全部 15</button>
           <button type="button" data-filter="north">北部</button>
           <button type="button" data-filter="central">中部</button>
           <button type="button" data-filter="south">那霸／南部</button>
@@ -553,9 +566,10 @@
           <article class="food-map-card food-book"><b>12</b><span>名護 · 燒肉</span><h3>燒肉五苑 名護店</h3><p>11/4 北部晚餐主線，吃完可接 AEON 名護夜間採買。</p><a href="https://www.y-goen.com/store/%E5%90%8D%E8%AD%B7%E5%BA%97/" target="_blank" rel="noreferrer">官方網站 ↗</a></article>
           <article class="food-map-card"><b>13</b><span>那霸／北谷 · 牛排</span><h3>JUMBO STEAK HAN'S</h3><p>份量型備選，國際通與美濱都有分店。</p><a href="https://steak-hans.jp/store-list/" target="_blank" rel="noreferrer">分店列表 ↗</a></article>
           <article class="food-map-card food-book"><b>14</b><span>瀨長島 · 鬆餅</span><h3>幸福鬆餅</h3><p>海景座位與厚鬆餅，適合瀨長島夕陽前；熱門時段先看預約規則。</p><a href="https://magia.tokyo/shop/okinawa" target="_blank" rel="noreferrer">官方店頁 ↗</a></article>
+          <article class="food-map-card food-book"><b>15</b><span>那霸久茂地 · 燒肉</span><h3>焼肉きんぐ 那覇久茂地店</h3><p>已加進 11/6 或 C2 那霸晚餐替代：「國際通晚餐［或 久茂燒肉］」，步行或短程計程車可到。</p><a href="https://www.yakiniku-king.jp/shop/2212/" target="_blank" rel="noreferrer">官方店頁 ↗</a></article>
         </div>
 
-        <div class="taste-board">
+        <div class="taste-board" id="souvenir-guide">
           <div><span>沖繩特色正餐</span><b>沖繩麵</b><b>阿古豬</b><b>苦瓜炒豆腐</b><b>琉球料理</b><b>泡盛</b></div>
           <div><span>走路小吃與甜點</span><b>Blue Seal</b><b>豬肉蛋飯糰</b><b>宮古島雪鹽</b><b>御菓子御殿紫薯塔</b><b>名護鳳梨蛋糕</b><b>10 圓餅</b></div>
           <div><span>海鮮市場</span><b>泊いゆまち</b><b>第一牧志公設市場</b><p>泊港建議上午去，牧志適合那霸散步日。</p></div>
@@ -578,6 +592,7 @@
             <h3>T Galleria Okinawa by DFS</h3>
             <p>おもろまち站直結，精品、香水與化妝品集中。購物時登記回程航班，商品於那霸機場指定櫃台提領。</p>
             <dl><dt>適合安排</dt><dd>11/6 或 11/7 那霸住宿日</dd><dt>注意</dt><dd>提貨截止依航班而定，勿壓最後時限</dd></dl>
+            <p class="shopping-tips"><b>推薦逛：</b>精品、香水、日系美妝；想買高單價商品再排，不買精品可跳過。</p>
             <a href="https://www.dfs.com/en/okinawa" target="_blank" rel="noreferrer">官方網站 ↗</a>
           </article>
           <article class="shopping-card shopping-top">
@@ -585,13 +600,15 @@
             <h3>ASHIBINAA Outlet</h3>
             <p>機場南側的 Outlet，運動與國際品牌集中；與 iias 豐崎、DMM 水族館可排成半日。</p>
             <dl><dt>公開時間</dt><dd>10:00–20:00</dd><dt>適合安排</dt><dd>11/7 與瀨長島／幸福鬆餅擇一</dd></dl>
+            <p class="shopping-tips"><b>推薦逛：</b>運動品牌、球鞋、戶外服飾；若想買折扣衣鞋才用它替換 PARCO 或瀨長島。</p>
             <a href="https://www.ashibinaa.com/" target="_blank" rel="noreferrer">官方網站 ↗</a>
           </article>
           <article class="shopping-card">
             <div class="shopping-rank"><b>03</b><span>推薦 4.0</span></div>
             <h3>PARCO CITY</h3>
             <p>浦添西海岸大型購物中心，UNIQLO、無印良品、餐廳與海景集中，1 樓有退稅櫃台。</p>
-            <dl><dt>退稅櫃台</dt><dd>10:00–22:00</dd><dt>正式安排</dt><dd>11/7 瀨長島後晚餐與購物</dd></dl>
+            <dl><dt>退稅櫃台</dt><dd>10:00–22:00</dd><dt>正式安排</dt><dd>11/7 下午完整購物與休息</dd></dl>
+            <p class="shopping-tips"><b>網紅常逛：</b>LEGO Store、Akachan Honpo、3COINS、無印良品、UNIQLO／GU、ABC-MART、SAN-A 超市。</p>
             <a href="https://www.parcocity.jp/tw-okinawa/" target="_blank" rel="noreferrer">繁中指南 ↗</a>
           </article>
           <article class="shopping-card">
@@ -599,6 +616,7 @@
             <h3>Ryubo 琉貿百貨</h3>
             <p>縣廳前站、國際通入口，日系美妝與地下食品樓層方便，住那霸不必開車。</p>
             <dl><dt>公開時間</dt><dd>B1–2F 至 20:30；3–8F 至 20:00</dd><dt>適合安排</dt><dd>那霸自由散步日</dd></dl>
+            <p class="shopping-tips"><b>推薦逛：</b>日系專櫃美妝、地下食品、伴手禮小包裝；住縣廳前附近最順。</p>
             <a href="https://ryubo.jp/us/" target="_blank" rel="noreferrer">官方網站 ↗</a>
           </article>
           <article class="shopping-card shopping-top">
@@ -606,6 +624,7 @@
             <h3>Don Quijote 國際通店</h3>
             <p>伴手禮、藥妝、日用品與電器一次買齊，適合吃完晚餐再逛；折價與免稅條件以當日官方為準。</p>
             <dl><dt>官方時間</dt><dd>09:00–翌日05:00</dd><dt>正式安排</dt><dd>11/6 國際通晚餐後</dd></dl>
+            <p class="shopping-tips"><b>推薦買：</b>沖繩泡麵、金楚糕、雪鹽、黑糖、石垣島辣油、泡盛、藥妝、行李箱。</p>
             <a href="https://www.donki.com/en/store/shop_detail.php?shop_id=323" target="_blank" rel="noreferrer">官方店頁 ↗</a>
           </article>
           <article class="shopping-card">
@@ -613,6 +632,7 @@
             <h3>AEON 名護／MEGA Donki</h3>
             <p>名護晚上沒有國際通那種攤販街，能實際逛的是 AEON 的 UNIQLO、DAISO、超市與雜貨；逛不夠再加營業到深夜的 MEGA 唐吉訶德。</p>
             <dl><dt>正式安排</dt><dd>11/4 燒肉五苑後逛 AEON</dd><dt>深夜備案</dt><dd>MEGA Donki 名護店至翌日 02:00</dd></dl>
+            <p class="shopping-tips"><b>推薦買：</b>隔天早餐、水果飲料、沖繩限定零食、旅途中會用到的小物；不要在這裡買完全部伴手禮。</p>
             <a href="https://www.aeon-ryukyu.jp/store/aeon/aeon_nago/" target="_blank" rel="noreferrer">AEON 官方店頁 ↗</a>
           </article>
           <article class="shopping-card shopping-top">
@@ -620,13 +640,14 @@
             <h3>永旺夢樂城沖繩來客夢</h3>
             <p>沖繩大型度假購物中心，約 220 間商店，包含服飾、DAISO、家電、AEON STYLE、美食街與餐廳。</p>
             <dl><dt>專門店</dt><dd>10:00–22:00</dd><dt>正式安排</dt><dd>11/3 取車後，16:00–17:30</dd></dl>
+            <p class="shopping-tips"><b>推薦逛：</b>CHURAON 伴手禮、寶可夢中心、GU／UNIQLO、DAISO、AEON STYLE 超市。</p>
             <a href="https://okinawarycom.aeonmall.jp/" target="_blank" rel="noreferrer">官方網站 ↗</a>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="pass-section">
+    <section class="pass-section" id="pass-guide">
       <div class="section-wrap">
         <div class="section-heading catalog-heading">
           <div>
@@ -639,7 +660,7 @@
           <article class="pass-card pass-recommended">
             <span class="pass-label">張家行程建議購買</span>
             <h3>沖繩 FunPASS<br>美麗海四合一</h3>
-            <p>內含美麗海水族館，再任選 3 個景點。四站原本就在行程裡，不增加車程，也不必另外買水族館門票。</p>
+            <p>內含美麗海水族館，再任選 3 個景點。四站原本就在行程裡，不增加車程，也不必另外買水族館門票；官方參考成人價約 ¥6,721，通路台幣價會浮動。</p>
             <ul>
               <li>11/4 美麗海水族館：套票固定包含</li>
               <li>11/5 名護鳳梨園：成人現場 ¥1,500</li>
@@ -661,11 +682,11 @@
             <a href="https://travelcontentsapp.com/have-fun-pass/okinawa/" target="_blank" rel="noreferrer">查看一般版目前設施 ↗</a>
           </article>
         </div>
-        <p class="pass-note"><b>購買判斷：</b>美麗海 ¥2,180＋鳳梨園 ¥1,500＋琉球村 ¥2,000＋沖繩世界 ¥2,000，成人單買合計約 ¥7,680。四合一結帳價低於這個總額就用券；幼兒若四站本來免票，不要替幼兒買通票。</p>
+        <p class="pass-note"><b>購買判斷：</b>美麗海 ¥2,180＋鳳梨園 ¥1,500＋琉球村 ¥2,000＋沖繩世界 ¥2,000，成人單買合計約 ¥7,680。美麗海四合一若低於這個總額就用券；幼兒若四站本來免票，不要替幼兒買通票。</p>
       </div>
     </section>
 
-    <section class="faq-section section-wrap">
+    <section class="faq-section section-wrap" id="faq">
       <div class="section-heading catalog-heading">
         <div>
           <p class="section-kicker">QUICK FAQ</p>
@@ -731,7 +752,7 @@
       </div>
     </section>
 
-    <section class="booking section-wrap">
+    <section class="booking section-wrap" id="booking">
       <div>
         <p class="section-kicker">BOOKING PRIORITY</p>
         <h2>建議先訂</h2>
@@ -743,7 +764,7 @@
       </ol>
     </section>
 
-    <section class="sources section-wrap">
+    <section class="sources section-wrap" id="sources">
       <details>
         <summary>資料來源與照片授權</summary>
         <div class="source-content">
@@ -752,6 +773,7 @@
             <a href="https://visitokinawajapan.com/plan-your-trip/when-to-visit-climate-seasons/okinawa-november/" target="_blank" rel="noreferrer">沖繩 11 月氣候</a>
             <a href="https://oki-park.jp/shurijo/" target="_blank" rel="noreferrer">首里城公園</a>
             <a href="https://churaumi.okinawa/en/guide/hour/" target="_blank" rel="noreferrer">美麗海水族館</a>
+            <a href="https://churaumi.okinawa/guide/info/" target="_blank" rel="noreferrer">美麗海水族館票價</a>
             <a href="https://www.thb.gov.tw/cp.aspx?n=251" target="_blank" rel="noreferrer">臺日駕照互惠</a>
             <a href="https://tpcmv.thb.gov.tw/cp.aspx?n=9457" target="_blank" rel="noreferrer">日文譯本申辦</a>
             <a href="https://visitokinawajapan.com/plan-your-trip/getting-around-okinawa/" target="_blank" rel="noreferrer">沖繩交通指南</a>
@@ -761,6 +783,8 @@
             <a href="https://www.oki-islandguide.com/attractions/senagajima-umikaji-terrace" target="_blank" rel="noreferrer">Umikaji Terrace</a>
             <a href="https://okinawa.letsgojp.com/archives/16942/" target="_blank" rel="noreferrer">港川外人住宅介紹</a>
             <a href="https://lovesokinawa.co.jp/" target="_blank" rel="noreferrer">KOURI SHRIMP</a>
+            <a href="https://www.kouri-oceantower.com/news_detail.html?code=29" target="_blank" rel="noreferrer">古宇利海洋塔票價</a>
+            <a href="https://www.manzamo.jp/" target="_blank" rel="noreferrer">萬座毛觀覽料</a>
             <a href="https://ufuya.com/" target="_blank" rel="noreferrer">百年古家 大家</a>
             <a href="https://smile-smart-inn.com/churaumi/" target="_blank" rel="noreferrer">スマイルスマートイン沖縄美ら海</a>
             <a href="https://www.nagopine.com/index.html" target="_blank" rel="noreferrer">名護鳳梨園</a>
@@ -775,6 +799,7 @@
             <a href="http://flipper1971.com/" target="_blank" rel="noreferrer">Flipper 潛水員牛排</a>
             <a href="https://jasonslife.tw/flipper/" target="_blank" rel="noreferrer">Flipper 牛排與店面照片</a>
             <a href="https://www.u-shi.net/chatan.html" target="_blank" rel="noreferrer">琉球的牛 北谷店</a>
+            <a href="https://www.yakiniku-king.jp/shop/2212/" target="_blank" rel="noreferrer">焼肉きんぐ 那覇久茂地店</a>
             <a href="https://www.ryukyumura.co.jp/official/s/guide/price/" target="_blank" rel="noreferrer">琉球村票價</a>
             <a href="https://www.gyokusendo.co.jp/okinawaworld/tc/" target="_blank" rel="noreferrer">沖繩世界票價</a>
             <a href="https://junglia.jp/en/" target="_blank" rel="noreferrer">JUNGLIA OKINAWA</a>
@@ -786,12 +811,18 @@
             <a href="https://travelcontentsapp.com/en/have-fun-pass/okinawa-premium-klook/" target="_blank" rel="noreferrer">沖繩 Premium Pass｜含美麗海</a>
             <a href="https://www.kkday.com/zh-tw/product/285076" target="_blank" rel="noreferrer">FunPASS 美麗海＋任選景點</a>
             <a href="https://okinawa.funpass.app/" target="_blank" rel="noreferrer">Okinawa FunPASS</a>
+            <a href="https://okinawa.funpass.app/?lang=ja_JP" target="_blank" rel="noreferrer">Okinawa FunPASS 官方日文價格</a>
             <a href="https://www.dfs.com/en/okinawa" target="_blank" rel="noreferrer">DFS Okinawa</a>
             <a href="https://www.ashibinaa.com/" target="_blank" rel="noreferrer">ASHIBINAA Outlet</a>
             <a href="https://www.parcocity.jp/tw-okinawa/" target="_blank" rel="noreferrer">PARCO CITY</a>
+            <a href="https://baygolee.com/san-a-parco-city/" target="_blank" rel="noreferrer">PARCO CITY 親子與網紅店整理</a>
             <a href="https://www.gltjp.com/zh-hant/directory/item/16778/" target="_blank" rel="noreferrer">PARCO CITY 照片與設施介紹</a>
             <a href="https://www.donki.com/en/store/shop_detail.php?shop_id=323" target="_blank" rel="noreferrer">Don Quijote 國際通店</a>
+            <a href="https://okinawa.letsgojp.com/archives/19200/" target="_blank" rel="noreferrer">唐吉訶德國際通店伴手禮整理</a>
             <a href="https://rentacar.okinawa-pro.jp/blog/tourism/119" target="_blank" rel="noreferrer">Don Quijote 國際通店照片</a>
+            <a href="https://okinawa.letsgojp.com/archives/640089/" target="_blank" rel="noreferrer">永旺夢樂城沖繩來客夢攻略</a>
+            <a href="https://okinawa.letsgojp.com/archives/10742/" target="_blank" rel="noreferrer">沖繩伴手禮清單</a>
+            <a href="https://tc.tabirai.net/sightseeing/article/kokusai-street-shopping/" target="_blank" rel="noreferrer">國際通購物與壺屋通</a>
             <a href="https://visitokinawajapan.com/destinations/okinawa-main-island/northern-okinawa-main-island/onna-coast/" target="_blank" rel="noreferrer">VISIT OKINAWA JAPAN｜恩納海岸</a>
             <a href="https://www.southeast-botanical.jp/illumination/" target="_blank" rel="noreferrer">東南植物樂園｜沖繩南國 Illumination</a>
             <a href="https://visitokinawajapan.com/zh-hant/plan-your-trip/recommended-trips/four-day-remote-island/" target="_blank" rel="noreferrer">官方｜石垣・西表・竹富跳島行程</a>

@@ -756,7 +756,8 @@ const mapCatalogs = {
     { name: "浜の家海鮮料理", region: "central", coords: [26.437, 127.801], note: "魚バター焼與海膽料理" },
     { name: "牛排屋 88 美麗海店", region: "north", coords: [26.688, 127.878], note: "水族館附近多人用餐" },
     { name: "JUMBO STEAK HAN'S 美濱店", region: "central", coords: [26.315, 127.757], note: "北谷份量型牛排" },
-    { name: "幸福鬆餅 瀨長島店", region: "south", coords: [26.1744, 127.6469], note: "海景厚鬆餅" }
+    { name: "幸福鬆餅 瀨長島店", region: "south", coords: [26.1744, 127.6469], note: "海景厚鬆餅" },
+    { name: "焼肉きんぐ 那覇久茂地店", region: "south", coords: [26.2186, 127.6811], note: "國際通晚餐可改久茂燒肉" }
   ]
 };
 
@@ -909,10 +910,16 @@ function renderJourneyFlow(flow, printMode = false) {
       <div class="${prefix}journey-flow-list">
         ${flow.map(item => {
           if (item[0] === "activity") {
+            const ticketLabel = item[4]
+              ? `<span class="${prefix}journey-ticket ${item[4].includes("使用") ? "is-pass" : "is-price"}">${item[4]}</span>`
+              : "";
+            const shopNote = item[5]
+              ? `<span class="${prefix}journey-shop-note">${item[5]}</span>`
+              : "";
             return `
               <article class="${prefix}journey-stop">
                 <time>${item[1]}</time>
-                <div><b>${item[2]}</b><small>${item[3] || ""}</small></div>
+                <div><b>${item[2]}</b>${ticketLabel}${shopNote}<small>${item[3] || ""}</small></div>
               </article>
             `;
           }
