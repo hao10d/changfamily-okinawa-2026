@@ -1174,7 +1174,7 @@ function renderPlanMatrix() {
     container.insertAdjacentElement("afterend", mobile);
   }
   mobile.innerHTML = `
-    <div class="mobile-matrix-summary">前三晚住本部美麗海、後兩晚住那霸；✓ 是固定主線，◇ 是可替換選項。</div>
+    <div class="mobile-matrix-summary">前三晚住本部美麗海、後兩晚住 ALPHABED INN 那覇国際通りEAST；✓ 是固定主線，◇ 是可替換選項。</div>
     <div class="mobile-matrix-list"></div>
   `;
   updateMobileMatrix();

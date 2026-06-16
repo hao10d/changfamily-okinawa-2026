@@ -712,7 +712,7 @@
     photos: [
       ["assets/aeon-rycom.jpg", "永旺夢樂城沖繩來客夢", "抵達日只保留一個購物站", "main"],
       ["assets/ryukyu-beef.jpg", "琉球的牛北谷店", "第一晚預約沖繩縣產和牛燒肉", "food"],
-      ["assets/smile-smart-inn-churaumi.jpg", "北部住宿", "スマイルスマートイン沖縄美ら海客房", "main"],
+      ["assets/smile-smart-inn-churaumi.jpg?v=20260616-room-1", "北部住宿", "スマイルスマートイン沖縄美ら海客房", "main"],
       ["assets/potama.png", "ポーたま", "排隊短才快速墊胃", "food"]
     ],
     drive: "租車通常在那霸機場周邊營業所，不是那霸市中心；落地到真正開走抓 2 小時以上。第一天只有來客夢與晚餐兩站，約 21:00 入住本部。"
@@ -1092,17 +1092,17 @@
     };
   }
 
-  const naha = "那霸市區｜縣廳前／國際通";
+  const naha = "ALPHABED INN 那覇国際通りEAST｜那霸國際通東側";
   const motobu = "スマイルスマートイン沖縄美ら海｜本部町山川";
   const home = "溫暖的家";
 
   const built = {
     c: buildPlan({
       title: "建議用周遊券行程｜北部 3 晚＋那霸 2 晚",
-      description: "已套用沖繩 FunPASS 美麗海四合一；路線完全不變，美麗海、鳳梨園、琉球村與沖繩世界都不用另買門票。",
+      description: "前三晚住スマイルスマートイン沖縄美ら海，後兩晚住 ALPHABED INN 那覇国際通りEAST；已套用沖繩 FunPASS 美麗海四合一。",
       route: [
         { nights: "3", place: "スマイルスマートイン沖縄美ら海", note: "11/3–11/6｜本部町山川" },
-        { nights: "2", place: "那霸市區", note: "11/6–11/8" }
+        { nights: "2", place: "ALPHABED INN 那覇国際通りEAST", note: "11/6–11/8｜那霸國際通東側" }
       ]
     }, [
       ["arrivalMotobu", motobu], ["churaumiLocalPass", motobu], ["kouriPineapplePass", motobu],
@@ -1110,10 +1110,10 @@
     ]),
     nopass: buildPlan({
       title: "沒有使用周遊券行程｜北部 3 晚＋那霸 2 晚",
-      description: "景點、時間、住宿與推薦行程完全相同；差別只有美麗海、鳳梨園、琉球村與沖繩世界改為各自購票。",
+      description: "景點、時間、住宿與推薦行程完全相同；後兩晚同樣住 ALPHABED INN 那覇国際通りEAST，只是四站改為各自購票。",
       route: [
         { nights: "3", place: "スマイルスマートイン沖縄美ら海", note: "11/3–11/6｜本部町山川" },
-        { nights: "2", place: "那霸市區", note: "11/6–11/8｜縣廳前／國際通" }
+        { nights: "2", place: "ALPHABED INN 那覇国際通りEAST", note: "11/6–11/8｜那霸國際通東側" }
       ]
     }, [
       ["arrivalMotobu", motobu], ["churaumiLocal", motobu], ["kouriPineapple", motobu],
@@ -1124,7 +1124,7 @@
       description: "同樣可使用 FunPASS 美麗海四合一，但阿古豬晚餐後需夜駕 75–95 分鐘，隔天又從那霸往返名護，總車程更多。",
       route: [
         { nights: "2", place: "スマイルスマートイン沖縄美ら海", note: "11/3–11/5｜本部町山川" },
-        { nights: "3", place: "那霸市區", note: "11/5–11/8" }
+        { nights: "3", place: "ALPHABED INN 那覇国際通りEAST", note: "11/5–11/8｜那霸國際通東側" }
       ]
     }, [
       ["arrivalMotobu", motobu], ["churaumiLocalPass", motobu], ["kouriToNahaPass", naha],
@@ -1161,6 +1161,7 @@
       ["景點", "東南植物園燈光秀", ["option", "確認 2026 日期後替換晚間"]]
     ]},
     { region: "那霸／南部｜首里・市場・南城・購物", rows: [
+      ["住宿", "ALPHABED INN 那覇国際通りEAST", ["main", "11/6–11/8 連住兩晚"]],
       ["活動", "首里城復興祭", ["none", "本次確定放棄"]],
       ["市場", "第一牧志公設市場", ["main", "11/6 17:45 先逛"]],
       ["市場", "泊いゆまち魚市場", ["main", "11/7 早上"]],
