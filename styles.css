@@ -1129,6 +1129,80 @@ a {
   text-underline-offset: 4px;
 }
 
+.late-night-panel {
+  margin-top: 24px;
+  padding: 26px;
+  color: var(--white);
+  background: linear-gradient(135deg, #102f36, #0a1f24);
+  box-shadow: 0 16px 42px rgba(20, 54, 58, .16);
+}
+
+.late-night-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 420px);
+  gap: 22px;
+  align-items: end;
+  margin-bottom: 18px;
+}
+
+.late-night-head h3 {
+  margin: 0;
+  font-family: "Noto Serif TC", Georgia, serif;
+  font-size: clamp(25px, 3vw, 39px);
+  line-height: 1.35;
+}
+
+.late-night-head p:last-child {
+  margin: 0;
+  color: rgba(255,255,255,.66);
+  font-size: 12px;
+}
+
+.late-night-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+}
+
+.late-night-grid article {
+  padding: 16px 14px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.06);
+}
+
+.late-night-grid b,
+.late-night-grid span {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.late-night-grid b {
+  margin-right: 8px;
+  color: #ffbf9d;
+  font-family: Georgia, serif;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.late-night-grid span {
+  color: rgba(255,255,255,.58);
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: .1em;
+}
+
+.late-night-grid h4 {
+  margin: 9px 0 6px;
+  font-size: 15px;
+}
+
+.late-night-grid p {
+  margin: 0;
+  color: rgba(255,255,255,.68);
+  font-size: 11px;
+  line-height: 1.65;
+}
+
 .pass-section {
   padding: 125px 0;
   color: var(--white);
@@ -3364,6 +3438,14 @@ footer {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .late-night-head {
+    grid-template-columns: 1fr;
+  }
+
+  .late-night-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .shopping-card {
     min-height: 350px;
   }
@@ -3731,9 +3813,14 @@ footer {
   .catalog-grid,
   .food-map-grid,
   .shopping-grid,
+  .late-night-grid,
   .pass-grid,
   .taste-board {
     grid-template-columns: 1fr;
+  }
+
+  .late-night-panel {
+    padding: 22px 18px;
   }
 
   .catalog-featured {
