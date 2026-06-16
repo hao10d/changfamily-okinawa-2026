@@ -2376,20 +2376,38 @@ a {
   line-height: 1.55;
 }
 
+.journey-stop-night {
+  margin: 8px -6px 0;
+  padding: 12px 6px;
+  border-bottom: 0;
+  border-left: 4px solid #7351b7;
+  border-radius: 10px;
+  background: #f1ecff;
+}
+
+.journey-stop-night time,
+.journey-stop-night b {
+  color: #4b327e;
+}
+
+.journey-stop-night small {
+  color: rgba(56, 43, 92, .72);
+}
+
 .journey-ticket,
 .journey-shop-note,
 .print-journey-ticket,
 .print-journey-shop-note {
-  display: inline-flex;
-  align-items: center;
+  display: inline-block;
   width: fit-content;
   max-width: 100%;
   margin-top: 5px;
   padding: 3px 8px;
-  border-radius: 999px;
+  border-radius: 8px;
   font-size: 10px;
   font-weight: 900;
   line-height: 1.45;
+  white-space: normal;
 }
 
 .journey-ticket {
@@ -4192,13 +4210,43 @@ footer {
   }
 
   .day-card {
-    grid-template-columns: 70px 1fr;
-    gap: 22px;
+    grid-template-columns: 1fr;
+    gap: 14px;
     padding: 34px 0;
   }
 
+  .day-number,
+  .day-content,
+  .day-gallery-head,
+  .day-photo-groups {
+    grid-column: 1 / -1;
+  }
+
+  .day-number {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 3px;
+  }
+
+  .day-number small,
+  .day-number strong,
+  .day-number span {
+    display: inline-block;
+  }
+
+  .day-number small {
+    font-size: 10px;
+  }
+
   .day-number strong {
-    font-size: 47px;
+    margin: 0;
+    font-size: 38px;
+  }
+
+  .day-number span {
+    font-size: 12px;
+    line-height: 1.25;
   }
 
   .day-content h3 {
@@ -4216,7 +4264,7 @@ footer {
   }
 
   .journey-stop {
-    grid-template-columns: 92px minmax(0, 1fr);
+    grid-template-columns: 86px minmax(0, 1fr);
     gap: 10px;
     padding: 11px 0;
   }
@@ -4642,6 +4690,18 @@ footer {
   .print-journey-stop small {
     color: #667777;
     font-size: 6.5pt;
+  }
+
+  .print-journey-stop-night {
+    margin-top: 2px;
+    padding: 3px 4px;
+    border-left: 2px solid #7351b7;
+    background: #f1ecff;
+  }
+
+  .print-journey-stop-night time,
+  .print-journey-stop-night b {
+    color: #4b327e;
   }
 
   .print-journey-move {

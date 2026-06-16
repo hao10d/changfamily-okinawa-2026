@@ -909,7 +909,8 @@ function renderJourneyFlow(flow, printMode = false) {
       `}
       <div class="${prefix}journey-flow-list">
         ${flow.map(item => {
-          if (item[0] === "activity") {
+          if (item[0] === "activity" || item[0] === "night") {
+            const isNight = item[0] === "night";
             const ticketLabel = item[4]
               ? `<span class="${prefix}journey-ticket ${item[4].includes("使用") ? "is-pass" : "is-price"}">${item[4]}</span>`
               : "";
@@ -917,7 +918,7 @@ function renderJourneyFlow(flow, printMode = false) {
               ? `<span class="${prefix}journey-shop-note">${item[5]}</span>`
               : "";
             return `
-              <article class="${prefix}journey-stop">
+              <article class="${prefix}journey-stop ${isNight ? `${prefix}journey-stop-night` : ""}">
                 <time>${item[1]}</time>
                 <div><b>${item[2]}</b>${ticketLabel}${shopNote}<small>${item[3] || ""}</small></div>
               </article>
