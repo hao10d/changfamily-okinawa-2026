@@ -856,6 +856,7 @@
       ["assets/market-makishi.jpg", "第一牧志公設市場", "17:45 先看市場與周邊攤商", "main"],
       ["assets/ryukyu-mura.jpg", "琉球村", "紅瓦聚落與文化表演", "main"],
       ["assets/american-village.jpg", "美國村", "第一天移到今天，下午從容逛街", "main"],
+      ["assets/alphabed-inn-east-room.jpg?v=20260618-room-1", "ALPHABED INN 那覇国際通りEAST", "後兩晚那霸住宿房間", "main"],
       ["assets/donki-kokusai-2.jpg", "Don Quijote 國際通店", "晚餐後正式採買行程", "main"],
       ["assets/flipper-steak.jpg", "潛水員牛排", "實際牛排餐點照片", "food"],
       ["assets/market-fish-4.jpg", "國際通市場海鮮", "晚餐可選牧志市場周邊海鮮", "food"],
