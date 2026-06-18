@@ -2957,16 +2957,19 @@ a {
 }
 
 .booking {
-  display: grid;
-  grid-template-columns: .8fr 1.2fr;
-  gap: 100px;
+  display: block;
+  width: min(1480px, 92vw);
   padding-top: 90px;
   padding-bottom: 100px;
   border-top: 1px solid var(--line);
 }
 
+.booking > div:first-child {
+  margin-bottom: 32px;
+}
+
 .cost-note {
-  max-width: 360px;
+  max-width: 780px;
   margin: 18px 0 0;
   color: rgba(22, 50, 55, .62);
   font-size: 12px;
@@ -2982,9 +2985,10 @@ a {
 
 .cost-table {
   width: 100%;
-  min-width: 760px;
+  min-width: 1120px;
   border-collapse: collapse;
   font-size: 12px;
+  table-layout: fixed;
 }
 
 .cost-table th,
@@ -3003,8 +3007,23 @@ a {
 }
 
 .cost-table tbody th {
-  width: 22%;
+  width: 15%;
   font-weight: 900;
+}
+
+.cost-table th:nth-child(2),
+.cost-table td:nth-child(2) {
+  width: 22%;
+}
+
+.cost-table th:nth-child(3),
+.cost-table td:nth-child(3) {
+  width: 31%;
+}
+
+.cost-table th:nth-child(4),
+.cost-table td:nth-child(4) {
+  width: 32%;
 }
 
 .cost-table td:nth-child(3),
@@ -4586,7 +4605,7 @@ footer {
 
   .cost-table {
     display: table;
-    min-width: 820px;
+    min-width: 1120px;
     font-size: 12px;
   }
 
