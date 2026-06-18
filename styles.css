@@ -3032,6 +3032,15 @@ a {
   font-weight: 900;
 }
 
+.cost-meta {
+  display: inline-block;
+  margin-left: 6px;
+  color: rgba(22, 50, 55, .5);
+  font-size: .86em;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
 .cost-group th {
   color: var(--coral-dark);
   background: rgba(228, 109, 75, .08);
@@ -4690,6 +4699,14 @@ footer {
     background: rgba(228, 109, 75, .08);
     font-size: 14px;
     font-weight: 900;
+  }
+
+  .cost-meta {
+    display: block;
+    margin: 2px 0 0;
+    font-size: 11px;
+    line-height: 1.45;
+    white-space: normal;
   }
 
   .cost-table td.cost-empty {
