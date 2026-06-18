@@ -2955,33 +2955,86 @@ a {
   border-top: 1px solid var(--line);
 }
 
-.booking ol {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+.cost-note {
+  max-width: 360px;
+  margin: 18px 0 0;
+  color: rgba(22, 50, 55, .62);
+  font-size: 12px;
+  line-height: 1.75;
 }
 
-.booking li {
-  display: flex;
-  align-items: center;
-  gap: 22px;
-  padding: 22px 0;
+.cost-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.34);
+  box-shadow: var(--shadow);
+}
+
+.cost-table {
+  width: 100%;
+  min-width: 760px;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.cost-table th,
+.cost-table td {
+  padding: 14px 16px;
   border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
 }
 
-.booking li > span {
-  color: var(--coral);
-  font-family: Georgia, serif;
-  font-size: 22px;
+.cost-table thead th {
+  color: var(--white);
+  background: var(--deep);
+  font-size: 11px;
+  letter-spacing: .08em;
 }
 
-.booking li strong,
-.booking li small {
-  display: block;
+.cost-table tbody th {
+  width: 22%;
+  font-weight: 900;
 }
 
-.booking li small {
-  color: rgba(22, 50, 55, .57);
+.cost-table td:nth-child(3),
+.cost-table td:nth-child(4) {
+  white-space: nowrap;
+  font-weight: 900;
+}
+
+.cost-group th {
+  color: var(--coral-dark);
+  background: rgba(228, 109, 75, .08);
+  font-size: 11px;
+  letter-spacing: .03em;
+}
+
+.cost-subtotal-row th,
+.cost-subtotal-row td {
+  background: rgba(12, 73, 81, .05);
+  font-weight: 900;
+}
+
+.cost-note-row th,
+.cost-note-row td {
+  color: rgba(22, 50, 55, .7);
+  background: rgba(255,255,255,.55);
+}
+
+.cost-total-row th,
+.cost-total-row td {
+  color: var(--white);
+  background: var(--deep);
+  border-bottom: 0;
+  font-size: 15px;
+  font-weight: 900;
+}
+
+.cost-alert {
+  margin: 14px 16px 16px;
+  color: rgba(22, 50, 55, .62);
+  font-size: 11px;
 }
 
 .sources {
@@ -4508,6 +4561,89 @@ footer {
     gap: 30px;
     padding-top: 70px;
     padding-bottom: 70px;
+  }
+
+  .cost-note {
+    max-width: none;
+  }
+
+  .cost-table-wrap {
+    overflow-x: visible;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .cost-table,
+  .cost-table tbody,
+  .cost-table tr,
+  .cost-table th,
+  .cost-table td {
+    display: block;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .cost-table {
+    font-size: 12px;
+  }
+
+  .cost-table thead {
+    display: none;
+  }
+
+  .cost-table tr {
+    margin-bottom: 12px;
+    border: 1px solid var(--line);
+    background: rgba(255,255,255,.48);
+    box-shadow: 0 12px 26px rgba(20, 54, 58, .08);
+  }
+
+  .cost-table th,
+  .cost-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid rgba(22, 50, 55, .1);
+  }
+
+  .cost-table td:nth-child(3),
+  .cost-table td:nth-child(4) {
+    white-space: normal;
+  }
+
+  .cost-table td::before {
+    display: block;
+    margin-bottom: 2px;
+    color: rgba(22, 50, 55, .48);
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: .08em;
+  }
+
+  .cost-table td:nth-child(2)::before {
+    content: "算法";
+  }
+
+  .cost-table td:nth-child(3)::before {
+    content: "日幣";
+  }
+
+  .cost-table td:nth-child(4)::before {
+    content: "台幣實刷";
+  }
+
+  .cost-group {
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .cost-group th {
+    padding: 12px 0 6px;
+    background: transparent;
+  }
+
+  .cost-total-row th,
+  .cost-total-row td {
+    background: var(--deep);
   }
 
   footer {

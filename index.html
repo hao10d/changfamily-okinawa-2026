@@ -7,7 +7,7 @@
   <meta name="theme-color" content="#0c4951">
   <title>沖繩島嶼慢旅｜張家旅行社</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-  <link rel="stylesheet" href="styles.css?v=20260616-hotel-1">
+  <link rel="stylesheet" href="styles.css?v=20260618-cost-1">
 </head>
 <body>
   <header class="site-header">
@@ -53,7 +53,7 @@
     <a href="#souvenir-guide"><b>10</b><span>伴手禮清單<small>紅芋塔、雪鹽、黑糖、藥妝</small></span></a>
     <p class="mobile-nav-section-title">出發前</p>
     <a href="#guide"><b>11</b><span>自駕提醒<small>證件、取車、雨天備案</small></span></a>
-    <a href="#booking"><b>12</b><span>建議先訂<small>住宿、租車、門票</small></span></a>
+    <a href="#booking"><b>12</b><span>花費整理<small>機票、住宿實刷金額</small></span></a>
     <a href="#sources"><b>13</b><span>資料來源<small>官方連結與票價來源</small></span></a>
     <button class="mobile-print-button" id="mobilePrintButton" type="button">列印完整行程</button>
   </nav>
@@ -789,14 +789,87 @@
 
     <section class="booking section-wrap" id="booking">
       <div>
-        <p class="section-kicker">BOOKING PRIORITY</p>
-        <h2>建議先訂</h2>
+        <p class="section-kicker">COST SUMMARY</p>
+        <h2>已訂花費整理</h2>
+        <p class="cost-note">明細用「算法／日幣／實刷台幣」分開看；機票沒有日幣，日幣欄留空。刷卡日不同，不用台幣回推匯率。</p>
       </div>
-      <ol>
-        <li><span>01</span><div><strong>住宿確認</strong><small>本部町山川 3 晚；ALPHABED INN 那覇国際通りEAST 2 晚</small></div></li>
-        <li><span>02</span><div><strong>租車與兒童座椅</strong><small>確認 ETC 卡、保險與還車據點</small></div></li>
-        <li><span>03</span><div><strong>美麗海門票</strong><small>出發前再查營業與節目時間</small></div></li>
-      </ol>
+      <div class="cost-table-wrap" role="region" aria-label="已訂花費明細" tabindex="0">
+        <table class="cost-table">
+          <thead>
+            <tr>
+              <th scope="col">項目</th>
+              <th scope="col">算法</th>
+              <th scope="col">日幣</th>
+              <th scope="col">台幣實刷</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">機票</th>
+              <td>7 人 × NT$9,700</td>
+              <td class="cost-empty"></td>
+              <td>NT$67,900</td>
+            </tr>
+            <tr class="cost-group"><th colspan="4">11/3–11/6｜スマイルスマートイン沖縄美ら海｜官網預定｜共三晚</th></tr>
+            <tr>
+              <th scope="row">三人房</th>
+              <td>1 間 × 3 晚</td>
+              <td>¥32,400</td>
+              <td>NT$6,754</td>
+            </tr>
+            <tr>
+              <th scope="row">雙人房</th>
+              <td>2 間 × 3 晚</td>
+              <td>¥26,400 × 2 = ¥52,800</td>
+              <td>NT$5,504 × 2 = NT$11,008</td>
+            </tr>
+            <tr class="cost-subtotal-row">
+              <th scope="row">北部住宿小計</th>
+              <td>3 間房 × 3 晚</td>
+              <td>¥85,200</td>
+              <td>NT$17,762</td>
+            </tr>
+            <tr class="cost-group"><th colspan="4">11/6–11/8｜アルファベッドイン那覇国際通りEAST｜共兩晚</th></tr>
+            <tr>
+              <th scope="row">三人房｜官網</th>
+              <td>1 間 × 2 晚</td>
+              <td>¥31,680</td>
+              <td>NT$6,243</td>
+            </tr>
+            <tr>
+              <th scope="row">雙人房｜ikyu</th>
+              <td>2 間 × 2 晚</td>
+              <td>¥26,640 × 2 = ¥53,280</td>
+              <td>NT$5,261 × 2 = NT$10,522</td>
+            </tr>
+            <tr class="cost-subtotal-row">
+              <th scope="row">那霸住宿小計</th>
+              <td>3 間房 × 2 晚</td>
+              <td>¥84,960</td>
+              <td>NT$16,765</td>
+            </tr>
+            <tr class="cost-note-row">
+              <th scope="row">未採用比較</th>
+              <td>ikyu 三人房比官網三人房貴</td>
+              <td>¥36,180 − ¥31,680 = ¥4,500</td>
+              <td>NT$7,145 − NT$6,243 = NT$902</td>
+            </tr>
+            <tr class="cost-subtotal-row">
+              <th scope="row">住宿小計</th>
+              <td>北部住宿 + 那霸住宿</td>
+              <td>¥85,200 + ¥84,960 = ¥170,160</td>
+              <td>NT$17,762 + NT$16,765 = NT$34,527</td>
+            </tr>
+            <tr class="cost-total-row">
+              <th scope="row">目前已知總計</th>
+              <td>機票 + 北部住宿 + 那霸住宿</td>
+              <td class="cost-empty"></td>
+              <td>NT$102,427</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="cost-alert">總計只含已訂機票與住宿；門票、租車、餐費、停車與購物尚未列入。</p>
+      </div>
     </section>
 
     <section class="sources section-wrap" id="sources">
