@@ -7,7 +7,7 @@
   <meta name="theme-color" content="#0c4951">
   <title>沖繩島嶼慢旅｜張家旅行社</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-  <link rel="stylesheet" href="styles.css?v=20260618-cost-6">
+  <link rel="stylesheet" href="styles.css?v=20260618-cost-7">
 </head>
 <body>
   <header class="site-header">
@@ -30,7 +30,7 @@
       <a href="#night-options">深夜備案</a>
       <a href="#souvenir-guide">伴手禮</a>
       <a href="#guide">自駕提醒</a>
-      <a href="#booking">機＋酒花費</a>
+      <a href="#booking">機酒租車</a>
       <a href="#sources">資料來源</a>
     </nav>
     <button class="print-button" id="openPrintDialog" type="button">列印行程</button>
@@ -60,7 +60,7 @@
     <a href="#souvenir-guide"><b>10</b><span>伴手禮清單<small>紅芋塔、雪鹽、黑糖、藥妝</small></span></a>
     <p class="mobile-nav-section-title">出發前</p>
     <a href="#guide"><b>11</b><span>自駕提醒<small>證件、取車、雨天備案</small></span></a>
-    <a href="#booking"><b>12</b><span>機＋酒花費<small>沖繩6天5夜平均每人</small></span></a>
+    <a href="#booking"><b>12</b><span>機酒租車<small>機票住宿租車平均每人</small></span></a>
     <a href="#sources"><b>13</b><span>資料來源<small>官方連結與票價來源</small></span></a>
     <button class="mobile-print-button" id="mobilePrintButton" type="button">列印完整行程</button>
   </nav>
@@ -796,18 +796,18 @@
 
     <section class="booking section-wrap" id="booking">
       <div>
-        <p class="section-kicker">FLIGHT + HOTEL</p>
-        <h2>沖繩6天5夜機＋酒</h2>
-        <p class="cost-note">機票與住宿明細用「算法／日幣／實刷台幣」分開看；機票沒有日幣，日幣欄留空。刷卡日不同，不用台幣回推匯率。</p>
+        <p class="section-kicker">FLIGHT + HOTEL + CAR</p>
+        <h2>沖繩6天5夜機＋酒＋租車</h2>
+        <p class="cost-note">機票、住宿與租車明細用「算法／日幣／台幣」分開看；機票沒有日幣，日幣欄留空。住宿為實刷台幣，租車尚未提供刷卡金額，先以 2026/07/24 參考匯率 ¥1≈NT$0.1975 暫估。</p>
       </div>
-      <div class="cost-table-wrap" role="region" aria-label="沖繩6天5夜機加酒花費明細" tabindex="0">
+      <div class="cost-table-wrap" role="region" aria-label="沖繩6天5夜機酒租車花費明細" tabindex="0">
         <table class="cost-table">
           <thead>
             <tr>
               <th scope="col">項目</th>
               <th scope="col">算法</th>
               <th scope="col">日幣</th>
-              <th scope="col">台幣實刷</th>
+              <th scope="col">台幣實刷／估</th>
             </tr>
           </thead>
           <tbody>
@@ -874,6 +874,25 @@
               <td>¥85,200 + ¥84,960 = ¥170,160</td>
               <td>NT$34,621</td>
             </tr>
+            <tr class="cost-group"><th colspan="4">11/3–11/8｜OTS 租車｜兩台車｜台幣暫估</th></tr>
+            <tr>
+              <th scope="row">第一台車｜DELICA D5</th>
+              <td>車資 + 豪華安心險 + 幼兒座椅</td>
+              <td>¥44,000 + ¥6,050 + ¥1,100 = ¥51,150</td>
+              <td>估 NT$10,102 <span class="cost-meta">車資約 NT$8,690｜保險約 NT$1,195｜座椅約 NT$217</span></td>
+            </tr>
+            <tr>
+              <th scope="row">第二台車｜VOXY</th>
+              <td>車資 + 豪華安心險</td>
+              <td>¥46,750 + ¥6,050 = ¥52,800</td>
+              <td>估 NT$10,428 <span class="cost-meta">車資約 NT$9,233｜保險約 NT$1,195</span></td>
+            </tr>
+            <tr class="cost-subtotal-row">
+              <th scope="row">租車小計</th>
+              <td>2 台車｜不含油資、ETC 與停車費</td>
+              <td>¥103,950</td>
+              <td>估 NT$20,530 <span class="cost-meta">平均每台約 NT$10,265</span></td>
+            </tr>
             <tr class="cost-total-row cost-average-row">
               <th scope="row">平均每間每晚</th>
               <td>3 間房 × 5 晚，換算每房每晚平均</td>
@@ -882,19 +901,19 @@
             </tr>
             <tr class="cost-total-row">
               <th scope="row">目前已知總計</th>
-              <td>樂桃機票 + 北部住宿 + 那霸住宿</td>
-              <td class="cost-empty"></td>
-              <td>NT$102,521</td>
+              <td>樂桃機票 + 北部住宿 + 那霸住宿 + 租車</td>
+              <td>租車 ¥103,950</td>
+              <td>估 NT$123,051</td>
             </tr>
             <tr class="cost-total-row cost-average-row">
               <th scope="row">平均每人</th>
-              <td>6天5夜沖繩機＋酒｜NT$102,521 ÷ 7 人</td>
+              <td>6天5夜沖繩機＋酒＋租車｜估 NT$123,051 ÷ 7 人</td>
               <td class="cost-empty"></td>
-              <td>約 NT$14,646／人</td>
+              <td>約 NT$17,579／人</td>
             </tr>
           </tbody>
         </table>
-        <p class="cost-alert">總計只含樂桃機票與住宿；門票、租車、餐費、停車與購物尚未列入。</p>
+        <p class="cost-alert">總計只含樂桃機票、住宿與租車；租車台幣為匯率暫估，不含 ETC／過路費、油資、停車、門票、餐費與購物。</p>
       </div>
     </section>
 
@@ -902,7 +921,7 @@
       <details>
         <summary>資料來源與照片授權</summary>
         <div class="source-content">
-          <p>行程資訊更新於 2026/06/16。營業時間、活動場次、交通與門票仍以出發前官方公告為準。</p>
+          <p>行程資訊更新於 2026/06/16；費用與租車估算更新於 2026/07/24。營業時間、活動場次、交通、門票與匯率仍以出發前官方公告或銀行實刷為準。</p>
           <div class="source-links">
             <a href="https://visitokinawajapan.com/plan-your-trip/when-to-visit-climate-seasons/okinawa-november/" target="_blank" rel="noreferrer">沖繩 11 月氣候</a>
             <a href="https://oki-park.jp/shurijo/" target="_blank" rel="noreferrer">首里城公園</a>
@@ -948,6 +967,8 @@
             <a href="https://www.kkday.com/zh-tw/product/285076" target="_blank" rel="noreferrer">FunPASS 美麗海＋任選景點</a>
             <a href="https://okinawa.funpass.app/" target="_blank" rel="noreferrer">Okinawa FunPASS</a>
             <a href="https://okinawa.funpass.app/?lang=ja_JP" target="_blank" rel="noreferrer">Okinawa FunPASS 官方日文價格</a>
+            <a href="https://currency.wiki/jpy-twd" target="_blank" rel="noreferrer">JPY/TWD 匯率參考</a>
+            <a href="https://wise.com/us/currency-converter/jpy-to-twd-rate/history" target="_blank" rel="noreferrer">Wise JPY/TWD 匯率參考</a>
             <a href="https://www.dfs.com/en/okinawa" target="_blank" rel="noreferrer">DFS Okinawa</a>
             <a href="https://www.ashibinaa.com/" target="_blank" rel="noreferrer">ASHIBINAA Outlet</a>
             <a href="https://www.parcocity.jp/tw-okinawa/" target="_blank" rel="noreferrer">PARCO CITY</a>
