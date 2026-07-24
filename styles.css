@@ -4749,7 +4749,7 @@ footer {
     background: transparent;
   }
 
-  .cost-total-row {
+  .cost-table tr.cost-total-row {
     background: var(--deep);
   }
 
