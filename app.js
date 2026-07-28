@@ -752,6 +752,7 @@ const mapCatalogs = {
     { name: "Nakamura Soba", region: "central", coords: [26.512, 127.899], note: "恩納海景沖繩麵" },
     { name: "Ryuya Honten 琉家", region: "south", coords: [26.214, 127.684], note: "國際通巷內拉麵" },
     { name: "Flipper 潛水員牛排", region: "north", coords: [26.5948, 127.9596], note: "名護海邊老店" },
+    { name: "The Sinmay", region: "north", coords: [26.678256, 127.971184], note: "11/5 古宇利回名護途中生黑糖拿鐵" },
     { name: "一蘭拉麵 國際通店", region: "south", coords: [26.2148, 127.6848], note: "24 小時日本連鎖" },
     { name: "浜の家海鮮料理", region: "central", coords: [26.437, 127.801], note: "魚バター焼與海膽料理" },
     { name: "牛排屋 88 美麗海店", region: "north", coords: [26.688, 127.878], note: "水族館附近多人用餐" },
