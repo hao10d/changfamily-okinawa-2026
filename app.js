@@ -671,7 +671,7 @@ const dayEnhancements = {
     {
       route: ["那霸機場", "市區飯店", "首里城／國際通", "晚餐", "提早休息"],
       addOns: ["首里城祭 2026 日期待公告，有涵蓋 11/3 再看通關時間與體力", "隔天國內線只帶兩晚需要的行李更輕鬆"],
-      food: [["Jack's Steak House", "那霸牛排", "抵達日晚餐備選"], ["暖暮拉麵", "拉麵", "國際通宵夜備選"]],
+      food: [["Jack's Steak House", "那霸牛排", "抵達日晚餐備選"], ["暖暮拉麵", "拉麵", "國際通晚餐備選"]],
       photos: [["assets/naha-airport.jpg", "那霸機場", "第一晚先住那霸", "main"], ["assets/shuri-steps.jpg", "首里城", "抵達日歷史散步", "main"], ["assets/naha-night.jpg", "國際通", "夜晚逛街", "main"], ["assets/jack-steak.png", "Jack's Steak", "那霸老字號", "food"]],
       drive: "第一天不租車。隔天飛石垣，建議預留國內線報到時間並把大件行李寄放那霸飯店。"
     },
@@ -743,7 +743,7 @@ const mapCatalogs = {
     { name: "波上宮", region: "south", coords: [26.2202, 127.6716], note: "那霸海邊神社" }
   ],
   food: [
-    { name: "暖暮拉麵 那霸牧志店", region: "south", coords: [26.218, 127.689], note: "國際通宵夜" },
+    { name: "暖暮拉麵 那霸牧志店", region: "south", coords: [26.218, 127.689], note: "11/6 國際通晚餐" },
     { name: "KOURI SHRIMP", region: "north", coords: [26.7015, 128.0179], note: "古宇利蝦蝦飯" },
     { name: "琉球的牛 北谷店", region: "central", coords: [26.3194, 127.7575], note: "11/3 18:00 預約燒肉" },
     { name: "百年古家 大家", region: "north", coords: [26.634, 127.982], note: "紅瓦古宅阿古豬" },
