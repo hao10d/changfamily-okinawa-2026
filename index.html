@@ -7,7 +7,7 @@
   <meta name="theme-color" content="#0c4951">
   <title>沖繩島嶼慢旅｜張家旅行社</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-  <link rel="stylesheet" href="styles.css?v=20260728-friends-1">
+  <link rel="stylesheet" href="styles.css?v=20260811-pace-check-2">
 </head>
 <body>
   <header class="site-header">
@@ -22,6 +22,7 @@
       <a href="#itinerary">每日行程</a>
       <a href="friends.html">晏齊婉瑜</a>
       <a href="#plan-matrix">行程總覽</a>
+      <a href="#pace-check">節奏檢查</a>
       <a href="#plans">住宿方案</a>
       <a href="#spot-map">景點地圖</a>
       <a href="#food-map">美食地圖</a>
@@ -49,21 +50,22 @@
     <p class="mobile-nav-section-title">先看行程</p>
     <a href="#itinerary"><b>01</b><span>每日行程<small>時間、車程、門票、購物提示</small></span></a>
     <a href="#plan-matrix"><b>02</b><span>主線總表<small>景點／美食／購物有沒有排</small></span></a>
-    <a href="#plans"><b>03</b><span>住宿方案<small>周遊券與不推薦方案比較</small></span></a>
+    <a href="#pace-check"><b>03</b><span>節奏檢查<small>哪幾天偏滿、怎麼取捨</small></span></a>
+    <a href="#plans"><b>04</b><span>住宿方案<small>周遊券與不推薦方案比較</small></span></a>
     <a href="friends.html"><b>F</b><span>晏齊婉瑜路線<small>11/5 晚到、蝦蝦飯、公車計程車</small></span></a>
     <p class="mobile-nav-section-title">地圖分類</p>
-    <a href="#spot-map"><b>04</b><span>景點地圖<small>北部／中部／那霸南部</small></span></a>
-    <a href="#food-map"><b>05</b><span>美食地圖<small>餐廳位置與同區備選</small></span></a>
-    <a href="#shopping-map"><b>06</b><span>購物地圖<small>伴手禮與網紅常逛店</small></span></a>
+    <a href="#spot-map"><b>05</b><span>景點地圖<small>北部／中部／那霸南部</small></span></a>
+    <a href="#food-map"><b>06</b><span>美食地圖<small>餐廳位置與同區備選</small></span></a>
+    <a href="#shopping-map"><b>07</b><span>購物地圖<small>伴手禮與網紅常逛店</small></span></a>
     <p class="mobile-nav-section-title">票券與重點</p>
-    <a href="#pass-guide"><b>07</b><span>周遊券／門票<small>FunPASS、單買票價比較</small></span></a>
-    <a href="#events"><b>08</b><span>期間活動<small>11 月祭典與夜間燈光</small></span></a>
-    <a href="#night-options"><b>09</b><span>深夜備案<small>Donki、宵夜、遊樂場</small></span></a>
-    <a href="#souvenir-guide"><b>10</b><span>伴手禮清單<small>紅芋塔、雪鹽、黑糖、藥妝</small></span></a>
+    <a href="#pass-guide"><b>08</b><span>周遊券／門票<small>FunPASS、單買票價比較</small></span></a>
+    <a href="#events"><b>09</b><span>期間活動<small>11 月祭典與夜間燈光</small></span></a>
+    <a href="#night-options"><b>10</b><span>深夜備案<small>Donki、宵夜、遊樂場</small></span></a>
+    <a href="#souvenir-guide"><b>11</b><span>伴手禮清單<small>紅芋塔、雪鹽、黑糖、藥妝</small></span></a>
     <p class="mobile-nav-section-title">出發前</p>
-    <a href="#guide"><b>11</b><span>自駕提醒<small>證件、取車、雨天備案</small></span></a>
-    <a href="#booking"><b>12</b><span>機酒租車<small>機票住宿租車平均每人</small></span></a>
-    <a href="#sources"><b>13</b><span>資料來源<small>官方連結與票價來源</small></span></a>
+    <a href="#guide"><b>12</b><span>自駕提醒<small>證件、取車、雨天備案</small></span></a>
+    <a href="#booking"><b>13</b><span>機酒租車<small>機票住宿租車平均每人</small></span></a>
+    <a href="#sources"><b>14</b><span>資料來源<small>官方連結與票價來源</small></span></a>
     <button class="mobile-print-button" id="mobilePrintButton" type="button">列印完整行程</button>
   </nav>
 
@@ -111,8 +113,9 @@
         <a href="#spot-map"><span>01</span><b>景點地圖</b><small>北部／中部／南部快速篩選</small></a>
         <a href="#plan-matrix"><span>02</span><b>行程總覽</b><small>主線與可替換景點一次看</small></a>
         <a href="#itinerary"><span>03</span><b>每日行程</b><small>主線、可加點與對應照片</small></a>
-        <a href="#shopping-map"><span>04</span><b>購物伴手禮</b><small>推薦店與必買清單</small></a>
-        <a href="#night-options"><span>05</span><b>深夜備案</b><small>Donki、宵夜、遊樂場</small></a>
+        <a href="#pace-check"><span>04</span><b>節奏檢查</b><small>哪天偏滿、替換哪裡</small></a>
+        <a href="#shopping-map"><span>05</span><b>購物伴手禮</b><small>推薦店與必買清單</small></a>
+        <a href="#night-options"><span>06</span><b>深夜備案</b><small>Donki、宵夜、遊樂場</small></a>
         <a href="friends.html"><span>F</span><b>晏齊婉瑜</b><small>晚到路線、公車與計程車</small></a>
       </div>
     </section>
@@ -176,7 +179,7 @@
         <div class="catalog-grid spot-grid">
           <article class="catalog-card catalog-featured">
             <img src="assets/junglia.jpg" alt="JUNGLIA OKINAWA 叢林樂園">
-            <div><span>北部 · 整日</span><h3>JUNGLIA 叢林樂園</h3><p>2025 開幕的新世代北部主題樂園。建議整天安排，直接取代美麗海＋古宇利日，不要硬塞在同一天。</p><a href="https://junglia.jp/en/" target="_blank" rel="noreferrer">官方網站 ↗</a></div>
+            <div><span>北部 · 整日</span><h3>JUNGLIA 叢林樂園</h3><p>2025 開幕的新世代北部主題樂園。建議整天安排，直接取代美麗海＋古宇利日，不建議同日硬排。</p><a href="https://junglia.jp/en/" target="_blank" rel="noreferrer">官方網站 ↗</a></div>
           </article>
           <article class="catalog-card"><img src="assets/aquarium.jpg" alt="美麗海水族館黑潮之海"><div><span>北部 · 3 小時</span><h3>美麗海水族館</h3><p>11/4 固定主線，住在附近可以開門就進。</p><a href="https://churaumi.okinawa/en/" target="_blank" rel="noreferrer">官方網站 ↗</a></div></article>
           <article class="catalog-card"><img src="assets/kouri-heart.jpg" alt="古宇利島海岸"><div><span>北部 · 1.5–2 小時</span><h3>古宇利海洋塔</h3><p>海洋塔、古宇利大橋、蝦蝦飯可串成一站。</p><a href="https://www.kouri-oceantower.com/" target="_blank" rel="noreferrer">官方網站 ↗</a></div></article>
@@ -329,7 +332,7 @@
             <li>11/3 機場周邊取車，只排來客夢與琉球的牛北谷店，再前往北部住宿</li>
             <li>11/4 美麗海；11/5 古宇利、蝦蝦飯、The Sinmay、鳳梨園與百年古家大家阿古豬</li>
             <li>11/6 潛水員牛排、琉球村、美國村、Hoppepan、國際通、暖暮拉麵晚餐與 Donki；11/7 魚市場、玉泉洞、奧武島、瀨長島、PARCO CITY、DFS 精品、Kojima×BicCamera 那霸店與國際通</li>
-            <li>11/7 南部與購物動線：瀨長島 14:05–15:10，PARCO 15:45–16:35，DFS 17:05–18:05，Kojima×BicCamera 18:15–19:10</li>
+            <li>11/7 南部與購物動線：瀨長島 13:30–14:45，PARCO 15:25–16:05，DFS 16:35–17:45，Kojima×BicCamera 17:55–18:50</li>
             <li>FunPASS 兌換：11/4 美麗海、11/5 鳳梨園、11/6 琉球村、11/7 沖繩世界</li>
           </ul>
           <p class="hotel-area"><span>住宿地點</span>
@@ -385,6 +388,23 @@
       <div class="plan-verdict">
         <b>結論：優先選「建議用周遊券行程」。</b>
         <span>含美麗海四合一若比四站單買便宜，就不必另外買水族館門票；沒有使用周遊券行程保留作價格比較，C2 則因夜駕與回頭車程排在最後。</span>
+      </div>
+      <div class="pace-check" id="pace-check">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">PACE CHECK</p>
+            <h2>行程會不會太趕</h2>
+          </div>
+          <p>C1 與「沒有使用周遊券行程」時間相同，只差在票券；C2 維持不推薦。下面用家庭自駕、停車、排隊與小朋友休息來看。</p>
+        </div>
+        <div class="pace-grid">
+          <article class="pace-card pace-ok"><span>OK</span><h3>11/3 抵達日</h3><p>只留來客夢與琉球的牛，晚餐抓 18:30；若租車延後，來客夢縮短成輕食和重點採買。</p></article>
+          <article class="pace-card pace-ok"><span>OK</span><h3>11/4 北部日</h3><p>水族館、翡翠海灘、備瀨後有飯店休息，晚上名護燒肉與 AEON 可走。</p></article>
+          <article class="pace-card pace-watch"><span>注意</span><h3>11/5 古宇利日</h3><p>蝦蝦飯已抓 80 分鐘；The Sinmay 是短停，若排隊或店休，直接往鳳梨園。</p></article>
+          <article class="pace-card pace-watch"><span>偏滿</span><h3>11/6 南下那霸</h3><p>潛水員牛排候位是變數；美國村約 1 小時，Hoppepan 是買早餐短停。</p></article>
+          <article class="pace-card pace-tight"><span>最滿</span><h3>11/7 南部＋購物</h3><p>瀨長島必去後，PARCO 只保留 40 分鐘短停；要完整逛 PARCO，替換 DFS 或 BIC。</p></article>
+          <article class="pace-card pace-ok"><span>OK</span><h3>11/8 回程</h3><p>只排早餐、加油還車與機場，13:35 航班不再加景點。</p></article>
+        </div>
       </div>
     </section>
 
@@ -573,7 +593,7 @@
         <div class="food-map-grid">
           <article class="food-map-card food-must"><b>01</b><span>那霸 · 拉麵</span><h3>暖暮拉麵</h3><p>已排 11/6 國際通晚餐，牧志店在國際通旁，吃完步行接 Don Quijote。</p><a href="https://www.google.com/maps/search/?api=1&query=暖暮+那覇牧志店" target="_blank" rel="noreferrer">Google 地圖 ↗</a></article>
           <article class="food-map-card food-must"><b>02</b><span>古宇利 · 蝦料理</span><h3>KOURI SHRIMP 蝦蝦飯</h3><p>古宇利島代表必吃，已排在 11/5 午餐。</p><a href="https://www.google.com/maps/search/?api=1&query=KOURI+SHRIMP" target="_blank" rel="noreferrer">Google 地圖 ↗</a></article>
-          <article class="food-map-card food-book"><b>03</b><span>北谷 · 燒肉</span><h3>琉球的牛 北谷店</h3><p>已排 11/3 18:00，來客夢後直接用餐，吃完北上本部；熱門時段需預約。</p><a href="https://www.u-shi.net/chatan.html" target="_blank" rel="noreferrer">北谷店官網 ↗</a></article>
+          <article class="food-map-card food-book"><b>03</b><span>北谷 · 燒肉</span><h3>琉球的牛 北谷店</h3><p>已排 11/3 18:30，來客夢後直接用餐，吃完北上本部；熱門時段需預約。</p><a href="https://www.u-shi.net/chatan.html" target="_blank" rel="noreferrer">北谷店官網 ↗</a></article>
           <article class="food-map-card food-book"><b>04</b><span>名護 · 阿古豬</span><h3>百年古家大家</h3><p>紅瓦古宅吃阿古豬，北部日可當早晚餐。</p><a href="https://ufuya.com/" target="_blank" rel="noreferrer">官方網站 ↗</a></article>
           <article class="food-map-card food-must"><b>05</b><span>那霸 · 牛排</span><h3>Jack's Steak House</h3><p>那霸老字號，不接受預約時需現場候位。</p><a href="https://www.google.com/maps/search/?api=1&query=Jack's+Steak+House+Okinawa" target="_blank" rel="noreferrer">Google 地圖 ↗</a></article>
           <article class="food-map-card"><b>06</b><span>那霸 · 島料理</span><h3>國際通晚餐備選</h3><p>11/6 主選改暖暮拉麵；若當天想吃島料理、迴轉壽司或市場周邊海鮮，可用這格替換。</p><a href="https://naha-kokusaidori.okinawa/" target="_blank" rel="noreferrer">國際通官網 ↗</a></article>
@@ -612,7 +632,7 @@
             <div class="shopping-rank"><b>01</b><span>精品主線</span></div>
             <h3>T Galleria Okinawa by DFS</h3>
             <p>おもろまち站直結，精品、香水與化妝品集中。購物時登記回程航班，商品於那霸機場指定櫃台提領。</p>
-            <dl><dt>官方時間</dt><dd>10:00–20:00</dd><dt>正式安排</dt><dd>11/7 17:05–18:05；PARCO 後接 DFS，再去大間 BIC</dd></dl>
+            <dl><dt>官方時間</dt><dd>10:00–20:00</dd><dt>正式安排</dt><dd>11/7 16:35–17:45；PARCO 短停後接 DFS，再去大間 BIC</dd></dl>
             <p class="shopping-tips"><b>推薦逛：</b>精品包款、香水、日系美妝與保養品；回程 MM925 13:35，購物與提貨規則依 DFS / 那霸機場現場為準。</p>
             <a href="https://www.dfs.com/en/okinawa" target="_blank" rel="noreferrer">官方網站 ↗</a>
           </article>
@@ -620,7 +640,7 @@
             <div class="shopping-rank"><b>02</b><span>推薦 5.0</span></div>
             <h3>ASHIBINAA Outlet</h3>
             <p>機場南側的 Outlet，運動與國際品牌集中；與 iias 豐崎、DMM 水族館可排成半日。</p>
-            <dl><dt>公開時間</dt><dd>10:00–20:00</dd><dt>適合安排</dt><dd>替換購物段；本次主線優先保留瀨長島</dd></dl>
+            <dl><dt>公開時間</dt><dd>10:00–20:00</dd><dt>適合安排</dt><dd>替換 PARCO 或 BIC；本次主線優先保留瀨長島</dd></dl>
             <p class="shopping-tips"><b>推薦逛：</b>運動品牌、球鞋、戶外服飾；若想買折扣衣鞋，優先用它替換 PARCO 或 BIC。</p>
             <a href="https://www.ashibinaa.com/" target="_blank" rel="noreferrer">官方網站 ↗</a>
           </article>
@@ -628,7 +648,7 @@
             <div class="shopping-rank"><b>03</b><span>推薦 4.0</span></div>
             <h3>PARCO CITY</h3>
             <p>浦添西海岸大型購物中心，UNIQLO、無印良品、餐廳與海景集中，1 樓有退稅櫃台。</p>
-            <dl><dt>退稅櫃台</dt><dd>10:00–22:00</dd><dt>正式安排</dt><dd>11/7 15:45–16:35；瀨長島後重點購物</dd></dl>
+            <dl><dt>退稅櫃台</dt><dd>10:00–22:00</dd><dt>正式安排</dt><dd>11/7 15:25–16:05；瀨長島後短停</dd></dl>
             <p class="shopping-tips"><b>網紅常逛：</b>LEGO Store、Akachan Honpo、3COINS、無印良品、UNIQLO／GU、ABC-MART、SAN-A 超市。</p>
             <a href="https://www.parcocity.jp/tw-okinawa/" target="_blank" rel="noreferrer">繁中指南 ↗</a>
           </article>
@@ -661,7 +681,7 @@
             <h3>AEON 名護／MEGA Donki</h3>
             <p>名護晚上沒有國際通那種攤販街，能實際逛的是 AEON 的 UNIQLO、DAISO、超市與雜貨；逛不夠再加營業到深夜的 MEGA 唐吉訶德。</p>
             <dl><dt>正式安排</dt><dd>11/4 燒肉五苑後逛 AEON</dd><dt>深夜備案</dt><dd>MEGA Donki 名護店 09:00–翌日02:00</dd></dl>
-            <p class="shopping-tips"><b>推薦買：</b>隔天早餐、水果飲料、沖繩限定零食、旅途中會用到的小物；不要在這裡買完全部伴手禮。</p>
+            <p class="shopping-tips"><b>推薦買：</b>隔天早餐、水果飲料、沖繩限定零食、旅途中會用到的小物；大型伴手禮集中留到國際通、PARCO 或機場。</p>
             <a href="https://www.aeon-ryukyu.jp/store/aeon/aeon_nago/" target="_blank" rel="noreferrer">AEON 官方店頁 ↗</a>
           </article>
           <article class="shopping-card shopping-top">
@@ -676,7 +696,7 @@
             <div class="shopping-rank"><b>09</b><span>週六大電器主線</span></div>
             <h3>Kojima×BicCamera 那霸店</h3>
             <p>國道 58 號沿線的大型電器店，官方列有生活家電、影像、相機、電腦、手機、藥品與免稅服務。比國際通 Select 更適合認真看電器。</p>
-            <dl><dt>公開時間</dt><dd>10:00–21:00</dd><dt>正式安排</dt><dd>11/7 週六 18:15–19:10</dd></dl>
+            <dl><dt>公開時間</dt><dd>10:00–21:00</dd><dt>正式安排</dt><dd>11/7 週六 17:55–18:50</dd></dl>
             <p class="shopping-tips"><b>推薦逛：</b>吹風機、刮鬍刀、空氣清淨機、相機、耳機、遊戲機、廚房小家電；上午維持魚市場、玉泉洞與奧武島，下午依序接瀨長島、PARCO、DFS 與 BIC。</p>
             <a href="https://www.kojima.net/shop/shoplist/naha.html" target="_blank" rel="noreferrer">官方店頁 ↗</a>
           </article>
@@ -684,8 +704,8 @@
         <div class="late-night-panel" id="night-options">
           <div class="late-night-head">
             <p class="section-kicker">AFTER HOURS</p>
-            <h3>深夜爽點，不用硬塞進白天。</h3>
-            <p>原則：那霸住宿日用步行或計程車，北部只放 MEGA Donki 補買；有喝酒就不要開車。</p>
+            <h3>深夜彈性點，不佔白天主線。</h3>
+            <p>原則：那霸住宿日用步行或計程車，北部只放 MEGA Donki 補買；有飲酒時一律改搭計程車。</p>
           </div>
           <div class="late-night-grid">
             <article>
@@ -741,7 +761,7 @@
             <a href="https://www.kkday.com/zh-tw/product/285076" target="_blank" rel="noreferrer">查看美麗海四合一方案 ↗</a>
           </article>
           <article class="pass-card">
-            <span class="pass-label">不要買錯這一種</span>
+            <span class="pass-label">注意票種差異</span>
             <h3>一般版 1 Week Free Pass<br>任選 3 項</h3>
             <p>截至 2026/6/15，官方一般版設施清單沒有美麗海水族館；只能從琉球村、沖繩世界、鳳梨園、DMM 等項目選三個。</p>
             <ul>
@@ -753,7 +773,7 @@
             <a href="https://travelcontentsapp.com/have-fun-pass/okinawa/" target="_blank" rel="noreferrer">查看一般版目前設施 ↗</a>
           </article>
         </div>
-        <p class="pass-note"><b>購買判斷：</b>不用券成人單買合計約 ¥7,680。美麗海四合一若結帳價低於這個總額就用券；幼兒若四站本來免票，不要替幼兒買通票。</p>
+        <p class="pass-note"><b>購買判斷：</b>不用券成人單買合計約 ¥7,680。美麗海四合一若結帳價低於這個總額就用券；幼兒若四站本來免票，幼兒通票可省略。</p>
       </div>
     </section>
 
@@ -950,7 +970,7 @@
       <details>
         <summary>資料來源與照片授權</summary>
         <div class="source-content">
-          <p>行程資訊更新於 2026/06/16；費用、租車估算與 BIC 電器購物資訊更新於 2026/07/24；Hoppepan 與 The Sinmay 資訊更新於 2026/07/28。營業時間、活動場次、交通、門票與匯率仍以出發前官方公告或銀行實刷為準。</p>
+          <p>行程資訊更新於 2026/06/16；費用、租車估算與 BIC 電器購物資訊更新於 2026/07/24；Hoppepan 與 The Sinmay 資訊更新於 2026/07/28；行程節奏檢查更新於 2026/08/11。營業時間、活動場次、交通、門票與匯率仍以出發前官方公告或銀行實刷為準。</p>
           <div class="source-links">
             <a href="https://visitokinawajapan.com/plan-your-trip/when-to-visit-climate-seasons/okinawa-november/" target="_blank" rel="noreferrer">沖繩 11 月氣候</a>
             <a href="https://oki-park.jp/shurijo/" target="_blank" rel="noreferrer">首里城公園</a>
@@ -1079,7 +1099,7 @@
   <section class="print-sheet" id="printSheet" aria-hidden="true"></section>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script src="trip-data.js?v=20260811-senaga-main-1"></script>
-  <script src="app.js?v=20260811-senaga-main-1"></script>
+  <script src="trip-data.js?v=20260811-pace-check-2"></script>
+  <script src="app.js?v=20260811-pace-check-2"></script>
 </body>
 </html>

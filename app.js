@@ -525,7 +525,7 @@ const dayEnhancements = {
         ["assets/okinawa-illumination.webp", "南國燈光秀", "新一季開幕時可改排夜遊", "optional"],
         ["assets/event-kariyushi.webp", "喜璃癒志燈光", "恩納住宿夜可順路加入", "optional"]
       ],
-      drive: "這天是自駕最好玩的西海岸串聯；不要每站都停滿，北谷與 BANTA 擇一吃正餐即可。"
+      drive: "這天是自駕最好玩的西海岸串聯；每站保留彈性，北谷與 BANTA 擇一吃正餐即可。"
     },
     {
       route: ["美麗海水族館", "備瀨福木林", "瀨底島", "百年古家大家", "古宇利大橋", "蝦蝦飯／海膽飯"],
@@ -597,7 +597,7 @@ const dayEnhancements = {
     {
       route: ["取車退房", "齋場御嶽", "知念岬", "Gangala／沖繩世界", "瀨長島", "北谷入住"],
       addOns: ["雨天改 DMM 水族館", "想拍海中道路與濱比嘉島可取消沖繩世界", "瀨長島日落後再往北谷"],
-      food: [["Cafe Curcuma", "泰式海景午餐", "南城社群熱門"], ["糸滿魚市場", "海鮮", "回程順路但不要逛太久"]],
+      food: [["Cafe Curcuma", "泰式海景午餐", "南城社群熱門"], ["糸滿魚市場", "海鮮", "回程順路短停即可"]],
       photos: [["assets/sefa-utaki.jpg", "齋場御嶽", "南城琉球聖地", "main"], ["assets/chinen-cape.jpg", "知念岬", "南部太平洋景色", "main"], ["assets/gyokusendo.jpg", "玉泉洞", "沖繩世界鐘乳石洞", "main"], ["assets/umikaji.jpg", "瀨長島", "夕陽飛機景", "main"], ["assets/american-village.jpg", "北谷", "入住後夜景", "main"], ["assets/gangala.jpg", "Gangala 之谷", "預約後取代沖繩世界", "optional"], ["assets/hamahiga.webp", "濱比嘉島", "海中道路版本的東海岸加點", "optional"], ["assets/dmm-aquarium.png", "DMM 水族館", "雨天替代方案", "optional"]],
       drive: "行李留車內時貴重物品務必隨身；南部景點結束後走高速或西海岸北上。"
     },
@@ -626,10 +626,10 @@ const dayEnhancements = {
   c: [
     {
       route: ["那霸機場", "取車", "DMM 水族館／瀨長島", "美國村", "恩納入住"],
-      addOns: ["晴天選瀨長島，雨天選 DMM", "美國村只留晚餐與夜景", "不要再加首里，否則抵達日過滿"],
+      addOns: ["晴天選瀨長島，雨天選 DMM", "美國村只留晚餐與夜景", "首里改排其他日，避免抵達日過滿"],
       food: [["Seaside Cafe Hanon", "厚鬆餅", "下午抵達仍可排"], ["浜屋そば", "軟骨沖繩麵", "北谷晚餐人氣店"]],
       photos: [["assets/naha-airport.jpg", "那霸機場", "取車後直接開始海岸線", "main"], ["assets/american-village.jpg", "美國村", "晚餐與夜景", "main"], ["assets/dmm-aquarium.png", "DMM 水族館", "雨天抵達日方案", "optional"], ["assets/umikaji.jpg", "瀨長島", "晴天抵達日方案", "optional"], ["assets/hanon-pancake.png", "Hanon", "北谷海景厚鬆餅", "food"]],
-      drive: "取車後直接走南部或北谷二選一；20:00 前抵達恩納，第一晚不要繞太多點。"
+      drive: "取車後直接走南部或北谷二選一；20:00 前抵達恩納，第一晚維持少點移動。"
     },
     {
       route: ["美麗海水族館", "備瀨福木林", "瀨底島", "百年古家大家", "古宇利大橋", "蝦蝦飯／海膽飯"],
@@ -691,7 +691,7 @@ const dayEnhancements = {
     },
     {
       route: ["石垣市區", "南部短線", "石垣機場還車", "那霸機場", "那霸入住"],
-      addOns: ["回那霸班機不要選太晚，避免天候延誤壓縮後段", "下午班機順利可排壺屋通，不再跑遠程景點"],
+      addOns: ["回那霸班機建議避開太晚時段，避免天候延誤壓縮後段", "下午班機順利可排壺屋通，不再跑遠程景點"],
       food: [["石垣機場餐廳", "簡單午餐", "依班機時間"], ["第一牧志公設市場周邊", "那霸晚餐", "回本島後再吃"]],
       photos: [["assets/ishigaki-airport.jpg", "石垣機場", "還車後搭國內線", "main"], ["assets/naha-airport.jpg", "那霸機場", "回到本島後入住那霸", "main"], ["assets/tsuboya-pottery.jpg", "壺屋通", "下午班機順利時可散步", "optional"], ["assets/naha-night.jpg", "國際通", "回本島後的晚餐與逛街", "main"], ["assets/potama.png", "ポーたま", "移動日簡單吃", "food"]],
       drive: "石垣還車後搭國內線回那霸；那霸後兩天不租車，避免停車與跨島租車銜接複雜。"
@@ -745,7 +745,7 @@ const mapCatalogs = {
   food: [
     { name: "暖暮拉麵 那霸牧志店", region: "south", coords: [26.218, 127.689], note: "11/6 國際通晚餐" },
     { name: "KOURI SHRIMP", region: "north", coords: [26.7015, 128.0179], note: "古宇利蝦蝦飯" },
-    { name: "琉球的牛 北谷店", region: "central", coords: [26.3194, 127.7575], note: "11/3 18:00 預約燒肉" },
+    { name: "琉球的牛 北谷店", region: "central", coords: [26.3194, 127.7575], note: "11/3 18:30 預約燒肉" },
     { name: "百年古家 大家", region: "north", coords: [26.634, 127.982], note: "紅瓦古宅阿古豬" },
     { name: "Jack's Steak House", region: "south", coords: [26.2124, 127.6693], note: "那霸老字號牛排" },
     { name: "國際通島料理", region: "south", coords: [26.2152, 127.6849], note: "11/6 市場後彈性選餐廳" },
