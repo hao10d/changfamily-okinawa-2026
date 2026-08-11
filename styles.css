@@ -2558,6 +2558,106 @@ a {
   color: #b94730;
 }
 
+.hours-check,
+.reservation-section {
+  padding-top: 105px;
+  padding-bottom: 105px;
+}
+
+.hours-check {
+  border-top: 1px solid var(--line);
+  background: rgba(225, 241, 238, .38);
+}
+
+.hours-grid,
+.reservation-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.hours-grid article,
+.reservation-grid article {
+  min-width: 0;
+  padding: 23px;
+  border: 1px solid rgba(12, 73, 81, .13);
+  border-radius: 10px;
+  background: rgba(255, 253, 248, .92);
+}
+
+.hours-grid article > span,
+.reservation-grid article > span {
+  display: inline-flex;
+  margin-bottom: 10px;
+  color: var(--coral-dark);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .14em;
+}
+
+.hours-grid h3,
+.reservation-grid h3 {
+  margin: 0 0 15px;
+  color: var(--deep);
+  font-family: "Noto Serif TC", Georgia, serif;
+  font-size: 21px;
+}
+
+.hours-grid p,
+.reservation-grid p {
+  margin: 7px 0 0;
+  color: rgba(22, 50, 55, .68);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.hours-grid p b {
+  color: var(--deep);
+}
+
+.hours-alert {
+  margin: 18px 0 0;
+  padding: 14px 17px;
+  color: rgba(22, 50, 55, .72);
+  border-left: 4px solid var(--coral);
+  background: rgba(255, 255, 255, .72);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.reservation-section {
+  border-top: 1px solid var(--line);
+}
+
+.reservation-grid time {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--sea);
+  font-family: Georgia, serif;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.reservation-grid a {
+  display: inline-flex;
+  margin-top: 15px;
+  color: var(--coral-dark);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.reservation-must {
+  border-top: 4px solid var(--coral) !important;
+}
+
+.reservation-watch {
+  border-top: 4px solid #d7a733 !important;
+}
+
+.reservation-no {
+  border-top: 4px solid var(--sea) !important;
+}
+
 .route-summary {
   color: var(--white);
   background: var(--deep);
@@ -5258,6 +5358,29 @@ footer {
 }
 
 @media (max-width: 720px) {
+  .hours-check,
+  .reservation-section {
+    width: min(88vw, 520px);
+    padding-top: 72px;
+    padding-bottom: 72px;
+  }
+
+  .hours-grid,
+  .reservation-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .hours-grid article,
+  .reservation-grid article {
+    padding: 19px;
+  }
+
+  .hours-grid h3,
+  .reservation-grid h3 {
+    font-size: 19px;
+  }
+
   .friend-hero {
     min-height: 620px;
     padding: 122px 0 72px;

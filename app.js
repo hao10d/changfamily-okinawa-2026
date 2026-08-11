@@ -732,24 +732,26 @@ const mapCatalogs = {
     { name: "萬座毛", region: "central", coords: [26.5048, 127.8503], note: "恩納海岸經典斷崖" },
     { name: "美國村", region: "central", coords: [26.3157, 127.757], note: "11/6 下午逛街、咖啡與海邊散步" },
     { name: "永旺夢樂城沖繩來客夢", region: "central", coords: [26.3146, 127.7967], note: "11/3 抵達日唯一購物站" },
+    { name: "港川外人住宅", region: "central", coords: [26.253, 127.714], note: "11/6 南下那霸途中短停" },
     { name: "沖繩南國 Illumination", region: "central", coords: [26.423, 127.805], note: "東南植物樂園夜間燈光秀" },
     { name: "沖繩水果樂園", region: "north", coords: [26.6169, 127.9698], note: "熱帶水果與互動體驗" },
     { name: "沖繩兒童王國", region: "central", coords: [26.3344, 127.8057], note: "動物園與親子設施" },
     { name: "殘波岬燈塔", region: "central", coords: [26.4415, 127.7139], note: "白色燈塔與西海岸日落" },
     { name: "沖繩世界／玉泉洞", region: "south", coords: [26.1412, 127.7496], note: "鐘乳石洞與琉球文化" },
+    { name: "DMM かりゆし水族館／iias 沖繩豐崎", region: "south", coords: [26.1577, 127.6467], note: "已移出主線，只作大雨替代" },
     { name: "首里城", region: "south", coords: [26.217, 127.7195], note: "琉球王國歷史地標" },
     { name: "國際通", region: "south", coords: [26.2147, 127.6847], note: "那霸逛街與晚餐主場" },
     { name: "瀨長島海風露台", region: "south", coords: [26.1747, 127.6466], note: "夕陽、白色階梯與飛機" },
     { name: "波上宮", region: "south", coords: [26.2202, 127.6716], note: "那霸海邊神社" }
   ],
   food: [
-    { name: "暖暮拉麵 那霸牧志店", region: "south", coords: [26.218, 127.689], note: "11/6 國際通晚餐" },
+    { name: "暖暮拉麵 那霸牧志店", region: "south", coords: [26.218, 127.689], note: "11/6 22:15 後自選宵夜，平日營業到 02:00" },
     { name: "KOURI SHRIMP", region: "north", coords: [26.7015, 128.0179], note: "古宇利蝦蝦飯" },
-    { name: "琉球的牛 北谷店", region: "central", coords: [26.3194, 127.7575], note: "11/3 18:30 預約燒肉" },
+    { name: "琉球的牛 北谷店", region: "central", coords: [26.3194, 127.7575], note: "若要北谷店，用它替換 11/3 Taco Rice" },
     { name: "百年古家 大家", region: "north", coords: [26.634, 127.982], note: "紅瓦古宅阿古豬" },
     { name: "Jack's Steak House", region: "south", coords: [26.2124, 127.6693], note: "那霸老字號牛排" },
     { name: "國際通島料理", region: "south", coords: [26.2152, 127.6849], note: "11/6 市場後彈性選餐廳" },
-    { name: "Nakamura Soba", region: "central", coords: [26.512, 127.899], note: "恩納海景沖繩麵" },
+    { name: "沖縄そば ちむどんどん", region: "north", coords: [26.677, 127.903], note: "11/4 園區外阿古豬沖繩麵午餐" },
     { name: "Ryuya Honten 琉家", region: "south", coords: [26.214, 127.684], note: "國際通巷內拉麵" },
     { name: "Flipper 潛水員牛排", region: "north", coords: [26.5948, 127.9596], note: "名護海邊老店" },
     { name: "The Sinmay", region: "north", coords: [26.678256, 127.971184], note: "11/5 古宇利回名護途中生黑糖拿鐵" },
@@ -759,7 +761,10 @@ const mapCatalogs = {
     { name: "JUMBO STEAK HAN'S 美濱店", region: "central", coords: [26.315, 127.757], note: "北谷份量型牛排" },
     { name: "幸福鬆餅 瀨長島店", region: "south", coords: [26.1744, 127.6469], note: "海景厚鬆餅" },
     { name: "焼肉きんぐ 那覇久茂地店", region: "south", coords: [26.2186, 127.6811], note: "國際通晚餐可改久茂燒肉" },
-    { name: "Hoppepan ほっぺパン", region: "south", coords: [26.237226, 127.704748], note: "11/6 美國村回那霸順路買隔天早餐" }
+    { name: "Hoppepan ほっぺパン", region: "south", coords: [26.237226, 127.704748], note: "11/6 港川後順路買隔天早餐" },
+    { name: "Taco Rice Cafe Kijimuna", region: "central", coords: [26.316, 127.7568], note: "11/3 美國村晚餐" },
+    { name: "琉球的牛 那霸店", region: "south", coords: [26.215, 127.684], note: "11/7 那霸晚餐主線" },
+    { name: "福助玉子燒", region: "south", coords: [26.2146, 127.6879], note: "11/7 牧志市場早餐點心；11/4 備瀨店也可買" }
   ]
 };
 
@@ -879,7 +884,7 @@ const printDialog = document.querySelector("#printDialog");
 const printSheet = document.querySelector("#printSheet");
 const openPrintButtons = document.querySelectorAll("#openPrintDialog, #mobilePrintButton");
 
-let currentPlan = "c";
+let currentPlan = "f";
 
 function renderRoute(plan) {
   routeTitle.textContent = plan.title;
