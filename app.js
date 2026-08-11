@@ -745,13 +745,13 @@ const mapCatalogs = {
     { name: "波上宮", region: "south", coords: [26.2202, 127.6716], note: "那霸海邊神社" }
   ],
   food: [
-    { name: "暖暮拉麵 那霸牧志店", region: "south", coords: [26.218, 127.689], note: "11/6 22:15 後自選宵夜，平日營業到 02:00" },
+    { name: "暖暮拉麵 名護店", region: "north", coords: [26.582384, 127.984601], note: "11/4 美麗海往部瀨名途中午餐，10:00–24:00" },
     { name: "KOURI SHRIMP", region: "north", coords: [26.7015, 128.0179], note: "古宇利蝦蝦飯" },
     { name: "琉球的牛 北谷店", region: "central", coords: [26.3194, 127.7575], note: "若要北谷店，用它替換 11/3 Taco Rice" },
     { name: "百年古家 大家", region: "north", coords: [26.634, 127.982], note: "紅瓦古宅阿古豬" },
     { name: "Jack's Steak House", region: "south", coords: [26.2124, 127.6693], note: "那霸老字號牛排" },
     { name: "國際通島料理", region: "south", coords: [26.2152, 127.6849], note: "11/6 市場後彈性選餐廳" },
-    { name: "沖縄そば ちむどんどん", region: "north", coords: [26.677, 127.903], note: "11/4 園區外阿古豬沖繩麵午餐" },
+    { name: "沖縄そば ちむどんどん", region: "north", coords: [26.677, 127.903], note: "想保留沖繩麵時，可替換暖暮名護店" },
     { name: "Ryuya Honten 琉家", region: "south", coords: [26.214, 127.684], note: "國際通巷內拉麵" },
     { name: "Flipper 潛水員牛排", region: "north", coords: [26.5948, 127.9596], note: "名護海邊老店" },
     { name: "The Sinmay", region: "north", coords: [26.678256, 127.971184], note: "11/5 古宇利回名護途中生黑糖拿鐵" },
