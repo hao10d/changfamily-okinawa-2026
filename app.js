@@ -742,13 +742,14 @@ const mapCatalogs = {
     { name: "首里城", region: "south", coords: [26.217, 127.7195], note: "琉球王國歷史地標" },
     { name: "國際通", region: "south", coords: [26.2147, 127.6847], note: "那霸逛街與晚餐主場" },
     { name: "瀨長島海風露台", region: "south", coords: [26.1747, 127.6466], note: "夕陽、白色階梯與飛機" },
-    { name: "波上宮", region: "south", coords: [26.2202, 127.6716], note: "那霸海邊神社" }
+    { name: "波上宮", region: "south", coords: [26.2202, 127.6716], note: "那霸海邊神社" },
+    { name: "西來院（達磨寺）", region: "south", coords: [26.21780192, 127.7225281], note: "11/7 11:30 參拜、御守與御朱印" }
   ],
   food: [
     { name: "海人料理 海邦丸", region: "north", coords: [26.6821952, 127.8836023], note: "11/4 美麗海旁海鮮午餐，11:00–15:00" },
     { name: "KOURI SHRIMP", region: "north", coords: [26.7015, 128.0179], note: "古宇利蝦蝦飯" },
     { name: "琉球的牛 北谷店", region: "central", coords: [26.3194, 127.7575], note: "若要北谷店，用它替換 11/3 Taco Rice" },
-    { name: "百年古家 大家", region: "north", coords: [26.634, 127.982], note: "紅瓦古宅阿古豬" },
+    { name: "ちゃぁぶ～名護店", region: "north", coords: [26.607214, 127.989494], note: "11/5 17:00 阿古豬鍋涮；鳳梨園後直接前往" },
     { name: "Jack's Steak House", region: "south", coords: [26.2124, 127.6693], note: "那霸老字號牛排" },
     { name: "國際通島料理", region: "south", coords: [26.2152, 127.6849], note: "11/6 市場後彈性選餐廳" },
     { name: "沖縄そば ちむどんどん", region: "north", coords: [26.677, 127.903], note: "想保留沖繩麵時，可替換海邦丸" },
@@ -763,7 +764,7 @@ const mapCatalogs = {
     { name: "焼肉きんぐ 那覇久茂地店", region: "south", coords: [26.2186, 127.6811], note: "國際通晚餐可改久茂燒肉" },
     { name: "Hoppepan ほっぺパン", region: "south", coords: [26.237226, 127.704748], note: "11/6 港川後順路買隔天早餐" },
     { name: "Taco Rice Cafe Kijimuna", region: "central", coords: [26.316, 127.7568], note: "11/3 美國村晚餐" },
-    { name: "琉球的牛 那霸店", region: "south", coords: [26.215, 127.684], note: "11/7 那霸晚餐主線" },
+    { name: "琉球的牛 那霸店", region: "south", coords: [26.215, 127.684], note: "11/7 19:15 已訂位" },
     { name: "福助玉子燒", region: "south", coords: [26.2146, 127.6879], note: "11/7 牧志市場早餐點心；11/4 備瀨店也可買" },
     { name: "Haruchii 肉巻きむすめ", region: "south", coords: [26.2193, 127.6954], note: "11/7 08:00 外帶早餐，買完接波上宮" }
   ]
