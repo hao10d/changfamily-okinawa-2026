@@ -755,14 +755,14 @@ const mapCatalogs = {
     { name: "沖縄そば ちむどんどん", region: "north", coords: [26.677, 127.903], note: "想保留沖繩麵時，可替換海邦丸" },
     { name: "Ryuya Honten 琉家", region: "south", coords: [26.214, 127.684], note: "國際通巷內拉麵" },
     { name: "Flipper 潛水員牛排", region: "north", coords: [26.5948, 127.9596], note: "名護海邊老店" },
-    { name: "The Sinmay", region: "north", coords: [26.678256, 127.971184], note: "11/5 古宇利回名護途中生黑糖拿鐵" },
     { name: "一蘭拉麵 國際通店", region: "south", coords: [26.2148, 127.6848], note: "24 小時日本連鎖" },
     { name: "浜の家海鮮料理", region: "central", coords: [26.437, 127.801], note: "魚バター焼與海膽料理" },
-    { name: "牛排屋 88 美麗海店", region: "north", coords: [26.688, 127.878], note: "水族館附近多人用餐" },
+    { name: "燒肉五苑 名護店", region: "north", coords: [26.608275, 127.967987], note: "11/4 北部晚餐，吃完接 AEON 名護" },
     { name: "JUMBO STEAK HAN'S 美濱店", region: "central", coords: [26.315, 127.757], note: "北谷份量型牛排" },
     { name: "幸福鬆餅 瀨長島店", region: "south", coords: [26.1744, 127.6469], note: "海景厚鬆餅" },
     { name: "焼肉きんぐ 那覇久茂地店", region: "south", coords: [26.2186, 127.6811], note: "國際通晚餐可改久茂燒肉" },
     { name: "Hoppepan ほっぺパン", region: "south", coords: [26.237226, 127.704748], note: "11/6 港川後順路買隔天早餐" },
+    { name: "The Sinmay", region: "north", coords: [26.678256, 127.971184], note: "11/5 古宇利回名護途中生黑糖拿鐵" },
     { name: "Taco Rice Cafe Kijimuna", region: "central", coords: [26.316, 127.7568], note: "11/3 美國村晚餐" },
     { name: "琉球的牛 那霸店", region: "south", coords: [26.215, 127.684], note: "11/7 19:15 已訂位" },
     { name: "福助玉子燒", region: "south", coords: [26.2146, 127.6879], note: "11/7 牧志市場早餐點心；11/4 備瀨店也可買" },
@@ -777,6 +777,10 @@ const regionNames = {
 };
 
 const catalogMaps = {};
+const catalogFilters = {
+  spot: { region: "all", query: "", savedOnly: false },
+  food: { region: "all", query: "", savedOnly: false }
+};
 
 function createMapPin(region, type, index) {
   const label = type === "food" ? "食" : String(index + 1);
@@ -829,18 +833,32 @@ function applyCatalogFilter(type, region) {
   const cardSelector = type === "spot" ? ".spot-grid .catalog-card" : ".food-map-grid .food-map-card";
   const cards = document.querySelectorAll(cardSelector);
   const items = mapCatalogs[type];
+  const filters = catalogFilters[type];
+  if (region) filters.region = region;
+  const query = filters.query.trim().toLocaleLowerCase();
+  const visibleItems = [];
 
   cards.forEach((card, index) => {
     const item = items[index];
-    card.classList.toggle("is-filtered", region !== "all" && item?.region !== region);
+    const visible = Boolean(item)
+      && (filters.region === "all" || item.region === filters.region)
+      && (!query || `${item.name} ${item.note} ${card.textContent}`.toLocaleLowerCase().includes(query))
+      && (!filters.savedOnly || card.dataset.saved === "true");
+    card.classList.toggle("is-filtered", !visible);
+    visibleItems[index] = visible;
   });
+  const count = visibleItems.filter(Boolean).length;
+  const result = document.querySelector(`[data-catalog-result="${type}"]`);
+  if (result) result.textContent = `${count} / ${items.length} 個地點`;
+  const empty = document.querySelector(`[data-catalog-empty="${type}"]`);
+  if (empty) empty.hidden = count > 0;
 
   const mapState = catalogMaps[type];
   if (!mapState) return;
 
   const visibleMarkers = [];
-  mapState.markers.forEach(item => {
-    const isVisible = region === "all" || item.region === region;
+  mapState.markers.forEach((item, index) => {
+    const isVisible = visibleItems[index];
     if (isVisible) {
       item.marker.addTo(mapState.map);
       visibleMarkers.push(item);
@@ -1013,6 +1031,7 @@ function renderDays(plan) {
     </article>
   `;
   }).join("");
+  document.dispatchEvent(new CustomEvent("trip:rendered", { detail: { planKey: currentPlan } }));
 }
 
 function selectPlan(planKey, shouldScroll = false) {
@@ -1041,13 +1060,32 @@ window.addEventListener("scroll", () => {
   header.classList.toggle("scrolled", window.scrollY > 70);
 }, { passive: true });
 
+let menuOpener;
 function setMobileMenu(isOpen) {
+  const wasOpen = mobileNav.classList.contains("is-open");
+  if (isOpen && !wasOpen) menuOpener = document.activeElement;
   document.body.classList.toggle("menu-open", isOpen);
   mobileNav.classList.toggle("is-open", isOpen);
   mobileNav.setAttribute("aria-hidden", String(!isOpen));
   menuButton.setAttribute("aria-expanded", String(isOpen));
   mobileNavBackdrop.hidden = !isOpen;
+  if (isOpen) closeMenuButton?.focus();
+  else if (wasOpen) menuOpener?.focus({ preventScroll: true });
 }
+
+mobileNav.addEventListener("keydown", event => {
+  if (event.key !== "Tab") return;
+  const controls = [...mobileNav.querySelectorAll("a[href], button:not([disabled])")];
+  const first = controls[0];
+  const last = controls[controls.length - 1];
+  if (event.shiftKey && document.activeElement === first) {
+    event.preventDefault();
+    last.focus();
+  } else if (!event.shiftKey && document.activeElement === last) {
+    event.preventDefault();
+    first.focus();
+  }
+});
 
 [menuButton, quickMenuButton].forEach(button => {
   button?.addEventListener("click", () => setMobileMenu(true));

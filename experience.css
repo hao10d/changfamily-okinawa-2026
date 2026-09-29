@@ -1,0 +1,340 @@
+/* Interactive travel journal. Existing itinerary and print styles remain the base. */
+.island-experience {
+  --ocean: #073a43;
+  --mint: #b5e8d3;
+  --sun: #ffd6a7;
+  --ease-voyage: cubic-bezier(.2,.75,.2,1);
+}
+.island-experience :focus-visible { outline: 3px solid #d97640; outline-offset: 5px; }
+.skip-to-trip { position: fixed; z-index: 200; top: 12px; left: 12px; padding: 12px 20px; background: white; color: var(--deep); transform: translateY(-150%); }
+.skip-to-trip:focus { transform: none; }
+.reading-progress { position: fixed; z-index: 100; top: 0; inset-inline: 0; height: 3px; pointer-events: none; }
+.reading-progress span { display: block; height: 100%; transform: scaleX(var(--read-progress, 0)); transform-origin: left; background: linear-gradient(90deg, #79d4ba, #f6ac76); }
+.island-experience .site-header { gap: 20px; height: 84px; }
+.island-experience .brand { flex-shrink: 0; }
+.island-experience .brand strong { white-space: nowrap; }
+.island-experience .print-button { flex-shrink: 0; font-size: 12px; white-space: nowrap; }
+.island-experience .menu-button { display: flex; flex-shrink: 0; width: 48px; height: 48px; }
+.island-experience .site-header.scrolled { height: 72px; background: rgba(251,248,240,.94); }
+.island-experience #desktopNav a { position: relative; padding-block: 15px; }
+.island-experience #desktopNav a::after { content: ""; position: absolute; bottom: 7px; left: 0; right: 0; height: 2px; background: var(--coral); transform: scaleX(0); transform-origin: left; transition: transform .3s; }
+.island-experience #desktopNav a:hover::after,
+.island-experience #desktopNav a.is-current::after { transform: scaleX(1); }
+.island-experience.menu-open { overflow: hidden; }
+.island-experience .mobile-nav-backdrop { display: block; position: fixed; z-index: 58; inset: 0; background: #052b38a8; backdrop-filter: blur(9px); }
+.island-experience .mobile-nav { display: flex; position: fixed; z-index: 60; inset: 0 0 0 auto; width: min(440px, 92vw); height: 100dvh; flex-direction: column; overflow-y: auto; padding: 28px; color: var(--ink); background: var(--paper); box-shadow: -20px 0 80px #00253044; transform: translateX(110%); transition: transform .45s var(--ease-voyage); }
+.island-experience .mobile-nav:not(.is-open) { visibility: hidden; }
+.island-experience .mobile-nav.is-open { transform: none; visibility: visible; }
+.island-experience .mobile-nav-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; color: var(--coral-dark); font-size: 14px; font-weight: 800; }
+.island-experience .mobile-nav-head button { min-width: 44px; min-height: 44px; border: 0; color: var(--deep); background: transparent; font-size: 30px; cursor: pointer; }
+.island-experience .mobile-nav-section-title { margin: 20px 0 6px; font-size: 12px; color: var(--coral-dark); font-weight: 800; }
+.island-experience .mobile-nav > a { display: grid; grid-template-columns: 40px 1fr; align-items: center; gap: 12px; padding: 13px 4px; border-bottom: 1px solid var(--line); text-decoration: none; }
+.island-experience .mobile-nav > a > b { color: var(--coral-dark); font-family: Georgia, serif; font-size: 23px; }
+.island-experience .mobile-nav > a span { font-size: 15px; font-weight: 700; }
+.island-experience .mobile-nav > a small { display: block; color: #697b7c; font-size: 12px; font-weight: 400; }
+.island-experience .mobile-print-button { flex-shrink: 0; min-height: 48px; margin-top: 24px; color: white; background: var(--deep); border: 0; border-radius: 8px; cursor: pointer; }
+
+/* The opening scene uses composited transforms and crossfades. */
+.island-experience .hero { min-height: 820px; height: min(100svh, 1050px); background: #063943; }
+.hero-scenes { position: absolute; inset: -1px; overflow: hidden; transform: translate3d(var(--hero-x, 0px), var(--hero-y, 0px), 0) scale(1.025); transition: transform 1.2s ease-out; }
+.hero-scene { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transform: scale(1.025); transition: opacity 1.5s ease, transform 9s linear; }
+.hero-scene.is-active { opacity: 1; transform: scale(1.09); }
+.hero-scene:nth-child(2) { object-position: 62% center; }
+.island-experience .hero-shade { background: linear-gradient(90deg, #062e36e8 0%, #082f3596 44%, #052c3430 80%), linear-gradient(0deg, #052e38c9, transparent 70%); }
+.hero-coordinate { position: absolute; top: 117px; right: 4.5vw; z-index: 2; color: #ffffffb3; font: 11px/1.8 monospace; letter-spacing: .12em; text-align: right; }
+.hero-coordinate span { display: block; font-size: 9px; }
+.island-experience .hero-content { top: 51%; left: 7vw; width: 60%; max-width: 800px; transform: translateY(-50%); }
+.island-experience .hero .eyebrow { display: flex; align-items: center; gap: 10px; color: #cbe9df; font-size: 10px; letter-spacing: .23em; margin-bottom: 18px; }
+.hero .eyebrow > span { height: 7px; width: 7px; border-radius: 50%; background: #b5e8d3; box-shadow: 0 0 0 5px #b5e8d321; }
+.hero-wordmark { margin: 0 0 8px -5px; color: #ffffffec; font: italic 400 clamp(78px, 10.5vw, 150px)/1 Georgia, serif; letter-spacing: -.075em; }
+.island-experience .hero h1 { font: 500 clamp(30px, 4.2vw, 60px)/1.42 "Noto Serif TC", "Microsoft JhengHei", serif; letter-spacing: .08em; }
+.island-experience .hero h1 > span { color: var(--sun); }
+.island-experience .hero h1 br { display: none; }
+.island-experience .hero-lead { font: 400 15px/1.9 "Microsoft JhengHei", sans-serif; letter-spacing: .06em; margin: 18px 0 24px; color: #e5eeed; }
+.hero-actions { display: flex; gap: 25px; align-items: center; margin-bottom: 30px; }
+.voyage-button { display: inline-flex; gap: 36px; align-items: center; padding: 16px 24px; color: #073a43; background: #c2ecdc; border-radius: 6px; text-decoration: none; font-size: 14px; font-weight: 800; box-shadow: 0 8px 35px #00212d33; transition: transform .35s var(--ease-voyage), background .3s, box-shadow .3s; overflow: hidden; position: relative; }
+.voyage-button::before { content: ""; position: absolute; inset: 0; background: linear-gradient(110deg, transparent 20%, #fff7 50%, transparent 80%); transform: translateX(-160%); transition: transform .8s ease; }
+.voyage-button:hover { background: #d3f7e8; transform: translateY(-3px); box-shadow: 0 15px 38px #00212d55; }
+.voyage-button:hover::before { transform: translateX(160%); }
+.voyage-button > span { font-size: 23px; line-height: 1; }
+.hero-map-link { display: inline-flex; gap: 14px; align-items: center; min-height: 44px; font-size: 13px; text-underline-offset: 7px; text-decoration-color: #ffffff50; }
+.island-experience .flight-card { width: min(560px, 100%); border-radius: 12px; padding: 14px 18px; background: #ffffff0a; border-color: #ffffff35; grid-template-columns: 1fr 28px 1fr; }
+.island-experience .flight-card span { font-size: 9px; letter-spacing: .06em; }
+.island-experience .flight-card strong { font: 500 13px/1.7 sans-serif; letter-spacing: .02em; }
+.island-experience .flight-card strong b { display: block; margin-left: 0; color: white; font: 500 22px/1.5 Georgia, serif; white-space: nowrap; }
+.island-experience .airport-note { font-size: 9px; letter-spacing: .08em; }
+.hero-story-panel { position: absolute; z-index: 3; width: clamp(270px, 28vw, 400px); bottom: 160px; right: 5vw; padding: 22px; border-radius: 18px; border: 1px solid #ffffff38; background: #062e365c; backdrop-filter: blur(18px); box-shadow: 0 28px 50px #001f3029; }
+.hero-story-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.hero-story-top > span { font-size: 8px; letter-spacing: .15em; color: #d3e3df; }
+.hero-story-top button { border: 0; background: none; color: white; font-size: 11px; padding: 12px 0 12px 8px; min-height: 44px; cursor: pointer; }
+.hero-scene-caption { margin: 10px 0 20px; }
+.hero-scene-caption small { display: block; color: #d2e5db; font: 10px/1.8 monospace; letter-spacing: .15em; margin-bottom: 6px; }
+.hero-scene-caption b { font-family: "Noto Serif TC", Georgia, serif; font-size: clamp(17px, 1.8vw, 24px); font-weight: 500; }
+.hero-scene-controls { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 10px; }
+.hero-scene-controls button { position: relative; min-width: 0; min-height: 70px; height: 82px; padding: 0; overflow: hidden; border: 1px solid #ffffff40; border-radius: 8px; background: #062e36; color: white; cursor: pointer; text-align: left; transition: border-color .3s, transform .3s; }
+.hero-scene-controls button img { height: 100%; width: 100%; object-fit: cover; opacity: .65; transition: opacity .4s, transform .5s; }
+.hero-scene-controls button span { position: absolute; bottom: 10px; left: 9px; font-size: 11px; font-weight: 700; text-shadow: 0 1px 5px black; }
+.hero-scene-controls button.is-active { border-color: #c9ecd9; transform: translateY(-5px); }
+.hero-scene-controls button.is-active img { opacity: 1; }
+.hero-scene-controls button i { position: absolute; bottom: 0; left: 0; width: 100%; height: 3px; background: #c2ecdc; transform: scaleX(0); transform-origin: left; }
+.hero[data-playing="true"] .hero-scene-controls button.is-active i { animation: scene-progress 7s linear forwards; }
+@keyframes scene-progress { to { transform: scaleX(1); } }
+.island-experience .hero-meta { left: 7vw; right: 5vw; bottom: 65px; gap: 28px; justify-content: flex-start; color: #e2ebe7; font-size: 10px; }
+.island-experience .hero-meta span:last-child { margin-left: auto; }
+.hero-waves { position: absolute; bottom: -1px; left: -5%; width: 110%; height: 48px; pointer-events: none; }
+.hero-waves path:first-child { fill: #fbf8f055; animation: tide 8s ease-in-out infinite alternate; }
+.hero-waves path:last-child { fill: var(--paper); animation: tide 11s ease-in-out infinite alternate-reverse; }
+.hero-waves path { animation-play-state: var(--tide-play-state, running) !important; }
+@keyframes tide { to { transform: translateX(50px) translateY(8px); } }
+.hero-content > * { animation: voyage-enter .85s var(--ease-voyage) both; }
+.hero-content > :nth-child(2) { animation-delay: .12s; }
+.hero-content > :nth-child(3) { animation-delay: .22s; }
+.hero-content > :nth-child(4) { animation-delay: .32s; }
+.hero-content > :nth-child(5) { animation-delay: .42s; }
+.hero-content > :nth-child(n+6) { animation-delay: .5s; }
+.hero-story-panel { animation: voyage-enter 1s .5s var(--ease-voyage) both; }
+@keyframes voyage-enter { from { opacity: 0; translate: 0 24px; } to { opacity: 1; translate: 0 0; } }
+
+/* A date navigator keeps six days within one interaction. */
+.island-experience .section-wrap { width: min(1280px, 90vw); }
+.island-experience .itinerary { padding-top: 76px; padding-bottom: 80px; }
+.island-experience .itinerary-heading { align-items: flex-end; gap: 32px; }
+.island-experience .itinerary-heading h2 { margin: 0; font-size: clamp(30px, 4vw, 52px); letter-spacing: -.04em; }
+.island-experience .itinerary-heading h2 em { color: var(--sea); font-style: normal; }
+.island-experience .itinerary-intro { font-size: 14px; color: #597276; }
+.island-experience .plan-switch { max-width: 540px; border-radius: 10px; flex-wrap: wrap; justify-content: flex-end; padding: 5px; background: #efeee5; border: 0; }
+.island-experience .plan-switch button { padding: 10px 13px; min-height: 44px; min-width: 0; border-radius: 7px; font-size: 11px; transition: background .25s, color .25s; }
+#journeyNavigator { position: sticky; z-index: 15; top: 72px; padding: 12px 0; background: #fbf8f0f5; backdrop-filter: blur(14px); }
+.day-navigator { display: grid; grid-template-columns: repeat(6,minmax(0,1fr)) 74px; gap: 8px; }
+.day-tab { position: relative; display: flex; align-items: center; min-width: 0; min-height: 66px; gap: 12px; padding: 9px 13px; border: 1px solid #0c49511d; background: #ffffff8c; border-radius: 10px; cursor: pointer; color: var(--ink); transition: background .3s, color .3s, transform .3s, box-shadow .3s; }
+.day-tab > b { font: 400 26px/1 Georgia, serif; color: #527c81; }
+.day-tab span { text-align: left; font-size: 10px; line-height: 1.6; }
+.day-tab span strong { display: block; font-size: 13px; white-space: nowrap; }
+.day-tab.is-active { color: white; background: var(--ocean); border-color: var(--ocean); box-shadow: 0 5px 17px #0c495126; }
+.day-tab.is-active > b { color: var(--mint); }
+.day-tab:hover { transform: translateY(-2px); }
+.day-tab-all { justify-content: center; padding: 8px; font-size: 12px; }
+.island-experience .day-list { border: 0; }
+.island-experience .day-card.is-interactive { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(300px, 1fr); gap: 28px; padding: 16px 0 35px; border-bottom: 0; scroll-margin-top: 172px; }
+.is-interactive .day-number { display: none; }
+.day-cover { grid-column: 1/-1; position: relative; height: 240px; border-radius: 16px; overflow: hidden; background: var(--deep); }
+.day-cover > img { width: 100%; height: 100%; object-fit: cover; object-position: center 48%; }
+.day-cover::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, #07333bce, #07333b15), linear-gradient(0deg,#042f3655, transparent); }
+.day-cover-copy { position: absolute; z-index: 1; inset: auto 32px 25px; display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; color: white; }
+.day-cover-copy small { display: block; font-size: 11px; letter-spacing: .18em; color: #e2eadf; }
+.day-cover-copy strong { display: block; font-family: Georgia, "Microsoft JhengHei", serif; font-size: 32px; font-weight: 500; letter-spacing: .03em; }
+.day-cover-copy p { margin: 8px 0 0; font-size: 12px; color: #e6efe9; }
+.day-cover-copy button { display: flex; flex-shrink: 0; align-items: center; gap: 16px; min-height: 48px; padding: 10px 18px; border-radius: 30px; border: 1px solid #ffffff78; color: white; background: #09333f55; backdrop-filter: blur(12px); cursor: pointer; font-size: 12px; transition: background .3s; }
+.day-cover-copy button:hover { background: #ffffff25; }
+.is-interactive .day-content { grid-column: 1; min-width: 0; }
+.is-interactive .day-content h3 { font-size: clamp(22px, 2.2vw, 30px); line-height: 1.6; text-wrap: balance; }
+.is-interactive .day-subtitle { font-size: 12px; color: #7d6250; letter-spacing: .01em; line-height: 1.9; }
+.day-photo-panel { grid-column: 2; grid-row: 2; min-width: 0; }
+.is-interactive .day-photo-groups { display: grid; gap: 22px; }
+.is-interactive .day-gallery-head { display: flex; grid-column: auto; margin: 0 0 14px; }
+.is-interactive .day-gallery { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; }
+.is-interactive .day-gallery figure { height: 185px; border-radius: 11px; }
+.is-interactive .day-gallery figure:first-child:nth-last-child(odd) { grid-column: 1/-1; height: 220px; }
+.is-interactive .day-gallery figcaption { left: 12px; right: 12px; bottom: 14px; }
+.is-interactive .day-gallery figcaption b { font-size: 15px; }
+.is-interactive .day-gallery figcaption span { font-size: 11px; }
+.is-interactive .day-options { grid-template-columns: 1fr; }
+.is-interactive .journey-flow { border-radius: 12px; border-color: #d8e5df; box-shadow: 0 12px 30px #05383e05; }
+.is-interactive .journey-flow-head { background: var(--ocean); }
+.is-interactive .journey-stop { transition: background .25s; }
+.is-interactive .journey-stop b { font-size: 15px; }
+.is-interactive .journey-stop small { font-size: 13px; }
+.is-interactive .journey-stop:hover { background: #edf5ee; }
+.photo-filters { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 18px; }
+.photo-filters button { min-height: 38px; border-radius: 20px; padding: 6px 13px; border: 1px solid #cddcd5; color: #4c676a; background: transparent; font-size: 12px; cursor: pointer; transition: .2s; }
+.photo-filters button[aria-pressed="true"] { color: white; background: var(--sea); border-color: var(--sea); }
+.gallery-zoom { position: absolute; z-index: 3; inset: 0; border: 0; width: 100%; background: transparent; cursor: zoom-in; }
+.gallery-zoom > span { position: absolute; top: 12px; right: 12px; width: 30px; height: 30px; display: grid; place-items: center; color: white; background: #042f365c; border: 1px solid #ffffff65; border-radius: 50%; backdrop-filter: blur(5px); transition: transform .3s, background .3s; }
+.gallery-zoom:hover > span { transform: rotate(90deg); background: #0c4951cc; }
+.gallery-zoom:focus-visible { outline-offset: -5px; border-radius: 11px; }
+.journey-pager { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; border-top: 1px solid var(--line); }
+.journey-pager button { min-height: 48px; padding: 10px 22px; background: var(--deep); color: white; border: 0; border-radius: 25px; font-size: 13px; cursor: pointer; transition: transform .25s; }
+.journey-pager button:disabled { opacity: .32; cursor: default; }
+.journey-pager span { font: 12px monospace; color: #627f80; }
+.island-experience .mobile-home-actions { display: none; }
+
+/* Search and saved places share the same filters as the map markers. */
+.catalog-tools { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin: 20px 0 16px; }
+.catalog-search { display: flex; align-items: center; gap: 12px; flex: 1; min-width: 180px; border: 1px solid currentColor; border-color: #8eaaa85e; border-radius: 10px; padding: 0 15px; color: inherit; background: #ffffff0b; }
+.catalog-search svg { width: 19px; height: 19px; flex-shrink: 0; }
+.catalog-search input { width: 100%; min-width: 0; padding: 14px 0; min-height: 48px; color: inherit; font: inherit; font-size: 14px; border: 0; background: transparent; outline-offset: 2px; }
+.catalog-search input::placeholder { color: inherit; opacity: .62; }
+.saved-filter { min-height: 48px; border: 1px solid #8eaaa85e; padding: 10px 17px; border-radius: 10px; color: inherit; background: transparent; cursor: pointer; font-size: 13px; }
+.saved-filter[aria-pressed="true"] { color: #123b40; background: #c2ecdc; border-color: #c2ecdc; }
+.catalog-result { font: 12px monospace; opacity: .75; }
+.catalog-empty { padding: 32px; border: 1px dashed #90aaa980; border-radius: 12px; text-align: center; font-size: 15px; margin-top: 20px; }
+.island-experience .catalog-card { border-radius: 12px; }
+.island-experience .food-map-card { border-radius: 12px; }
+.catalog-card, .food-map-card, .shopping-card { transition: box-shadow .35s, transform .35s; }
+.catalog-card:hover, .food-map-card:hover { transform: translateY(-4px); box-shadow: 0 16px 35px #002e3720; }
+.catalog-card.is-interactive-place { position: relative; }
+.place-actions { display: flex; gap: 8px; width: 100%; flex-wrap: wrap; margin-top: 16px; }
+.place-actions button { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; border: 1px solid #839d9b70; border-radius: 7px; padding: 8px 12px; background: transparent; color: inherit; font-size: 12px; cursor: pointer; transition: background .25s, transform .25s; }
+.place-actions svg { width: 16px; height: 16px; }
+.place-actions button:hover { background: #82b1a925; }
+.place-actions button[aria-pressed="true"] { color: #163c41; background: #c2ecdc; border-color: #c2ecdc; }
+.place-actions button[aria-pressed="true"] svg { fill: currentColor; }
+.catalog-filter button { transition: background .3s, transform .3s, box-shadow .3s; }
+.catalog-filter button:hover { transform: translateY(-2px); }
+.island-experience .interactive-map-shell { border-radius: 16px; overflow: hidden; }
+.island-experience .map-pin { transition: transform .25s; }
+.island-experience .leaflet-marker-icon:hover .map-pin { transform: translateY(-6px); }
+.island-experience .map-popup a { min-height: 44px; display: inline-flex; align-items: center; }
+.island-experience .mobile-quick-nav a.is-current { background: #c2ecdc22; box-shadow: inset 0 3px #b5e8d3; }
+
+/* Full-screen photos support both touch and keyboard navigation. */
+.travel-lightbox { width: min(1180px, 96vw); max-width: none; height: min(860px, 94dvh); max-height: 94dvh; padding: 22px; border: 1px solid #c8e1db35; border-radius: 18px; color: white; background: #062e35; overflow: hidden; box-shadow: 0 30px 90px #0008; }
+.travel-lightbox[open] { display: flex; flex-direction: column; animation: voyage-enter .3s var(--ease-voyage); }
+.travel-lightbox::backdrop { background: #001f2ae8; backdrop-filter: blur(16px); }
+body.lightbox-open { overflow: hidden; }
+.lightbox-toolbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+.lightbox-toolbar > span { color: #c2dfd7; font: 12px monospace; letter-spacing: .12em; }
+.lightbox-toolbar button { display: flex; align-items: center; gap: 18px; min-height: 44px; border: 0; border-radius: 30px; padding: 8px 18px; color: white; background: #ffffff14; font-size: 13px; cursor: pointer; }
+.lightbox-toolbar button span { font-size: 27px; line-height: 1; }
+.lightbox-stage { position: relative; min-height: 0; flex: 1; display: flex; justify-content: center; background: #032027; border-radius: 10px; overflow: hidden; touch-action: pan-y; }
+.lightbox-stage > img { width: 100%; height: 100%; min-height: 0; object-fit: contain; }
+.lightbox-stage > button { position: absolute; top: calc(50% - 24px); width: 48px; height: 48px; z-index: 1; border: 1px solid #ffffff55; border-radius: 50%; color: white; background: #032d39b3; backdrop-filter: blur(8px); font-size: 23px; cursor: pointer; transition: background .2s; }
+.lightbox-prev { left: 14px; }.lightbox-next { right: 14px; }
+.lightbox-stage > button:hover { background: #286f78; }
+.lightbox-caption { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 17px 6px 0; }
+.lightbox-caption h2 { margin: 0; font: 500 24px/1.5 Georgia, "Microsoft JhengHei", serif; }
+.lightbox-caption p { margin: 5px 0 0; color: #c5d8d3; font-size: 13px; }
+.lightbox-caption > small { color: #9cbbb4; font-size: 11px; white-space: nowrap; }
+.travel-toast { position: fixed; z-index: 90; bottom: 26px; left: 50%; max-width: calc(100vw - 40px); padding: 14px 24px; border-radius: 30px; background: #073a43; color: #fff; box-shadow: 0 10px 40px #002d3740; font-size: 13px; opacity: 0; transform: translate(-50%,15px); pointer-events: none; transition: opacity .25s, transform .25s; text-align: center; }
+.travel-toast.is-visible { opacity: 1; transform: translate(-50%,0); }
+.back-to-top { position: fixed; z-index: 18; right: 22px; bottom: 22px; width: 50px; height: 58px; display: grid; place-content: center; gap: 0; border: 1px solid #c7dcd4; border-radius: 30px; color: #0c4951; background: #fffffff0; box-shadow: 0 8px 24px #04343d1f; font-size: 20px; line-height: 1.3; opacity: 0; pointer-events: none; transform: translateY(15px); transition: .3s; cursor: pointer; }
+.back-to-top span { font: 8px/1.5 monospace; letter-spacing: .1em; }
+.back-to-top.is-visible { opacity: 1; pointer-events: auto; transform: none; }
+.reveal-ready { opacity: .25; transform: translateY(22px); transition: opacity .7s var(--ease-voyage), transform .7s var(--ease-voyage); transition-delay: var(--reveal-delay,0ms); }
+.reveal-ready.is-revealed { opacity: 1; transform: none; }
+.island-experience .section-kicker { letter-spacing: .2em; }
+.island-experience .section-heading h2 { text-wrap: balance; }
+.island-experience .intro { border-top: 1px solid var(--line); }
+.island-experience .island-mood img { transition: transform 1s var(--ease-voyage); }
+.island-experience .island-mood figure:hover img { transform: scale(1.04); }
+
+@media (min-width: 1101px) {
+  .island-experience .day-photo-panel { align-self: start; }
+}
+@media (max-width: 1100px) {
+  .island-experience .hero { min-height: 780px; }
+  .hero-story-panel { width: 270px; bottom: 130px; right: 4vw; padding: 15px; }
+  .island-experience .hero-content { left: 5vw; width: 60%; }
+  .island-experience .hero-wordmark { font-size: 105px; }
+  .island-experience .hero h1 { font-size: 35px; }
+  .island-experience .hero h1 br { display: block; }
+  .island-experience .flight-card { max-width: 430px; }
+  .island-experience .day-card.is-interactive { grid-template-columns: 1fr; }
+  .day-photo-panel { grid-column: 1; grid-row: auto; }
+  .is-interactive .day-gallery { grid-template-columns: repeat(3,minmax(0,1fr)); }
+  .is-interactive .day-gallery figure:first-child:nth-last-child(odd) { grid-column: auto; height: 185px; }
+  .day-tab { gap: 8px; padding: 8px 10px; }.day-tab > b { font-size: 22px; }
+  .day-tab span strong { font-size: 12px; }
+  .island-experience .itinerary-heading { display: block; }
+  .island-experience .plan-switch { max-width: none; justify-content: flex-start; margin-top: 22px; }
+}
+@media (max-width: 720px) {
+  .island-experience .site-header,
+  .island-experience .site-header.scrolled { height: 68px; padding-inline: 18px; }
+  .island-experience .hero { min-height: 720px; height: auto; padding: 126px 22px 98px; }
+  .island-experience .hero-content { position: relative; top: auto; left: auto; width: 100%; transform: none; }
+  .island-experience .hero .eyebrow { font-size: 8px; letter-spacing: .14em; gap: 9px; margin-bottom: 15px; }
+  .hero-coordinate { top: 84px; right: 22px; font-size: 9px; }
+  .hero-coordinate span { display: none; }
+  .island-experience .hero-wordmark { font-size: clamp(70px, 21vw, 125px); margin-bottom: 12px; }
+  .island-experience .hero h1 { font-size: clamp(26px,7.6vw,40px); letter-spacing: .05em; }
+  .island-experience .hero h1 br { display: block; }
+  .island-experience .hero-lead { font-size: 13px; margin: 17px 0 20px; line-height: 1.85; }
+  .hero-actions { gap: 18px; margin-bottom: 24px; }
+  .voyage-button { padding: 13px 18px; gap: 23px; font-size: 13px; }
+  .hero-map-link { font-size: 11px; gap: 7px; }
+  .island-experience .flight-card { width: 100%; max-width: none; padding: 12px; grid-template-columns: 1fr 24px 1fr; }
+  .island-experience .flight-card span { font-size: 8px; }
+  .island-experience .flight-card strong { font-size: 11px; }
+  .island-experience .flight-card strong b { font-size: clamp(18px,5.1vw,26px); }
+  .island-experience .airport-note { font-size: 8px; margin-top: 8px; }
+  .hero-story-panel { position: relative; right: auto; bottom: auto; width: 100%; padding: 0; margin-top: 20px; border: 0; box-shadow: none; border-radius: 0; background: transparent; backdrop-filter: none; }
+  .hero-story-top { justify-content: space-between; }
+  .hero-story-top > span { font-size: 8px; }
+  .hero-story-top button { font-size: 10px; }
+  .hero-scene-caption { display: none; }
+  .hero-scene-controls { gap: 8px; }
+  .hero-scene-controls button { height: 62px; min-height: 62px; }
+  .hero-scene-controls button.is-active { transform: translateY(-3px); }
+  .hero-scene-controls button span { font-size: 10px; }
+  .island-experience .hero-meta { bottom: 42px; left: 22px; right: 22px; gap: 12px; font-size: 8px; letter-spacing: .04em; }
+  .hero-waves { height: 25px; }
+  .island-experience .itinerary { padding-top: 38px; padding-bottom: 44px; }
+  .island-experience .section-wrap { width: calc(100% - 32px); }
+  .island-experience .itinerary-heading { margin-bottom: 12px; }
+  .island-experience .itinerary-heading .section-kicker { font-size: 9px; letter-spacing: .12em; margin-bottom: 10px; }
+  .island-experience .itinerary-heading h2 { font-size: 30px; }
+  .island-experience .itinerary-intro { font-size: 12px; margin-top: 10px; }
+  .island-experience .plan-switch { gap: 3px; padding: 4px; overflow: visible; }
+  .island-experience .plan-switch button { font-size: 10px; padding: 8px; flex: 1 1 42%; min-height: 40px; }
+  #journeyNavigator { top: 68px; padding: 9px 0; }
+  .day-navigator { grid-template-columns: repeat(6,minmax(0,1fr)); gap: 5px; }
+  .day-tab { min-height: 52px; padding: 5px 2px; border-radius: 7px; justify-content: center; gap: 0; }
+  .day-tab > b { display: none; }
+  .day-tab span { text-align: center; font-size: 9px; }
+  .day-tab span strong { font-size: 12px; }
+  .day-tab-all { grid-column: 1/-1; min-height: 32px; padding: 3px; background: none; border: 0; font-size: 11px; box-shadow: none; }
+  .day-tab-all.is-active { background: #d8e9df; color: var(--deep); box-shadow: none; }
+  .island-experience .day-card.is-interactive { gap: 20px; padding-top: 8px; scroll-margin-top: 179px; }
+  .day-cover { height: 160px; border-radius: 12px; }
+  .day-cover-copy { inset: auto 16px 17px; gap: 10px; }
+  .day-cover-copy small { font-size: 8px; }
+  .day-cover-copy strong { font-size: 23px; }
+  .day-cover-copy p { font-size: 10px; margin-top: 4px; }
+  .day-cover-copy button { font-size: 11px; min-height: 44px; padding: 8px 12px; gap: 8px; }
+  .is-interactive .day-content h3 { font-size: 21px; }
+  .is-interactive .day-subtitle { font-size: 12px; margin-bottom: 18px; }
+  .is-interactive .journey-stop { grid-template-columns: 87px minmax(0,1fr); gap: 10px; padding-block: 15px; }
+  .is-interactive .journey-stop time { font-size: 12px; }
+  .is-interactive .journey-stop b { font-size: 14px; }
+  .is-interactive .journey-stop small { font-size: 12px; line-height: 1.75; }
+  .is-interactive .journey-move { margin-left: 8px; padding: 10px 12px; }
+  .is-interactive .journey-move small { font-size: 11px; }
+  .is-interactive .journey-move strong { font-size: 12px; }
+  .is-interactive .day-gallery { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .is-interactive .day-gallery figure,
+  .is-interactive .day-gallery figure:first-child:nth-last-child(odd) { height: 195px; }
+  .is-interactive .day-gallery figure:first-child:nth-last-child(odd) { grid-column: 1/-1; height: 220px; }
+  .photo-filters button { min-height: 44px; }
+  .catalog-tools { gap: 9px; }
+  .catalog-search { flex-basis: 100%; }
+  .catalog-search input { font-size: 16px; }
+  .catalog-result { margin-left: auto; font-size: 11px; }
+  .island-experience .mobile-quick-nav { bottom: max(10px, env(safe-area-inset-bottom)); border-radius: 16px; box-shadow: 0 8px 35px #002f3559; }
+  .island-experience .mobile-quick-nav a,
+  .island-experience .mobile-quick-nav button { font-size: 11px; }
+  .travel-toast { bottom: calc(88px + env(safe-area-inset-bottom)); width: max-content; padding: 12px 20px; font-size: 12px; }
+  .back-to-top { right: 16px; bottom: calc(88px + env(safe-area-inset-bottom)); width: 40px; height: 46px; font-size: 18px; }
+  .travel-lightbox { width: 100vw; max-width: 100vw; height: 100dvh; max-height: 100dvh; margin: 0; border: 0; border-radius: 0; padding: max(16px,env(safe-area-inset-top)) 12px max(20px,env(safe-area-inset-bottom)); }
+  .lightbox-caption { align-items: flex-start; flex-direction: column; gap: 8px; }
+  .lightbox-caption h2 { font-size: 21px; }
+  .lightbox-caption p { font-size: 12px; }
+  .lightbox-caption > small { font-size: 11px; }
+  .lightbox-stage > button { width: 44px; height: 44px; }
+  .lightbox-prev { left: 8px; }.lightbox-next { right: 8px; }
+}
+@media (max-width: 380px) {
+  .hero-actions { gap: 12px; }
+  .voyage-button { padding-inline: 14px; gap: 15px; }
+  .hero-map-link { gap: 4px; }
+  .is-interactive .journey-stop { grid-template-columns: 1fr; gap: 5px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .island-experience *, .island-experience *::before, .island-experience *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+  .hero-scenes, .hero-scene, .reveal-ready { transform: none !important; }
+  .reveal-ready { opacity: 1; }
+}
+@media print {
+  .reading-progress, .travel-lightbox, .back-to-top, .travel-toast, .skip-to-trip { display: none !important; }
+}

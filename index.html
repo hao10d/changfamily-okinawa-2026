@@ -8,8 +8,11 @@
   <title>沖繩島嶼慢旅｜張家旅行社</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <link rel="stylesheet" href="styles.css?v=20260904-kaiho-haruchii-1">
+  <link rel="stylesheet" href="experience.css?v=20260929-1">
 </head>
-<body>
+<body class="island-experience">
+  <a class="skip-to-trip" href="#itinerary">直接看每日行程</a>
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
   <header class="site-header">
     <a class="brand" href="#top" aria-label="回到首頁">
       <img class="brand-avatar" src="assets/chang-avatar.jpg?v=20260612-2" alt="張家旅行社大頭貼">
@@ -82,13 +85,23 @@
   </nav>
 
   <main id="top">
-    <section class="hero">
-      <img src="assets/hero-okinawa-local.webp" alt="沖繩恩納海岸萬座毛與湛藍海景">
+    <section class="hero" aria-label="沖繩旅行首頁">
+      <div class="hero-scenes" aria-hidden="true">
+        <img class="hero-scene is-active" src="assets/hero-okinawa-local.webp" alt="" fetchpriority="high">
+        <img class="hero-scene" src="assets/kouri-heart.jpg" alt="">
+        <img class="hero-scene" src="assets/naha-night.jpg" alt="">
+      </div>
       <div class="hero-shade"></div>
+      <div class="hero-coordinate" aria-hidden="true">26° N / 127° E <span>JAPAN, OKINAWA</span></div>
       <div class="hero-content">
-        <p class="eyebrow">OKINAWA · 6 DAYS</p>
-        <h1>沖繩<br><em>島嶼慢旅</em></h1>
-        <p class="hero-lead">海邊日落、王城與市場香氣，在南國秋末悠緩展開。</p>
+        <p class="eyebrow"><span></span> CHANG FAMILY / TRAVEL JOURNAL 2026</p>
+        <p class="hero-wordmark" aria-hidden="true">Okinawa.</p>
+        <h1>把日子，<br>交給<span>沖繩的藍。</span></h1>
+        <p class="hero-lead">六天五夜，沿著海岸一起出發。<br>海景、好食，還有全家人的旅行時光。</p>
+        <div class="hero-actions">
+          <a class="voyage-button" href="#itinerary">展開六日旅程 <span aria-hidden="true">↗</span></a>
+          <a class="hero-map-link" href="#spot-map">探索景點地圖 <span aria-hidden="true">→</span></a>
+        </div>
         <div class="flight-card" aria-label="航班資訊">
           <div>
             <span>MM922 · A320｜桃園 → 那霸</span>
@@ -104,11 +117,40 @@
         </div>
         <p class="airport-note">去回皆由那霸機場進出 · NAHA AIRPORT ROUND TRIP</p>
       </div>
+      <div class="hero-story-panel">
+        <div class="hero-story-top"><span>THREE SHADES OF OKINAWA</span><button id="heroMotion" type="button" aria-label="暫停首頁輪播">暫停輪播</button></div>
+        <p class="hero-scene-caption" id="heroSceneCaption" aria-live="off"><small>01 / COASTLINE</small><b>海岸線，是旅程的開場。</b></p>
+        <div class="hero-scene-controls" aria-label="切換首頁風景">
+          <button type="button" data-scene="0" class="is-active" aria-pressed="true" aria-label="顯示恩納海岸"><img src="assets/hero-okinawa-local.webp" alt=""><span>01 海岸</span><i></i></button>
+          <button type="button" data-scene="1" aria-pressed="false" aria-label="顯示古宇利島"><img src="assets/kouri-heart.jpg" alt=""><span>02 島嶼</span><i></i></button>
+          <button type="button" data-scene="2" aria-pressed="false" aria-label="顯示國際通夜景"><img src="assets/naha-night.jpg" alt=""><span>03 街燈</span><i></i></button>
+        </div>
+      </div>
       <div class="hero-meta">
         <span>2026.11.03 → 11.08</span>
         <span>本部 3 晚＋那霸 2 晚</span>
         <span>5 晚 6 日</span>
       </div>
+      <svg class="hero-waves" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true"><path d="M-100 45 Q260 110 620 50 T1540 42 V100 H-100Z"/><path d="M-100 65 Q300 0 720 52 T1540 65 V100 H-100Z"/></svg>
+    </section>
+
+    <section class="itinerary section-wrap" id="itinerary">
+      <div class="section-heading itinerary-heading">
+        <div>
+          <p class="section-kicker">SIX DAYS, ONE BEAUTIFUL ISLAND</p>
+          <h2>下一站，<em>想去哪？</em></h2>
+          <p class="itinerary-intro">選一天，展開當天的時間、車程、好食與風景。</p>
+        </div>
+        <div class="plan-switch" aria-label="切換住宿方案">
+          <button class="is-active" type="button" data-plan="f">新版主行程</button>
+          <button type="button" data-plan="c">舊 C 周遊券</button>
+          <button type="button" data-plan="nopass">沒有使用周遊券行程</button>
+          <button type="button" data-plan="n3">不推薦｜北 2＋那霸 3</button>
+        </div>
+      </div>
+      <div id="journeyNavigator"></div>
+      <div class="day-list" id="dayList"></div>
+      <div id="journeyPager"></div>
     </section>
 
     <section class="mobile-home-actions" aria-label="手機快速入口">
@@ -559,23 +601,6 @@
         <h2>最後，把旅程留在那霸的暮色裡。</h2>
         <p>新版主行程在 11/6 南下那霸，順走 Flipper、港川、Hoppepan、PARCO、大間 BIC 與 DFS，晚上留給國際通。</p>
       </div>
-    </section>
-
-    <section class="itinerary section-wrap" id="itinerary">
-      <div class="section-heading itinerary-heading">
-        <div>
-          <p class="section-kicker">DAY BY DAY</p>
-          <h2>每日行程</h2>
-          <p class="itinerary-intro">每一天的圖都對應當日地點，並清楚標成「主線／可加／必吃」。市場、夜間活動與替代景點都直接放回所屬行程，不再拿別區照片代替。</p>
-        </div>
-        <div class="plan-switch" aria-label="切換住宿方案">
-          <button class="is-active" type="button" data-plan="f">新版主行程</button>
-          <button type="button" data-plan="c">舊 C 周遊券</button>
-          <button type="button" data-plan="nopass">沒有使用周遊券行程</button>
-          <button type="button" data-plan="n3">不推薦｜北 2＋那霸 3</button>
-        </div>
-      </div>
-      <div class="day-list" id="dayList"></div>
     </section>
 
     <section class="hours-check section-wrap" id="hours-check">
@@ -1197,8 +1222,17 @@
   </div>
   <section class="print-sheet" id="printSheet" aria-hidden="true"></section>
 
+  <dialog class="travel-lightbox" id="travelLightbox" aria-labelledby="lightboxTitle">
+    <div class="lightbox-toolbar"><span id="lightboxCounter"></span><button type="button" data-lightbox-close aria-label="關閉照片">關閉 <span aria-hidden="true">×</span></button></div>
+    <div class="lightbox-stage"><button class="lightbox-prev" type="button" data-lightbox-step="-1" aria-label="上一張照片">←</button><img id="lightboxImage" alt=""><button class="lightbox-next" type="button" data-lightbox-step="1" aria-label="下一張照片">→</button></div>
+    <div class="lightbox-caption"><div><h2 id="lightboxTitle"></h2><p id="lightboxDescription"></p></div><small>左右滑動或使用方向鍵</small></div>
+  </dialog>
+  <div class="travel-toast" id="travelToast" role="status" aria-live="polite"></div>
+  <button class="back-to-top" id="backToTop" type="button" aria-label="回到頁面頂端">↑<span>TOP</span></button>
+
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="trip-data.js?v=20260922-daruma-1"></script>
-  <script src="app.js?v=20260922-daruma-1"></script>
+  <script src="app.js?v=20260929-1"></script>
+  <script src="experience.js?v=20260929-1"></script>
 </body>
 </html>
