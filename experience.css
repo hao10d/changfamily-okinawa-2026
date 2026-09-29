@@ -35,7 +35,7 @@
 .island-experience .mobile-print-button { flex-shrink: 0; min-height: 48px; margin-top: 24px; color: white; background: var(--deep); border: 0; border-radius: 8px; cursor: pointer; }
 
 /* The opening scene uses composited transforms and crossfades. */
-.island-experience .hero { min-height: 820px; height: min(100svh, 1050px); background: #063943; }
+.island-experience .hero { min-height: 820px; height: min(100svh, 1050px); background: #063943; border-bottom: 14px solid var(--paper); }
 .hero-scenes { position: absolute; inset: -1px; overflow: hidden; transform: translate3d(var(--hero-x, 0px), var(--hero-y, 0px), 0) scale(1.025); transition: transform 1.2s ease-out; }
 .hero-scene { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transform: scale(1.025); transition: opacity 1.5s ease, transform 9s linear; }
 .hero-scene.is-active { opacity: 1; transform: scale(1.09); }
