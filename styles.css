@@ -1396,6 +1396,11 @@ a {
   letter-spacing: .1em;
 }
 
+.food-book[data-booking-status]::after {
+  content: attr(data-booking-status);
+  background: #28745e;
+}
+
 .taste-board {
   display: grid;
   grid-template-columns: 1fr 1.35fr 1fr;
@@ -2648,6 +2653,14 @@ a {
 
 .reservation-must {
   border-top: 4px solid var(--coral) !important;
+}
+
+.reservation-confirmed {
+  border-top: 4px solid #28745e !important;
+}
+
+.reservation-grid .reservation-confirmed > span {
+  color: #22624f;
 }
 
 .reservation-watch {
