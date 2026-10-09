@@ -749,7 +749,7 @@ const mapCatalogs = {
     { name: "海人料理 海邦丸", region: "north", coords: [26.6821952, 127.8836023], note: "11/4 美麗海旁海鮮午餐，11:00–15:00" },
     { name: "KOURI SHRIMP", region: "north", coords: [26.7015, 128.0179], note: "古宇利蝦蝦飯" },
     { name: "琉球的牛 北谷店", region: "central", coords: [26.3194, 127.7575], note: "若要北谷店，用它替換 11/3 Taco Rice" },
-    { name: "北谷ダイニング ちゃぁぶ～", region: "central", coords: [26.3230396, 127.7711582], note: "11/5 18:00 已訂 7 人，17:45 報到；北谷町桑江614-1，餐後回本部飯店" },
+    { name: "ちゃぁぶ～名護店", region: "north", coords: [26.607214, 127.989494], note: "11/5 18:00 已訂位，17:45 報到；7 位成人＋1 位兒童，¥3,980 套餐 7 份；名護市大北4-23-6，兒童椅 1 張需求待確認" },
     { name: "Jack's Steak House", region: "south", coords: [26.2124, 127.6693], note: "那霸老字號牛排" },
     { name: "國際通島料理", region: "south", coords: [26.2152, 127.6849], note: "11/6 市場後彈性選餐廳" },
     { name: "沖縄そば ちむどんどん", region: "north", coords: [26.677, 127.903], note: "想保留沖繩麵時，可替換海邦丸" },
