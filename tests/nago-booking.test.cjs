@@ -59,7 +59,9 @@ test('daytime visits remain and all travel legs fit the new dinner route', () =>
     assert.ok(day.route.includes(name), name);
   }
   assert.equal(day.travel.length, day.route.length - 1);
-  assert.ok(day.flow.some(row => row[1] === '16:30–17:05' && row[2] === '回飯店休息'));
+  assert.ok(day.flow.some(row => row[1] === '15:50–17:25' && row[2] === '名護市區自由時間'));
+  assert.ok(day.route.slice(1, -1).every(stop => !stop.includes('飯店')));
+  assert.ok(day.flow.filter(row => row[0] === 'drive' && row[2].includes('飯店')).length === 2);
   assert.ok(day.flow.some(row => row[1] === '17:45–18:00' && row[2].includes('名護店')));
   assert.ok(day.flow.some(row => row[1] === '20:30–20:40'));
   assert.ok(day.flow.filter(row => row[0] === 'drive').every(row => !/北谷|沖縄南|許田 IC/.test(row[2])));
